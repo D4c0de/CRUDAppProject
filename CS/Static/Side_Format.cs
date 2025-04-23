@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace CRUDAppProject.CS.Static
 {
+
+    /// <summary>
+    /// Klasa statyczna implementująca metody do formatowania danych
+    /// </summary>
+
     internal static class Side_Format
     {
         /// <summary>
@@ -33,21 +38,6 @@ namespace CRUDAppProject.CS.Static
 
             return sb.ToString();
         }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <returns></returns>
-       
-        public static DateTime FormatToEUDate(DateTime dt)
-        {
-
-
-            return dt;
-        }
-
 
     }
 }

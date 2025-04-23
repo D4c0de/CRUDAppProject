@@ -15,7 +15,7 @@ namespace CRUDAppProject.CS.Base
     /// Klasa abstrakcyjna która jest podstawą do klas związanych z rodzajami zadań
     /// </summary>
 
-    internal abstract class Base_Task : Base_SemestrProfile
+    internal abstract class Base_Task
     {
         /// <summary>
         /// Nazwa zadania
