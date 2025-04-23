@@ -8,5 +8,6 @@ namespace CRUDAppProject.CS.Base
 {
     internal class Base_Task
     {
+
     }
 }

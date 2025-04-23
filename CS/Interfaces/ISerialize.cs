@@ -22,7 +22,5 @@ namespace CRUDAppProject.CS.Interfaces
         void LoadDatFromFile();
 
 
-
-
     }
 }

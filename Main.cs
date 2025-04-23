@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUDAppProject.CS.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace CRUDAppProject
         static void Main(string[] args)
         {
 
-
         }
+
     }
 
 }
