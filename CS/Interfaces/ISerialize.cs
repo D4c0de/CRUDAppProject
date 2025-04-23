@@ -9,18 +9,18 @@ namespace CRUDAppProject.CS.Interfaces
     interface ISerialize
     {
         /// <summary>
-        /// Metoda służąca do zapisywania danych związanych z zadaniami i profilem do pliku .json 
+        /// Zapisywanie danych związanych z zadaniami i profilem do pliku .json 
         /// </summary>
 
-        void SaveDataToFile();
+        public void SaveDataToFile();
 
 
         /// <summary>
-        /// Metoda służąca do pobrania danych związanych z zadaniami i profilem z pliku .json
+        /// Pobranie danych związanych z zadaniami i profilem z pliku .json
         /// </summary>
 
-        void LoadDatFromFile();
-
+        public void LoadDatFromFile();
+        
 
     }
 }
