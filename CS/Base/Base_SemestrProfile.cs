@@ -65,6 +65,8 @@ namespace CRUDAppProject.CS.Base
         static public void CreateProfile()
         {
             
+
+
         }
 
 

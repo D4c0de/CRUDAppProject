@@ -1,5 +1,11 @@
 ﻿// TODO: formatowanie daty na czas europejski - tak myślę, czy nam się w ogóle to przyda? na ten moment niech zostanie deklaracja funkcji, może na przyszłość się to uzupełni
 
+
+// TODO: należy stworzyć metodę, która będzie dzieliła tekst na listę, a każdy wyraz oddzielony przecinkiem to nowy element tablicy, czyli np:
+// string text = "z, czegoś, takiego, powinna, lista, zwrócić"
+// List<string> lista = {"z", "czegoś", "takiego", "powinna", "lista", "zwrócić"}
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿namespace CRUDAppProject.Forms
 {
-    partial class ITaskEditor
+    partial class Form_ChooseProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ITaskEditor";
+            this.Text = "Form_ChooseProfile";
         }
 
         #endregion
