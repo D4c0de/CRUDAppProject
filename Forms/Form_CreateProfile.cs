@@ -17,12 +17,8 @@ namespace CRUDAppProject.Forms
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void Label_WelcomeMessage_Click(object sender, EventArgs e)
         {
 
         }
@@ -31,5 +27,16 @@ namespace CRUDAppProject.Forms
         {
 
         }
+
+        private void TextBox_ProfileName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RichTextBox_ListOfSubjects_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

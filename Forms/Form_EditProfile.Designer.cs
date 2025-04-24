@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form_EditProfile";
+            SuspendLayout();
+            // 
+            // Form_EditProfile
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(1600, 737);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Name = "Form_EditProfile";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form_EditProfile";
+            ResumeLayout(false);
         }
 
         #endregion

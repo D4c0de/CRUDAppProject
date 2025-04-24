@@ -28,7 +28,7 @@ namespace CRUDAppProject.CS.Static
         /// <returns>Sformatowany string, np.: "  fOO123  " zwróci "Foo123"</returns>
 
         public static string CapitalizeString(string s)
-        {           
+        {
             StringBuilder sb = new StringBuilder();
 
             s = s.Trim();
@@ -45,5 +45,35 @@ namespace CRUDAppProject.CS.Static
             return sb.ToString();
         }
 
+
+        /// <summary>
+        /// Formatuje tekst tak, aby wszystkie wyrazy ze zdania oddzielone przecinkiem były traktowane jako nowy string i zwraca listę tych stringów (wyrazów)
+        /// </summary>
+        /// <param name="s">String do sformatowania</param>
+        /// <returns>String "ALA, mA, KotA, a, Kot, Ma, Ale, " zwróci jako listę {"Ala", "Ma", "Kota", ... , "Ale"}</returns>
+        public static List<string> CutIntoSingleWords(string s)
+        {
+            List<string> listOfWords = new List<string>();
+            
+            StringBuilder sb = new StringBuilder();
+
+            // string test_text = "ALA, mA, KotA, a, Kot, Ma, Ale, ";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(s[i].ToString()) && s[i] != ',')
+                {
+                    sb.Append(s[i]);
+                }
+
+                else if (s[i] == ',') 
+                {
+                    listOfWords.Add(CapitalizeString(sb.ToString()));
+                    sb.Clear();
+                }
+            }
+
+            return listOfWords;
+        }
     }
 }

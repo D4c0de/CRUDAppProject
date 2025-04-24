@@ -28,85 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            richTextBox1 = new RichTextBox();
-            label3 = new Label();
-            richTextBox2 = new RichTextBox();
-            button2 = new Button();
+            Label_WelcomeMessage = new Label();
+            Label_ProfileName = new Label();
+            Label_ListOfSubjects = new Label();
+            RichTextBox_ListOfSubjects = new RichTextBox();
+            Button_CreateProfile = new Button();
+            TextBox_ProfileName = new TextBox();
             SuspendLayout();
             // 
-            // label1
+            // Label_WelcomeMessage
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label1.Location = new Point(659, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(394, 47);
-            label1.TabIndex = 1;
-            label1.Text = "Kreator profilu semestru";
-            label1.Click += label1_Click;
+            Label_WelcomeMessage.AutoSize = true;
+            Label_WelcomeMessage.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            Label_WelcomeMessage.Location = new Point(659, 9);
+            Label_WelcomeMessage.Name = "Label_WelcomeMessage";
+            Label_WelcomeMessage.Size = new Size(394, 47);
+            Label_WelcomeMessage.TabIndex = 1;
+            Label_WelcomeMessage.Text = "Kreator profilu semestru";
+            Label_WelcomeMessage.Click += Label_WelcomeMessage_Click;
             // 
-            // label2
+            // Label_ProfileName
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label2.Location = new Point(716, 104);
-            label2.Name = "label2";
-            label2.Size = new Size(304, 32);
-            label2.TabIndex = 2;
-            label2.Text = "Wprowadź nazwę semestru";
+            Label_ProfileName.AutoSize = true;
+            Label_ProfileName.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            Label_ProfileName.Location = new Point(716, 104);
+            Label_ProfileName.Name = "Label_ProfileName";
+            Label_ProfileName.Size = new Size(304, 32);
+            Label_ProfileName.TabIndex = 2;
+            Label_ProfileName.Text = "Wprowadź nazwę semestru";
             // 
-            // richTextBox1
+            // Label_ListOfSubjects
             // 
-            richTextBox1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            richTextBox1.Location = new Point(540, 155);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(655, 50);
-            richTextBox1.TabIndex = 3;
-            richTextBox1.Text = "Twoja nazwa semestru";
+            Label_ListOfSubjects.AutoSize = true;
+            Label_ListOfSubjects.Font = new Font("Segoe UI", 18F);
+            Label_ListOfSubjects.Location = new Point(366, 296);
+            Label_ListOfSubjects.Name = "Label_ListOfSubjects";
+            Label_ListOfSubjects.Size = new Size(1062, 32);
+            Label_ListOfSubjects.TabIndex = 4;
+            Label_ListOfSubjects.Text = "Wprowadź przedmioty po przecinku, których zajęcia odbywają się w ramach powyższego semestru";
             // 
-            // label3
+            // RichTextBox_ListOfSubjects
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F);
-            label3.Location = new Point(366, 296);
-            label3.Name = "label3";
-            label3.Size = new Size(1062, 32);
-            label3.TabIndex = 4;
-            label3.Text = "Wprowadź przedmioty po przecinku, których zajęcia odbywają się w ramach powyższego semestru";
+            RichTextBox_ListOfSubjects.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            RichTextBox_ListOfSubjects.Location = new Point(540, 341);
+            RichTextBox_ListOfSubjects.Name = "RichTextBox_ListOfSubjects";
+            RichTextBox_ListOfSubjects.Size = new Size(655, 189);
+            RichTextBox_ListOfSubjects.TabIndex = 5;
+            RichTextBox_ListOfSubjects.Text = "Wpisz, Swoje, Przedmioty, W, Taki, Sposób";
+           // RichTextBox_ListOfSubjects.SelectionChanged += RichTextBox_ListOfSubjects_SelectionChanged;
+
             // 
-            // richTextBox2
+            // Button_CreateProfile
             // 
-            richTextBox2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            richTextBox2.Location = new Point(540, 341);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(655, 189);
-            richTextBox2.TabIndex = 5;
-            richTextBox2.Text = "Wpisz, Swoje, Przedmioty, W, Taki, Sposób";
+            Button_CreateProfile.Font = new Font("Segoe UI", 18F);
+            Button_CreateProfile.Location = new Point(766, 602);
+            Button_CreateProfile.Name = "Button_CreateProfile";
+            Button_CreateProfile.Size = new Size(254, 107);
+            Button_CreateProfile.TabIndex = 7;
+            Button_CreateProfile.Text = "Gotowe!";
+            Button_CreateProfile.UseVisualStyleBackColor = true;
+
+
             // 
-            // button2
+            // TextBox_ProfileName
             // 
-            button2.Font = new Font("Segoe UI", 18F);
-            button2.Location = new Point(766, 602);
-            button2.Name = "button2";
-            button2.Size = new Size(254, 107);
-            button2.TabIndex = 7;
-            button2.Text = "Gotowe!";
-            button2.UseVisualStyleBackColor = true;
+
+            TextBox_ProfileName.Font = new Font("Segoe UI", 15F);
+            TextBox_ProfileName.Location = new Point(540, 166);
+            TextBox_ProfileName.Name = "TextBox_ProfileName";
+            TextBox_ProfileName.Size = new Size(655, 34);
+            TextBox_ProfileName.TabIndex = 8;
+            TextBox_ProfileName.Text = "Twoja nazwa semestru";
+            TextBox_ProfileName.TextChanged += TextBox_ProfileName_TextChanged;
+
+
             // 
             // Form_CreateProfile
             // 
+
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(1604, 741);
-            Controls.Add(button2);
-            Controls.Add(richTextBox2);
-            Controls.Add(label3);
-            Controls.Add(richTextBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(1600, 737);
+            Controls.Add(TextBox_ProfileName);
+            Controls.Add(Button_CreateProfile);
+            Controls.Add(RichTextBox_ListOfSubjects);
+            Controls.Add(Label_ListOfSubjects);
+            Controls.Add(Label_ProfileName);
+            Controls.Add(Label_WelcomeMessage);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form_CreateProfile";
             StartPosition = FormStartPosition.CenterScreen;
@@ -116,12 +125,14 @@
             PerformLayout();
         }
 
+
+
         #endregion
-        private Label label1;
-        private Label label2;
-        private RichTextBox richTextBox1;
-        private Label label3;
-        private RichTextBox richTextBox2;
-        private Button button2;
+        private Label Label_WelcomeMessage;
+        private Label Label_ProfileName;
+        private Label Label_ListOfSubjects;
+        private RichTextBox RichTextBox_ListOfSubjects;
+        private Button Button_CreateProfile;
+        private TextBox TextBox_ProfileName;
     }
 }

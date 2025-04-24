@@ -77,7 +77,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(1604, 741);
+            ClientSize = new Size(1600, 737);
             Controls.Add(Button_ExitProgram);
             Controls.Add(Button_DeleteProfile);
             Controls.Add(Button_AddNewProfile);
