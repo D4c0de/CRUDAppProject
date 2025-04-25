@@ -2,13 +2,14 @@
 using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CRUDAppProject.CS.Base
-{
-
+{   
     /// <summary>
     /// Klasa implementująca logikę profili i logowania
     /// </summary>
@@ -31,7 +32,14 @@ namespace CRUDAppProject.CS.Base
 
 
         /// <summary>
-        /// Lista wszystkich przedmiotów, jakie dany profil zawiera
+        /// Nazwa folderu wewnątrz którego dane powstałe w aplikacji zostaną zapisane
+        /// </summary>
+        
+        public const string NameOfAppDataFolder = "CRUDA";
+
+
+        /// <summary>
+        /// Lista przedmiotów typu matematyka, fizyka, chemia itd.
         /// </summary>
 
         private List<string> _listOfSubjects;
@@ -111,9 +119,45 @@ namespace CRUDAppProject.CS.Base
         
         static public void EditSubject(string s)
         {
-
+            
         }
 
+
+        /// <summary>
+        /// Zapisywanie danych związanych z profilem i listą przedmiotów do pliku .json 
+        /// </summary>
+
+        public void SaveDataToFile()
+        {
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string crudaFolderPath = Path.Combine(appDataPath, NameOfAppDataFolder);
+
+            
+            if (!Directory.Exists(crudaFolderPath))
+            {
+                Directory.CreateDirectory(crudaFolderPath);
+            }
+
+            
+            if (this.ListOfSubjects.Count == 0)
+                throw new ArgumentException("Lista jest pusta. Nie można zapisać.");
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            
+            Type itemType = this.ListOfSubjects[0].GetType();
+
+            
+            string jsonString = JsonSerializer.Serialize(this.ListOfSubjects, typeof(List<>).MakeGenericType(itemType), options);
+
+            
+            string filePath = Path.Combine(crudaFolderPath, this.Name + ".json");
+            File.WriteAllText(filePath, jsonString);
+        }
 
 
         /// <summary>

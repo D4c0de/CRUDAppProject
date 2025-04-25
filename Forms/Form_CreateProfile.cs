@@ -1,5 +1,4 @@
-﻿// TODO: dodać logikę zapisywania profilu w formie plików .JSON
-
+﻿// TODO - poprawić, aby nie dało się nadpisywać profili tylko żeby wywalało jakiś błąd
 
 using CRUDAppProject.CS.Base;
 using CRUDAppProject.CS.Interfaces;
@@ -23,28 +22,6 @@ namespace CRUDAppProject.Forms
             InitializeComponent();
         }
 
-
-        private void Label_WelcomeMessage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form_CreateProfile_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox_ProfileName_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void RichTextBox_ListOfSubjects_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Button_CreateProfile_Click(object sender, EventArgs e)
         {
             Base_SemestrProfile Profile = new Base_SemestrProfile();
@@ -53,6 +30,7 @@ namespace CRUDAppProject.Forms
 
             Profile.ListOfSubjects = Side_Format.CutIntoSingleWords(RichTextBox_ListOfSubjects.Text);
 
+            Profile.SaveDataToFile();
 
             this.Close();
             this.Hide();
