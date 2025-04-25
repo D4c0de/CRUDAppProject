@@ -11,9 +11,6 @@ namespace CRUDAppProject
 {
     class CRUDAppProject
     {
-
-
-
         static void Main(string[] args)
         {
 

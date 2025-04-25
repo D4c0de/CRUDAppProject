@@ -2,6 +2,7 @@
 
 
 using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Interfaces;
 using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
@@ -52,17 +53,9 @@ namespace CRUDAppProject.Forms
 
             Profile.ListOfSubjects = Side_Format.CutIntoSingleWords(RichTextBox_ListOfSubjects.Text);
 
+
             this.Close();
             this.Hide();
-
-            Console.WriteLine($"Nazwa profilu: {Profile.Name}");
-            Console.WriteLine($"Ilosc przedmiotow: {Profile.ListOfSubjects.Count}");
-            Console.WriteLine("Przedmioty: ");
-            foreach(var sub in Profile.ListOfSubjects)
-            {
-                Console.WriteLine($"{sub}.");
-            }
-
 
             Form_Logging form_Logging = new Form_Logging();
             form_Logging.Show();

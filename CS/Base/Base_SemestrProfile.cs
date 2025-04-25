@@ -115,15 +115,6 @@ namespace CRUDAppProject.CS.Base
         }
 
 
-        /// <summary>
-        /// Zapisuje dane związane z profilem do pliku .json  
-        /// </summary>
-
-        public void SaveDataToFile()
-        {
-
-        }
-
 
         /// <summary>
         /// Pobiera dane związane z profilem z pliku .json
