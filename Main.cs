@@ -1,4 +1,6 @@
-﻿using CRUDAppProject.CS.Static;
+﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Static;
+using CRUDAppProject.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +14,11 @@ namespace CRUDAppProject
         static void Main(string[] args)
         {
 
+            Form_Logging Screen_Logging = new Form_Logging();
+            Screen_Logging.Show();
+
+            Application.Run();
+
         }
-
     }
-
 }

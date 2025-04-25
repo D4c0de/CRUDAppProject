@@ -1,8 +1,6 @@
-﻿// TODO groupbox1 enter ????????
-
-namespace CRUDAppProject.Forms
+﻿namespace CRUDAppProject.Forms
 {
-    partial class ITaskLuncher
+    partial class Form_DeleteProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -30,33 +28,21 @@ namespace CRUDAppProject.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new GroupBox();
             SuspendLayout();
             // 
-            // groupBox1
-            // 
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 426);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            // groupBox1.Enter += groupBox1_Enter;
-
-            // 
-            // ITaskLuncher
+            // Form_DeleteProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(groupBox1);
-            Name = "ITaskLuncher";
-            Text = "ITaskLuncher";
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(1600, 737);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Name = "Form_DeleteProfile";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form_DeleteProfile";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private GroupBox groupBox1;
     }
 }

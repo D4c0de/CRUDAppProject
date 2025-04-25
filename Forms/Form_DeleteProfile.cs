@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms
 {
-    public partial class ISerialize : Form
+    public partial class Form_DeleteProfile: Form
     {
-        public ISerialize()
+        public Form_DeleteProfile()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms
 {
-    public partial class ITaskEditor : Form
+    public partial class Form_ChooseProfile: Form
     {
-        public ITaskEditor()
+        public Form_ChooseProfile()
         {
             InitializeComponent();
         }

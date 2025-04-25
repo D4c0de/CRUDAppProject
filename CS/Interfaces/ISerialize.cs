@@ -38,8 +38,6 @@ namespace CRUDAppProject.CS.Interfaces
             string jsonString = JsonSerializer.Serialize(list, typeof(List<>).MakeGenericType(itemType), options);
 
             File.WriteAllText(filePath, jsonString);
-
-
         }
 
 
