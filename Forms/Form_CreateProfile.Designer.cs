@@ -34,6 +34,7 @@
             RichTextBox_ListOfSubjects = new RichTextBox();
             Button_CreateProfile = new Button();
             TextBox_ProfileName = new TextBox();
+            Button_ExitProfileCreator = new Button();
             SuspendLayout();
             // 
             // Label_WelcomeMessage
@@ -75,25 +76,20 @@
             RichTextBox_ListOfSubjects.Size = new Size(655, 189);
             RichTextBox_ListOfSubjects.TabIndex = 5;
             RichTextBox_ListOfSubjects.Text = "Wpisz, Swoje, Przedmioty, W, Taki, Sposób";
-           // RichTextBox_ListOfSubjects.SelectionChanged += RichTextBox_ListOfSubjects_SelectionChanged;
-
             // 
             // Button_CreateProfile
             // 
             Button_CreateProfile.Font = new Font("Segoe UI", 18F);
-            Button_CreateProfile.Location = new Point(766, 602);
+            Button_CreateProfile.Location = new Point(941, 602);
             Button_CreateProfile.Name = "Button_CreateProfile";
             Button_CreateProfile.Size = new Size(254, 107);
             Button_CreateProfile.TabIndex = 7;
-            Button_CreateProfile.Text = "Gotowe!";
+            Button_CreateProfile.Text = "Zapisz nowy profil";
             Button_CreateProfile.UseVisualStyleBackColor = true;
-            
-
-
+            Button_CreateProfile.Click += Button_CreateProfile_Click;
             // 
             // TextBox_ProfileName
             // 
-
             TextBox_ProfileName.Font = new Font("Segoe UI", 15F);
             TextBox_ProfileName.Location = new Point(540, 166);
             TextBox_ProfileName.Name = "TextBox_ProfileName";
@@ -101,16 +97,25 @@
             TextBox_ProfileName.TabIndex = 8;
             TextBox_ProfileName.Text = "Twoja nazwa semestru";
             TextBox_ProfileName.TextChanged += TextBox_ProfileName_TextChanged;
-
-
+            // 
+            // Button_ExitProfileCreator
+            // 
+            Button_ExitProfileCreator.Font = new Font("Segoe UI", 18F);
+            Button_ExitProfileCreator.Location = new Point(540, 602);
+            Button_ExitProfileCreator.Name = "Button_ExitProfileCreator";
+            Button_ExitProfileCreator.Size = new Size(254, 107);
+            Button_ExitProfileCreator.TabIndex = 9;
+            Button_ExitProfileCreator.Text = "Opuść bez zapisywania";
+            Button_ExitProfileCreator.UseVisualStyleBackColor = true;
+            Button_ExitProfileCreator.Click += Button_ExitProfileCreator_Click;
             // 
             // Form_CreateProfile
             // 
-
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1600, 737);
+            Controls.Add(Button_ExitProfileCreator);
             Controls.Add(TextBox_ProfileName);
             Controls.Add(Button_CreateProfile);
             Controls.Add(RichTextBox_ListOfSubjects);
@@ -128,6 +133,8 @@
 
 
 
+
+
         #endregion
         private Label Label_WelcomeMessage;
         private Label Label_ProfileName;
@@ -135,5 +142,6 @@
         private RichTextBox RichTextBox_ListOfSubjects;
         private Button Button_CreateProfile;
         private TextBox TextBox_ProfileName;
+        private Button Button_ExitProfileCreator;
     }
 }

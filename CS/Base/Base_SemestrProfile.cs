@@ -1,4 +1,5 @@
 ﻿using CRUDAppProject.CS.Interfaces;
+using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,10 @@ namespace CRUDAppProject.CS.Base
         public string Name
         {
             get { return this._name; }
-            set { this._name = value; }
+            set 
+            {
+                this._name = Side_Format.CapitalizeString(value);
+            }
         }
 
 
