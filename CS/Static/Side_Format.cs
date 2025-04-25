@@ -51,13 +51,11 @@ namespace CRUDAppProject.CS.Static
         /// </summary>
         /// <param name="s">String do sformatowania</param>
         /// <returns>String "ALA, mA, KotA, a, Kot, Ma, Ale, " zwróci jako listę {"Ala", "Ma", "Kota", ... , "Ale"}</returns>
+
         public static List<string> CutIntoSingleWords(string s)
         {
             List<string> listOfWords = new List<string>();
-            
             StringBuilder sb = new StringBuilder();
-
-            // string test_text = "ALA, mA, KotA, a, Kot, Ma, Ale, ";
 
             for (int i = 0; i < s.Length; i++)
             {
@@ -65,15 +63,30 @@ namespace CRUDAppProject.CS.Static
                 {
                     sb.Append(s[i]);
                 }
-
-                else if (s[i] == ',') 
+                else if (s[i] == ',')
                 {
-                    listOfWords.Add(CapitalizeString(sb.ToString()));
-                    sb.Clear();
+                    string word = sb.ToString().Trim();  
+                    if (!string.IsNullOrWhiteSpace(word))
+                    {
+                        listOfWords.Add(CapitalizeString(word));
+                        sb.Clear();  
+                    }
+                    else
+                    {
+                        sb.Clear();
+                    }
                 }
+            }
+
+            
+            string lastWord = sb.ToString().Trim();
+            if (!string.IsNullOrWhiteSpace(lastWord))
+            {
+                listOfWords.Add(CapitalizeString(lastWord));
             }
 
             return listOfWords;
         }
+
     }
 }

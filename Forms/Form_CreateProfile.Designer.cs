@@ -87,6 +87,7 @@
             Button_CreateProfile.TabIndex = 7;
             Button_CreateProfile.Text = "Gotowe!";
             Button_CreateProfile.UseVisualStyleBackColor = true;
+            
 
 
             // 
