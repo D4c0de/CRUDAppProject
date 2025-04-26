@@ -1,20 +1,5 @@
-﻿using CRUDAppProject.CS.Base;
-using CRUDAppProject.CS.Tasks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace CRUDAppProject.CS.Interfaces
-{
-    interface ISerialize
-    {
-
-        public const string DefaultFilePath = "Data.json"; // Domyślna ścieżka do pliku JSON
-        /// <summary>
+﻿/*
+         /// <summary>
         /// Zapisywanie danych związanych z zadaniami i profilem do pliku .json 
         /// <paramref name="Lista_zadań"/>Lista zadań
         /// <paramref name="filePath"/> Ścieżka do pliku
@@ -38,7 +23,31 @@ namespace CRUDAppProject.CS.Interfaces
             string jsonString = JsonSerializer.Serialize(list, typeof(List<>).MakeGenericType(itemType), options);
 
             File.WriteAllText(filePath, jsonString);
-        }
+        } 
+*/
+
+using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
+
+namespace CRUDAppProject.CS.Interfaces
+{
+    interface ISerialize
+    {
+
+        public const string DefaultFilePath = "";
+
+        /// <summary>
+        /// Zapisywanie danych związanych z zadaniami i profilem do pliku .json 
+        /// </summary>
+
+        public void SaveDataToFile();
 
 
         /// <summary>
@@ -129,6 +138,8 @@ namespace CRUDAppProject.CS.Interfaces
                         var exam = JsonSerializer.Deserialize<Task_Exam>(task.GetRawText(), options);
                         result.Add(exam);
                     }
+
+                    // ZMIENIĆ TO NA PROJ
                     else if (task.TryGetProperty("Members", out _))
                     {
                         var exam = JsonSerializer.Deserialize<Task_Exam>(task.GetRawText(), options);

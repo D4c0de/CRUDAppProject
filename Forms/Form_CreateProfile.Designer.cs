@@ -46,7 +46,7 @@
             Label_WelcomeMessage.Size = new Size(394, 47);
             Label_WelcomeMessage.TabIndex = 1;
             Label_WelcomeMessage.Text = "Kreator profilu semestru";
-            Label_WelcomeMessage.Click += Label_WelcomeMessage_Click;
+            
             // 
             // Label_ProfileName
             // 
@@ -96,7 +96,7 @@
             TextBox_ProfileName.Size = new Size(655, 34);
             TextBox_ProfileName.TabIndex = 8;
             TextBox_ProfileName.Text = "Twoja nazwa semestru";
-            TextBox_ProfileName.TextChanged += TextBox_ProfileName_TextChanged;
+            
             // 
             // Button_ExitProfileCreator
             // 
@@ -126,7 +126,7 @@
             Name = "Form_CreateProfile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_CreateProfile";
-            Load += Form_CreateProfile_Load;
+            
             ResumeLayout(false);
             PerformLayout();
         }
