@@ -22,6 +22,11 @@ namespace CRUDAppProject.Forms
         public static List<string> ListOfAllProfiles = new List<string>();
 
 
+        /// <summary>
+        /// Pobieranie wszystkich plików z rozszerzeniem .json i ułozenie ich do listy ListOfAllProfiles
+        /// </summary>
+        /// <param name="cb">ComboBox z nazwami wszystkich profili - ten, co jest na formularzu form</param>
+       
         public static void LoadAllProfilesFromFile(ComboBox cb)
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -56,6 +61,7 @@ namespace CRUDAppProject.Forms
             LoadAllProfilesFromFile(ComboBox_ProfileName);
         }
 
+
         private void Button_ExitProfileDeletion_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -64,48 +70,53 @@ namespace CRUDAppProject.Forms
             Screen_Logging.Show();
         }
 
-        private void Button_ConfirmProfileDeletion_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Logika usunięcia i usunięcie wybranego profilu 
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        
+        private void DeleteProfileFromFolder()
         {
 
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
             string pathOfProfileToDelete = $"{crudaFolderPath}\\{Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text)}.json";
 
-            try
+            if (ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text == Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
             {
-                if (ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text == Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
-                {
-                    File.Delete(pathOfProfileToDelete);
-                    MessageBox.Show("Usuwanie profilu powiodło się.", "Usuwanie profilu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                    this.Close();
-                    Form_Logging Screen_Logging = new Form_Logging();
-                    Screen_Logging.Show();
-                }
-
-                else if (!ListOfAllProfiles.Contains(pathOfProfileToDelete))
-                    throw new ArgumentException("Nie znaleziono profilu!", "ProfileNotFound");
-
-
-                else if (ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text != Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
-                    throw new ArgumentException("Nazwy się nie zgadzają!", "NamesDoNotMatch");
+                File.Delete(pathOfProfileToDelete);
+                MessageBox.Show("Usuwanie profilu powiodło się.", "Usuwanie profilu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                this.Close();
+                Form_Logging Screen_Logging = new Form_Logging();
+                Screen_Logging.Show();
             }
 
+            else if (!ListOfAllProfiles.Contains(pathOfProfileToDelete))
+                throw new ArgumentException("Nie znaleziono profilu!", "ProfileNotFound");
 
+
+            else if (ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text != Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
+                throw new ArgumentException("Nazwy się nie zgadzają!", "NamesDoNotMatch");
+        }
+
+
+        private void Button_ConfirmProfileDeletion_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DeleteProfileFromFolder();
+            }
 
             catch (ArgumentException ex)
             {
-                if (ex.ParamName == "CRUDADirectoryDoesNotExist")
-                    MessageBox.Show("Usuwanie profilu nie powiodło się.", "Żaden profil nie został nigdy utworzony!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                else if (ex.ParamName == "NoProfilesFound")
-                    MessageBox.Show("Usuwanie profilu nie powiodło się.", "Brak zapisanych profili w systemie!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                else if (ex.ParamName == "ProfileNotFound")
-                    MessageBox.Show("Usuwanie profilu nie powiodło się.", "Profil który chcesz usunać nie istnieje!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.ParamName == "ProfileNotFound")
+                    MessageBox.Show("Profil który chcesz usunać nie istnieje!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "NamesDoNotMatch")
-                    MessageBox.Show("Usuwanie profilu nie powiodło się.", "Nazwa profilu do usunięcia nie zgadza się z wpisaną frazą!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nazwa profilu do usunięcia nie zgadza się z wpisaną frazą!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
