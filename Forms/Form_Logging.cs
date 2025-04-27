@@ -31,9 +31,12 @@ namespace CRUDAppProject.Forms
             Screen_CreateProfile.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button_DeleteProfile_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
+            this.Hide();
+            Form_DeleteProfile Screen_DeleteProfile = new Form_DeleteProfile();
+            Screen_DeleteProfile.Show();
         }
     }
 }

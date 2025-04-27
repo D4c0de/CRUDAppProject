@@ -46,7 +46,6 @@
             Label_ProfileName.Size = new Size(533, 32);
             Label_ProfileName.TabIndex = 0;
             Label_ProfileName.Text = "Wybierz profil z listy poniżej, którychcesz usunąć";
-            Label_ProfileName.Click += label1_Click;
             // 
             // ComboBox_ProfileName
             // 
@@ -56,6 +55,8 @@
             ComboBox_ProfileName.Name = "ComboBox_ProfileName";
             ComboBox_ProfileName.Size = new Size(655, 36);
             ComboBox_ProfileName.TabIndex = 1;
+            ComboBox_ProfileName.Text = "Wybierz profil, który chcesz usunąć";
+            
             // 
             // Button_ExitProfileDeletion
             // 
@@ -66,6 +67,7 @@
             Button_ExitProfileDeletion.TabIndex = 2;
             Button_ExitProfileDeletion.Text = "Opuść bez zapisywania";
             Button_ExitProfileDeletion.UseVisualStyleBackColor = true;
+            Button_ExitProfileDeletion.Click += Button_ExitProfileDeletion_Click;
             // 
             // Button_ConfirmProfileDeletion
             // 
@@ -76,6 +78,7 @@
             Button_ConfirmProfileDeletion.TabIndex = 3;
             Button_ConfirmProfileDeletion.Text = "Usuń profil";
             Button_ConfirmProfileDeletion.UseVisualStyleBackColor = true;
+            Button_ConfirmProfileDeletion.Click += Button_ConfirmProfileDeletion_Click;
             // 
             // TextBox_RewriteProfileName
             // 
@@ -104,7 +107,6 @@
             Label_WelcomeMessage.Size = new Size(429, 47);
             Label_WelcomeMessage.TabIndex = 6;
             Label_WelcomeMessage.Text = "Usuwanie profilu semestru";
-            Label_WelcomeMessage.Click += label3_Click;
             // 
             // Form_DeleteProfile
             // 

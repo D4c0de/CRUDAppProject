@@ -62,6 +62,7 @@
             Button_DeleteProfile.TabIndex = 2;
             Button_DeleteProfile.Text = "Usuń istniejacy semestr";
             Button_DeleteProfile.UseVisualStyleBackColor = true;
+            Button_DeleteProfile.Click += Button_DeleteProfile_Click;
             // 
             // Button_ExitProgram
             // 
