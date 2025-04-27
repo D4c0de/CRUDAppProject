@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms
 {
-    public partial class Form_DeleteProfile: Form
+    public partial class Form_DeleteProfile : Form
     {
         public Form_DeleteProfile()
         {
             InitializeComponent();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_DeleteProfile_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
