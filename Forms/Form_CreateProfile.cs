@@ -1,6 +1,4 @@
-﻿// TODO - poprawić, aby nie dało się nadpisywać profili tylko żeby wywalało jakiś błąd
-
-using CRUDAppProject.CS.Base;
+﻿using CRUDAppProject.CS.Base;
 using CRUDAppProject.CS.Interfaces;
 using CRUDAppProject.CS.Static;
 using System;
@@ -71,8 +69,8 @@ namespace CRUDAppProject.Forms
             this.Close();
             this.Hide();
 
-            Form_Logging form_Logging = new Form_Logging();
-            form_Logging.Show();
+            Form_Logging Screen_Logging = new Form_Logging();
+            Screen_Logging.Show();
         }
     }
 }

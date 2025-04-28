@@ -31,9 +31,26 @@ namespace CRUDAppProject.Forms
             Screen_CreateProfile.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button_DeleteProfile_Click(object sender, EventArgs e)
         {
-            
+
+            try
+            {
+                Form_DeleteProfile Screen_DeleteProfile = new Form_DeleteProfile();
+                Screen_DeleteProfile.Show();
+                this.Close();
+                this.Hide();
+            }
+
+            catch (ArgumentException ex)
+            {
+                if (ex.ParamName == "CRUDADirectoryDoesNotExist")
+                    MessageBox.Show("Żaden profil nie został nigdy utworzony!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                else if (ex.ParamName == "NoProfilesFound")
+                    MessageBox.Show("Brak zapisanych profili w systemie!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        
     }
 }
