@@ -1,4 +1,5 @@
 ﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +20,43 @@ namespace CRUDAppProject.Forms
             Base_SemestrProfile.LoadAllProfilesFromFile(ComboBox_ProfileName);
         }
 
-        private void Form_ChooseProfile_Load(object sender, EventArgs e)
-        {
 
+        // DODAĆ DO FUNKCJI PONIŻEJ LOGIKĘ OTWIERANIA FORMY PO ZALOGOWANIU
+        private void ChooseProfileToLogIn()
+        {
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
+            string pathOfProfileToDelete = $"{crudaFolderPath}\\{Side_Format.CapitalizeString(ComboBox_ProfileName.Text)}.json";
+
+            if (Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
+            {
+                Base_AppState.ChosenProfile = Side_Format.CapitalizeString(ComboBox_ProfileName.Text);
+                this.Hide();
+                this.Close();
+            }
+
+            else if (!Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
+            {
+                throw new ArgumentException("Nie znaleziono profilu!", "ProfileNotFound");
+            }
         }
 
         private void Button_LogIn_Click(object sender, EventArgs e)
-        {
+        {            
+            try
+            {
+                ChooseProfileToLogIn();
+                Form_LoggedIn Screen_LoggedIn = new Form_LoggedIn();
+                Screen_LoggedIn.Show();
 
+            }
+
+            catch (ArgumentException ex)
+            {
+                if(ex.ParamName == "ProfileNotFound")
+                    MessageBox.Show("Profil na który chcesz się zalogować nie istnieje!", "Logowanie nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }            
         }
 
         private void Button_ExitProfileChoosing_Click(object sender, EventArgs e)
@@ -34,8 +64,12 @@ namespace CRUDAppProject.Forms
             this.Hide();
             this.Close();
             Form_Logging Screen_Logging = new Form_Logging();
-            Screen_Logging.Show();
-            
+            Screen_Logging.Show();            
+        }
+
+        private void Form_ChooseProfile_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

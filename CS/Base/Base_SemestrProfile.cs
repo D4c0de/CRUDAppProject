@@ -52,18 +52,6 @@ namespace CRUDAppProject.CS.Base
 
 
         /// <summary>
-        /// Nazwa profilu, na który użytkownik się zalogował
-        /// </summary>
-
-        static private string _chosenProfile;
-        static public string ChosenProfile
-        {
-            set { _chosenProfile = value; }
-            get { return _chosenProfile; }
-        }
-
-
-        /// <summary>
         /// Zapisywanie danych związanych z profilem i listą przedmiotów do pliku .json 
         /// </summary>
 

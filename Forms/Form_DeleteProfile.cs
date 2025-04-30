@@ -47,8 +47,6 @@ namespace CRUDAppProject.Forms
                 MessageBox.Show("Usuwanie profilu powiodło się.", "Usuwanie profilu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 this.Close();
-                Form_Logging Screen_Logging = new Form_Logging();
-                Screen_Logging.Show();
             }
 
             else if (!Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
@@ -62,10 +60,11 @@ namespace CRUDAppProject.Forms
 
         private void Button_ConfirmProfileDeletion_Click(object sender, EventArgs e)
         {
-
             try
             {
                 DeleteProfileFromFolder();
+                Form_Logging Screen_Logging = new Form_Logging();
+                Screen_Logging.Show();
             }
 
             catch (ArgumentException ex)

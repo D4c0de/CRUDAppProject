@@ -1,32 +1,4 @@
-﻿/*
-         /// <summary>
-        /// Zapisywanie danych związanych z zadaniami i profilem do pliku .json 
-        /// <paramref name="Lista_zadań"/>Lista zadań
-        /// <paramref name="filePath"/> Ścieżka do pliku
-        /// </summary>
-        public void SaveDataToFile(List<object> list, string filePath=DefaultFilePath) {
-
-
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
-
-            // Rozpoznaj, jaki to typ obiektów w liście
-            if (list.Count == 0)
-                throw new ArgumentException("Lista jest pusta. Nie można zapisać.");
-
-            Type itemType = list[0].GetType();
-
-            // Serializacja listy jako tego konkretnego typu
-            string jsonString = JsonSerializer.Serialize(list, typeof(List<>).MakeGenericType(itemType), options);
-
-            File.WriteAllText(filePath, jsonString);
-        } 
-*/
-
-using CRUDAppProject.CS.Base;
+﻿using CRUDAppProject.CS.Base;
 using CRUDAppProject.CS.Tasks;
 using System;
 using System.Collections.Generic;
