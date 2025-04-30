@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace CRUDAppProject.CS.Base
                 this._name = Side_Format.CapitalizeString(value);
             }
         }
-
+              
 
         /// <summary>
         /// Nazwa folderu wewnątrz którego dane powstałe w aplikacji zostaną zapisane
@@ -51,75 +52,14 @@ namespace CRUDAppProject.CS.Base
 
 
         /// <summary>
-        /// Otwiera okno tworzenia nowego przedmiotu 
+        /// Nazwa profilu, na który użytkownik się zalogował
         /// </summary>
 
-        static public void AddSubject()
+        static private string _chosenProfile;
+        static public string ChosenProfile
         {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno usuwania istniejącego przedmiotu z listy przedmiotów
-        /// </summary>
-
-        static public void RemoveSubject()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno tworzenia nowego profilu
-        /// </summary>
-
-        static public void CreateProfile()
-        {
-
-
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno edytowania istniejącego profilu
-        /// </summary>
-
-        static public void EditProfile()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno usuwania istniejącego profilu
-        /// </summary>
-
-        static public void DeleteProfile()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno wyboru istniejącego profilu
-        /// </summary>
-
-        static public void ChooseProfile()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Edytuje istniejący już przedmiot
-        /// </summary>
-        /// <param name="s">Nazwa przedmiotu, który należy usunąć z listy przedmiotów</param>
-
-        static public void EditSubject(string s)
-        {
-
+            set { _chosenProfile = value; }
+            get { return _chosenProfile; }
         }
 
 
@@ -169,6 +109,46 @@ namespace CRUDAppProject.CS.Base
             File.WriteAllText(filePath, jsonString);
         }
 
+        /// <summary>
+        /// Lista wszystkich profili, czyli plików z roszrzerzeniem .json
+        /// </summary>
+
+        public static List<string> ListOfAllProfiles = new List<string>();
+
+
+        /// <summary>
+        /// Pobieranie wszystkich plików z rozszerzeniem .json i ułozenie ich do listy ListOfAllProfiles
+        /// </summary>
+        /// <param name="cb">ComboBox z nazwami wszystkich profili - ten, co jest na formularzu form</param>
+
+        public static void LoadAllProfilesFromFile(ComboBox cb)
+        {
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
+
+            if (!Directory.Exists(crudaFolderPath))
+                throw new ArgumentException("Żaden profil nie został nigdy stworzony!", "CRUDADirectoryDoesNotExist");
+
+            else
+            {
+                ListOfAllProfiles = Directory.GetFiles(crudaFolderPath, "*.json").ToList<string>();
+
+
+                if (ListOfAllProfiles.Count <= 0)
+                    throw new ArgumentException("Brak profili w systemie!", "NoProfilesFound");
+
+
+                else if (ListOfAllProfiles.Count > 0)
+                {
+                    foreach (string profileName in ListOfAllProfiles)
+                    {
+                        cb.Items.Add(Path.GetFileName(profileName.Remove(profileName.Length - 5)));
+                    }
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Pobiera dane związane z profilem z pliku .json
@@ -178,5 +158,6 @@ namespace CRUDAppProject.CS.Base
         {
 
         }
+
     }
 }

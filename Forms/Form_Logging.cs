@@ -20,6 +20,24 @@ namespace CRUDAppProject.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                
+                Form_ChooseProfile Screen_ChooseProfile = new Form_ChooseProfile();
+                Screen_ChooseProfile.Show();
+                this.Close();
+                this.Hide();
+            }
+
+            catch (ArgumentException ex)
+            {
+                if (ex.ParamName == "CRUDADirectoryDoesNotExist")
+                    MessageBox.Show("Żaden profil nie został nigdy utworzony!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                else if (ex.ParamName == "NoProfilesFound")
+                    MessageBox.Show("Brak zapisanych profili w systemie!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 

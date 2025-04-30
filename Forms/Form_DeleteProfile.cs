@@ -14,54 +14,12 @@ namespace CRUDAppProject.Forms
 {
     public partial class Form_DeleteProfile : Form
     {
-
-        /// <summary>
-        /// Lista wszystkich profili, czyli plików z roszrzerzeniem .json
-        /// </summary>
-
-        public static List<string> ListOfAllProfiles = new List<string>();
-
-
-        /// <summary>
-        /// Pobieranie wszystkich plików z rozszerzeniem .json i ułozenie ich do listy ListOfAllProfiles
-        /// </summary>
-        /// <param name="cb">ComboBox z nazwami wszystkich profili - ten, co jest na formularzu form</param>
-       
-        public static void LoadAllProfilesFromFile(ComboBox cb)
-        {
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
-
-            if (!Directory.Exists(crudaFolderPath))
-                throw new ArgumentException("Żaden profil nie został nigdy stworzony!", "CRUDADirectoryDoesNotExist");
-
-            else
-            {
-                ListOfAllProfiles = Directory.GetFiles(crudaFolderPath, "*.json").ToList<string>();
-                                
-
-                if (ListOfAllProfiles.Count <= 0)
-                    throw new ArgumentException("Brak profili w systemie!", "NoProfilesFound");
-
-                
-                else if (ListOfAllProfiles.Count > 0)
-                {
-                    foreach (string profileName in ListOfAllProfiles)
-                    {
-                        cb.Items.Add(Path.GetFileName(profileName.Remove(profileName.Length - 5)));
-                    }
-                }
-            }
-        }
-
         public Form_DeleteProfile()
-        {
-            
+        {            
             InitializeComponent();
-            LoadAllProfilesFromFile(ComboBox_ProfileName);
+            Base_SemestrProfile.LoadAllProfilesFromFile(ComboBox_ProfileName);
         }
-
-
+        
         private void Button_ExitProfileDeletion_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -83,7 +41,7 @@ namespace CRUDAppProject.Forms
             string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
             string pathOfProfileToDelete = $"{crudaFolderPath}\\{Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text)}.json";
 
-            if (ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text == Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
+            if (Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text == Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
             {
                 File.Delete(pathOfProfileToDelete);
                 MessageBox.Show("Usuwanie profilu powiodło się.", "Usuwanie profilu", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -93,11 +51,11 @@ namespace CRUDAppProject.Forms
                 Screen_Logging.Show();
             }
 
-            else if (!ListOfAllProfiles.Contains(pathOfProfileToDelete))
+            else if (!Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
                 throw new ArgumentException("Nie znaleziono profilu!", "ProfileNotFound");
 
 
-            else if (ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text != Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
+            else if (Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete) && ComboBox_ProfileName.Text != Side_Format.CapitalizeString(TextBox_RewriteProfileName.Text))
                 throw new ArgumentException("Nazwy się nie zgadzają!", "NamesDoNotMatch");
         }
 
