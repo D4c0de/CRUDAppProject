@@ -21,7 +21,9 @@ namespace CRUDAppProject.CS.Interfaces
 
         public void SaveDataToFile();
 
+        /*
 
+        
         /// <summary>
         /// Pobranie danych związanych z zadaniami i profilem z pliku .json
         /// <paramref name="filePath"/> Ścieżka do pliku 
@@ -130,5 +132,6 @@ namespace CRUDAppProject.CS.Interfaces
 
             ObjectListRef=result;
         }
+         */
     }
 }

@@ -38,7 +38,7 @@
             // 
             // Button_CreateNewTask
             // 
-            Button_CreateNewTask.Location = new Point(509, 12);
+            Button_CreateNewTask.Location = new Point(1049, 12);
             Button_CreateNewTask.Name = "Button_CreateNewTask";
             Button_CreateNewTask.Size = new Size(150, 50);
             Button_CreateNewTask.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // Button_LogOut
             // 
-            Button_LogOut.Location = new Point(940, 12);
+            Button_LogOut.Location = new Point(467, 12);
             Button_LogOut.Name = "Button_LogOut";
             Button_LogOut.Size = new Size(150, 50);
             Button_LogOut.TabIndex = 1;

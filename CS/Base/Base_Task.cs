@@ -1,5 +1,6 @@
 ﻿// TODO stworzyć aby automatycznie dobierało aktualną datę podczas tworzenia zadania
 
+using CRUDAppProject.CS.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +16,7 @@ namespace CRUDAppProject.CS.Base
     /// Klasa abstrakcyjna która jest podstawą do klas związanych z rodzajami zadań
     /// </summary>
 
-    internal abstract class Base_Task
+    internal abstract class Base_Task : ISerialize
     {
         /// <summary>
         /// Nazwa zadania
@@ -95,5 +96,13 @@ namespace CRUDAppProject.CS.Base
             get { return this._status; }
             set { this._status = value; }
         }
+
+
+        public void SaveDataToFile()
+        {
+
+        }
+
+        //void 
     }
 }
