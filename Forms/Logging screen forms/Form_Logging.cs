@@ -37,8 +37,6 @@ namespace CRUDAppProject.Forms
                 else if (ex.ParamName == "NoProfilesFound")
                     MessageBox.Show("Brak zapisanych profili w systemie!", "Usuwanie profilu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)

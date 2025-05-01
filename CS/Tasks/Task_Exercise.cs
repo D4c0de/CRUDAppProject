@@ -64,6 +64,8 @@ namespace CRUDAppProject.CS.Tasks
         {
             if (task is Task_Exercise exerciseTask)
             {
+                exerciseTask.SaveDataToFile();
+                MessageBox.Show("Zadanie zostało stworzone i zapisane pomyślnie.", "Tworzenie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
             }
 
@@ -89,7 +91,26 @@ namespace CRUDAppProject.CS.Tasks
 
         public void SaveDataToFile()
         {
+            var profile = new
+            {
+                title = this.Title,
+                description = this.Description,
+                chosenSubject = this.ChosenSubject,
+                dateOfCreation = this.DateOfCreation,
+                deadline = this.Deadline,
+                status = this.Status,
+                isCompleted = this.IsCompleted
+            };
 
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+                        
+            string jsonString = JsonSerializer.Serialize(profile, options);
+            File.AppendAllText(Base_AppState.ChosenProfileFilePath, jsonString);
+            Console.WriteLine(jsonString);           
         }
 
         public void LoadDataFromFile()

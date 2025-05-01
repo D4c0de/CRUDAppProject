@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUDAppProject.CS.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace CRUDAppProject.CS.Base
         static private string _chosenProfile;
         static public string ChosenProfile
         {
-            set { _chosenProfile = value; }
+            set { _chosenProfile = Side_Format.CapitalizeString(value); }
             get { return _chosenProfile; }
         }
 
@@ -34,6 +35,16 @@ namespace CRUDAppProject.CS.Base
             get { return _chosenProfileSubjects; }
         }
 
+        static public string ChosenProfileFilePath
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Base_AppState.ChosenProfile))
+                    throw new InvalidOperationException("ChosenProfile nie został ustawiony.");
+
+                return Path.Combine(Base_SemestrProfile.CrudaFolderPath, Base_AppState.ChosenProfile + ".json");
+            }
+        }
 
     }
 }

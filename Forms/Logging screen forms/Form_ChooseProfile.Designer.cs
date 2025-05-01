@@ -104,7 +104,6 @@
             Name = "Form_ChooseProfile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_ChooseProfile";
-            Load += Form_ChooseProfile_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,4 +1,5 @@
-﻿using CRUDAppProject.Forms.Logged_in_forms;
+﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.Forms.Logged_in_forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

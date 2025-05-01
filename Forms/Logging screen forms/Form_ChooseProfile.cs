@@ -20,25 +20,20 @@ namespace CRUDAppProject.Forms
             Base_SemestrProfile.LoadAllProfilesFromFile(ComboBox_ProfileName);
         }
 
-
         // DODAĆ DO FUNKCJI PONIŻEJ LOGIKĘ OTWIERANIA FORMY PO ZALOGOWANIU
         private void ChooseProfileToLogIn()
         {
-            string pathOfProfileToDelete = $"{Base_SemestrProfile.CrudaFolderPath}\\{Side_Format.CapitalizeString(ComboBox_ProfileName.Text)}.json";
+            string pathOfProfileToLogIn = $"{Base_SemestrProfile.CrudaFolderPath}\\{Side_Format.CapitalizeString(ComboBox_ProfileName.Text)}.json";
 
-            if (Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
+            if (Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToLogIn))
             {
                 Base_AppState.ChosenProfile = Side_Format.CapitalizeString(ComboBox_ProfileName.Text);
                 Base_AppState.ChosenProfileSubjects = Base_SemestrProfile.LoadListOfSubjectFromFile();
-
-                foreach(string subject in Base_AppState.ChosenProfileSubjects)
-                    Console.WriteLine(subject);
-
                 this.Hide();
                 this.Close();
             }
 
-            else if (!Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
+            else if (!Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToLogIn))
             {
                 throw new ArgumentException("Nie znaleziono profilu!", "ProfileNotFound");
             }
@@ -48,6 +43,7 @@ namespace CRUDAppProject.Forms
         {            
             try
             {
+                
                 ChooseProfileToLogIn();
                 Form_LoggedIn Screen_LoggedIn = new Form_LoggedIn();
                 Screen_LoggedIn.Show();
@@ -63,15 +59,10 @@ namespace CRUDAppProject.Forms
 
         private void Button_ExitProfileChoosing_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.Close();
             Form_Logging Screen_Logging = new Form_Logging();
-            Screen_Logging.Show();            
-        }
-
-        private void Form_ChooseProfile_Load(object sender, EventArgs e)
-        {
-
+            Screen_Logging.Show();
+            this.Hide();
+            this.Close();            
         }
     }
 }
