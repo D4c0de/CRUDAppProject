@@ -17,10 +17,10 @@ namespace CRUDAppProject.Forms.Logged_in_forms
     {
         public Form_CreateExercise()
         {
-            Console.WriteLine("Wybrany profil to: " + Base_AppState.ChosenProfileFilePath);
+            
             InitializeComponent();
             FillComboBox();
-            Console.WriteLine("Wybrany profil to: " + Base_AppState.ChosenProfileFilePath);
+            
         }
 
         private void FillComboBox()
@@ -33,7 +33,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
         {
             try
             {
-                Console.WriteLine("Wybrany profil to: " + Base_AppState.ChosenProfileFilePath);
+                
                 Task_Exercise task = new Task_Exercise();
                 task.Title = TextBox_TaskTitle.Text;
                 task.Description = RichTextBox_TaskDescription.Text;
@@ -46,7 +46,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 this.Close();
                 Form_LoggedIn screen_LoggedIn = new Form_LoggedIn();
                 screen_LoggedIn.Show();
-                Console.WriteLine("Wybrany profil to: " + Base_AppState.ChosenProfileFilePath);
+                
 
 
             }
