@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUDAppProject.Forms.Logged_in_forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +28,10 @@ namespace CRUDAppProject.Forms
 
         private void Button_CreateNewTask_Click(object sender, EventArgs e)
         {
-
+            Form_CreateTask Screen_CreateTask = new Form_CreateTask();
+            Screen_CreateTask.Show();
+            this.Hide();
+            this.Close();            
         }
     }
 }

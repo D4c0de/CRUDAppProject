@@ -1,4 +1,5 @@
 ﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace CRUDAppProject.CS.Tasks
     /// Klasa dziedzicząca po klasie abstrakcyjnej Base_Task - określa zadania z kategorii Ćwiczenia
     /// </summary>
 
-    internal class Task_Exercise : Base_Task
+    internal class Task_Exercise : Base_Task, ITaskCRUD
     {
         /// <summary>
         /// Określa źródło zadania, np konkretne ćwiczenia z określonego przedziału stron w podręczniku
@@ -25,5 +26,24 @@ namespace CRUDAppProject.CS.Tasks
             set { this._taskSource = value; }
         }
 
+        public void CreateTask(object t)
+        {
+
+        }
+
+        public void DisplayTask(object t)
+        {
+
+        }
+
+        public void EditTask(object t)
+        {
+
+        }
+
+        public void RemoveTask(object t)
+        {
+
+        }
     }
 }

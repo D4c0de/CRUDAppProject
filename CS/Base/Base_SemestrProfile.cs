@@ -137,6 +137,7 @@ namespace CRUDAppProject.CS.Base
         }
 
 
+        public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
 
         /// <summary>
         /// Pobiera dane związane z profilem z pliku .json
