@@ -24,13 +24,16 @@ namespace CRUDAppProject.Forms
         // DODAĆ DO FUNKCJI PONIŻEJ LOGIKĘ OTWIERANIA FORMY PO ZALOGOWANIU
         private void ChooseProfileToLogIn()
         {
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
-            string pathOfProfileToDelete = $"{crudaFolderPath}\\{Side_Format.CapitalizeString(ComboBox_ProfileName.Text)}.json";
+            string pathOfProfileToDelete = $"{Base_SemestrProfile.CrudaFolderPath}\\{Side_Format.CapitalizeString(ComboBox_ProfileName.Text)}.json";
 
             if (Base_SemestrProfile.ListOfAllProfiles.Contains(pathOfProfileToDelete))
             {
                 Base_AppState.ChosenProfile = Side_Format.CapitalizeString(ComboBox_ProfileName.Text);
+                Base_AppState.ChosenProfileSubjects = Base_SemestrProfile.LoadListOfSubjectFromFile();
+
+                foreach(string subject in Base_AppState.ChosenProfileSubjects)
+                    Console.WriteLine(subject);
+
                 this.Hide();
                 this.Close();
             }
@@ -55,7 +58,6 @@ namespace CRUDAppProject.Forms
             {
                 if(ex.ParamName == "ProfileNotFound")
                     MessageBox.Show("Profil na który chcesz się zalogować nie istnieje!", "Logowanie nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }            
         }
 

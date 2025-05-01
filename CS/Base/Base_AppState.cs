@@ -23,5 +23,17 @@ namespace CRUDAppProject.CS.Base
             get { return _chosenProfile; }
         }
 
+        /// <summary>
+        /// Przedmioty przypisane do profilu, na które użytkownik się zalogował
+        /// </summary>
+        
+        static private List<string> _chosenProfileSubjects;
+        static public List<string> ChosenProfileSubjects
+        {
+            set { _chosenProfileSubjects = value; }
+            get { return _chosenProfileSubjects; }
+        }
+
+
     }
 }

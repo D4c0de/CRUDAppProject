@@ -1,6 +1,5 @@
-﻿// TODO stworzyć aby automatycznie dobierało aktualną datę podczas tworzenia zadania
-
-using CRUDAppProject.CS.Interfaces;
+﻿using CRUDAppProject.CS.Interfaces;
+using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,7 +25,18 @@ namespace CRUDAppProject.CS.Base
         public string Title
         {
             get { return this._title; }
-            set { this._title = value; }
+            set 
+            {
+                if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
+                {
+                    value = value.Trim();
+                    this._title = value;
+                }
+
+                else
+                    throw new ArgumentException("Nazwa zadania nie może być pusta!", "TaskTitleNullOrEmpty");
+
+            }
         }
 
 
@@ -38,7 +48,34 @@ namespace CRUDAppProject.CS.Base
         public string Description
         {
             get { return this._description; }
-            set { this._description = value; }
+            set 
+            {
+                if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
+                {
+                    value = value.Trim();
+                    this._description = value;
+                }
+
+                else
+                    throw new ArgumentException("Opis zadania nie może być pusty!", "TaskDescriptionNullOrEmpty");
+
+            }
+        }
+
+        private string _chosenSubject;
+        public string ChosenSubject
+        {
+            get { return this._chosenSubject; }
+            set
+            {
+                if (Base_AppState.ChosenProfileSubjects.Contains(Side_Format.CapitalizeString(value)))
+                {
+                    this._chosenSubject = value;
+                }
+
+                else
+                    throw new ArgumentException("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "SubjectNotFound");
+            }
         }
 
 
@@ -50,7 +87,10 @@ namespace CRUDAppProject.CS.Base
         public DateTime Deadline
         {
             get { return this._deadline; }
-            set { this._deadline = value; }
+            set 
+            { 
+                this._deadline = value; 
+            }
         }
 
 
@@ -74,7 +114,7 @@ namespace CRUDAppProject.CS.Base
         public DateTime DateOfCreation
         {
             get { return this._dateOfCreation; }
-            set { this._dateOfCreation = value; }
+            set { this._dateOfCreation = DateTime.Now.Date; }
         }
 
 
@@ -98,11 +138,28 @@ namespace CRUDAppProject.CS.Base
         }
 
 
+        // Lista rodzajów zadań 
+
+        public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
+
+
+
         public void SaveDataToFile()
         {
 
         }
 
-        //void 
+        public void LoadDataFromFile()
+        {
+
+        }
+
+        public abstract void TaskCreator();
+
+        public abstract void TaskDisplayer();
+
+        public abstract void TaskEditor();
+
+        public abstract void TaskRemover();
     }
 }

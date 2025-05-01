@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Interfaces;
+using CRUDAppProject.Forms.Logged_in_forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +13,7 @@ namespace CRUDAppProject.CS.Tasks
     /// Klasa dziedzicząca po klasie abstrakcyjnej Base_Task - określa zadania z kategorii Egzamin
     /// </summary>
 
-    internal class Task_Exam
+    internal class Task_Exam : Base_Task, ITaskCRUD, ISerialize
     {
         /// <summary>
         /// Lista rzeczy, które należy przyswoić aby zaliczyć egzamin
@@ -43,7 +46,55 @@ namespace CRUDAppProject.CS.Tasks
 
         }
 
+        public override void TaskCreator()
+        {
+            
+        }
 
+        public override void TaskDisplayer()
+        {
+
+        }
+
+        public override void TaskEditor()
+        {
+
+        }
+
+        public override void TaskRemover()
+        {
+
+        }
+
+        public void CreateTask(Base_Task task)
+        {
+
+        }
+
+        public void DisplayTask(Base_Task task)
+        {
+
+        }
+
+        public void EditTask(Base_Task task)
+        {
+
+        }
+
+        public void RemoveTask(Base_Task task)
+        {
+
+        }
+
+        public void SaveDataToFile()
+        {
+
+        }
+
+        public void LoadDataFromFile()
+        {
+
+        }
 
     }
 }

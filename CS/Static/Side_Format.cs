@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CRUDAppProject.CS.Static
@@ -50,34 +51,19 @@ namespace CRUDAppProject.CS.Static
         public static List<string> CutIntoSingleWords(string s)
         {
             List<string> listOfWords = new List<string>();
-            StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (!string.IsNullOrEmpty(s[i].ToString()) && s[i] != ',')
-                {
-                    sb.Append(s[i]);
-                }
-                else if (s[i] == ',')
-                {
-                    string word = sb.ToString().Trim();  
-                    if (!string.IsNullOrWhiteSpace(word))
-                    {
-                        listOfWords.Add(CapitalizeString(word));
-                        sb.Clear();  
-                    }
-                    else
-                    {
-                        sb.Clear();
-                    }
-                }
-            }
+            string cleaned = Regex.Replace(s, @"\s+", " ");
 
-            
-            string lastWord = sb.ToString().Trim();
-            if (!string.IsNullOrWhiteSpace(lastWord))
+            string[] parts = cleaned.Split(',');
+
+            foreach (var part in parts)
             {
-                listOfWords.Add(CapitalizeString(lastWord));
+                string word = part.Trim();
+
+                if (!string.IsNullOrWhiteSpace(word))
+                {
+                    listOfWords.Add(CapitalizeString(word));
+                }
             }
 
             return listOfWords;

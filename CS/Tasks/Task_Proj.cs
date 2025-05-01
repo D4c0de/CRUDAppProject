@@ -1,4 +1,5 @@
 ﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace CRUDAppProject.CS.Tasks
     /// Klasa dziedzicząca po klasie abstrakcyjnej Base_Task - określa zadania z kategorii Projekty
     /// </summary>
 
-    internal class Task_Proj : Base_Task
+    internal class Task_Proj : Base_Task, ITaskCRUD, ISerialize
     {
         
         /// <summary>
@@ -43,6 +44,53 @@ namespace CRUDAppProject.CS.Tasks
         {
 
         }
+        public override void TaskCreator()
+        {
 
+        }
+
+        public override void TaskDisplayer()
+        {
+
+        }
+
+        public override void TaskEditor()
+        {
+
+        }
+
+        public override void TaskRemover()
+        {
+
+        }
+
+        public void CreateTask(Base_Task task)
+        {
+
+        }
+
+        public void DisplayTask(Base_Task task)
+        {
+
+        }
+
+        public void EditTask(Base_Task task)
+        {
+
+        }
+
+        public void RemoveTask(Base_Task task)
+        {
+
+        }
+
+        public void SaveDataToFile()
+        {
+
+        }
+        public void LoadDataFromFile()
+        {
+
+        }
     }
 }

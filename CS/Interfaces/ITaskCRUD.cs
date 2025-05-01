@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUDAppProject.CS.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ namespace CRUDAppProject.CS.Interfaces
 {
     interface ITaskCRUD
     {
-        void CreateTask(object t);
+        void CreateTask(Base_Task task);
 
-        void DisplayTask(object t);
+        void DisplayTask(Base_Task task);
 
-        void EditTask(object t);
+        void EditTask(Base_Task task);
 
-        void RemoveTask(object t);
+        void RemoveTask(Base_Task task);
         
     }
 }

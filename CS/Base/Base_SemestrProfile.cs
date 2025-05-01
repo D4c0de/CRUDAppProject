@@ -50,6 +50,9 @@ namespace CRUDAppProject.CS.Base
             set { this._listOfSubjects = value; }
         }
 
+        public static string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        public static string CrudaFolderPath = Path.Combine(AppDataPath, NameOfAppDataFolder);
+
 
         /// <summary>
         /// Zapisywanie danych związanych z profilem i listą przedmiotów do pliku .json 
@@ -57,32 +60,24 @@ namespace CRUDAppProject.CS.Base
 
         public void SaveDataToFile()
         {
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string crudaFolderPath = Path.Combine(appDataPath, NameOfAppDataFolder);
+            if (!Directory.Exists(CrudaFolderPath))
+                Directory.CreateDirectory(CrudaFolderPath);
 
-
-            if (!Directory.Exists(crudaFolderPath))
-            {
-                Directory.CreateDirectory(crudaFolderPath);
-            }
-
-            string filePath = Path.Combine(crudaFolderPath, this.Name + ".json");
-
-            // Wyrzuć wyjątke, jeżeli nazwa pliku jest pusta
-
-            if (string.IsNullOrWhiteSpace(this.Name) || string.IsNullOrEmpty(this.Name))
+            if (string.IsNullOrWhiteSpace(this.Name))
                 throw new ArgumentException("Profil nie ma żadnej nazwy!", "NullOrEmptyFileName");
 
+            if (this.ListOfSubjects == null || this.ListOfSubjects.Count == 0)
+                throw new ArgumentException("Lista przedmiotów jest pusta!", "EmptyListOfSubjects");
 
-            // Wyrzuć wyjątek, jeśli plik o danej nazwie już istnieje
+            string filePath = Path.Combine(CrudaFolderPath, this.Name + ".json");
 
             if (File.Exists(filePath))
                 throw new ArgumentException("Profil istnieje!", "FileAlreadyExists");
 
-            // Wyrzuć wyjątek, jeśli lista przedmiotów jest pusta
-
-            if (!(this.ListOfSubjects.Count > 0))
-                throw new ArgumentException("Lista przedmiotów jest pusta!", "EmptyListOfSubjects");
+            var profile = new
+            {
+                listOfSubjects = this.ListOfSubjects
+            };
 
             var options = new JsonSerializerOptions
             {
@@ -90,10 +85,7 @@ namespace CRUDAppProject.CS.Base
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
 
-            Type itemType = this.ListOfSubjects[0].GetType();
-
-            string jsonString = JsonSerializer.Serialize(this.ListOfSubjects, typeof(List<>).MakeGenericType(itemType), options);
-
+            string jsonString = JsonSerializer.Serialize(profile, options);
             File.WriteAllText(filePath, jsonString);
         }
 
@@ -135,18 +127,45 @@ namespace CRUDAppProject.CS.Base
                 }
             }
         }
-
-
-        public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
+        
 
         /// <summary>
         /// Pobiera dane związane z profilem z pliku .json
         /// </summary>
 
-        public void LoadDatFromFile()
+        public void LoadDataFromFile()
         {
 
         }
 
+        static public List<string> LoadListOfSubjectFromFile()
+        {
+            string filePath = Path.Combine(CrudaFolderPath, Base_AppState.ChosenProfile + ".json");
+
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException("Nie znaleziono pliku profilu!", filePath);
+
+            string jsonString = File.ReadAllText(filePath);
+
+            using (JsonDocument doc = JsonDocument.Parse(jsonString))
+            {
+                JsonElement root = doc.RootElement;
+
+                if (root.TryGetProperty("listOfSubjects", out JsonElement subjectsElement) &&
+                    subjectsElement.ValueKind == JsonValueKind.Array)
+                {
+                    List<string> subjects = new List<string>();
+
+                    foreach (JsonElement item in subjectsElement.EnumerateArray())
+                        subjects.Add(item.GetString());
+
+                    return subjects;
+                }
+                else
+                {
+                    throw new ArgumentException("Nie znaleziono listy przedmiotów w pliku JSON.", "ListOfSubjectsNotFound");
+                }
+            }
+        }
     }
 }
