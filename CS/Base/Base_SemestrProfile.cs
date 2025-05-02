@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace CRUDAppProject.CS.Base
                 this._name = Side_Format.CapitalizeString(value);
             }
         }
-
+              
 
         /// <summary>
         /// Nazwa folderu wewnątrz którego dane powstałe w aplikacji zostaną zapisane
@@ -49,78 +50,8 @@ namespace CRUDAppProject.CS.Base
             set { this._listOfSubjects = value; }
         }
 
-
-        /// <summary>
-        /// Otwiera okno tworzenia nowego przedmiotu 
-        /// </summary>
-
-        static public void AddSubject()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno usuwania istniejącego przedmiotu z listy przedmiotów
-        /// </summary>
-
-        static public void RemoveSubject()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno tworzenia nowego profilu
-        /// </summary>
-
-        static public void CreateProfile()
-        {
-
-
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno edytowania istniejącego profilu
-        /// </summary>
-
-        static public void EditProfile()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno usuwania istniejącego profilu
-        /// </summary>
-
-        static public void DeleteProfile()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Otwiera okno wyboru istniejącego profilu
-        /// </summary>
-
-        static public void ChooseProfile()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Edytuje istniejący już przedmiot
-        /// </summary>
-        /// <param name="s">Nazwa przedmiotu, który należy usunąć z listy przedmiotów</param>
-
-        static public void EditSubject(string s)
-        {
-
-        }
+        public static string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        public static string CrudaFolderPath = Path.Combine(AppDataPath, NameOfAppDataFolder);
 
 
         /// <summary>
@@ -129,32 +60,24 @@ namespace CRUDAppProject.CS.Base
 
         public void SaveDataToFile()
         {
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string crudaFolderPath = Path.Combine(appDataPath, NameOfAppDataFolder);
+            if (!Directory.Exists(CrudaFolderPath))
+                Directory.CreateDirectory(CrudaFolderPath);
 
-
-            if (!Directory.Exists(crudaFolderPath))
-            {
-                Directory.CreateDirectory(crudaFolderPath);
-            }
-
-            string filePath = Path.Combine(crudaFolderPath, this.Name + ".json");
-
-            // Wyrzuć wyjątke, jeżeli nazwa pliku jest pusta
-
-            if (string.IsNullOrWhiteSpace(this.Name) || string.IsNullOrEmpty(this.Name))
+            if (string.IsNullOrWhiteSpace(this.Name))
                 throw new ArgumentException("Profil nie ma żadnej nazwy!", "NullOrEmptyFileName");
 
+            if (this.ListOfSubjects == null || this.ListOfSubjects.Count == 0)
+                throw new ArgumentException("Lista przedmiotów jest pusta!", "EmptyListOfSubjects");
 
-            // Wyrzuć wyjątek, jeśli plik o danej nazwie już istnieje
+            string filePath = Path.Combine(CrudaFolderPath, this.Name + ".json");
 
             if (File.Exists(filePath))
                 throw new ArgumentException("Profil istnieje!", "FileAlreadyExists");
 
-            // Wyrzuć wyjątek, jeśli lista przedmiotów jest pusta
-
-            if (!(this.ListOfSubjects.Count > 0))
-                throw new ArgumentException("Lista przedmiotów jest pusta!", "EmptyListOfSubjects");
+            var profile = new
+            {
+                listOfSubjects = this.ListOfSubjects
+            };
 
             var options = new JsonSerializerOptions
             {
@@ -162,21 +85,87 @@ namespace CRUDAppProject.CS.Base
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
 
-            Type itemType = this.ListOfSubjects[0].GetType();
-
-            string jsonString = JsonSerializer.Serialize(this.ListOfSubjects, typeof(List<>).MakeGenericType(itemType), options);
-
+            string jsonString = JsonSerializer.Serialize(profile, options);
             File.WriteAllText(filePath, jsonString);
         }
 
+        /// <summary>
+        /// Lista wszystkich profili, czyli plików z roszrzerzeniem .json
+        /// </summary>
+
+        public static List<string> ListOfAllProfiles = new List<string>();
+
+
+        /// <summary>
+        /// Pobieranie wszystkich plików z rozszerzeniem .json i ułozenie ich do listy ListOfAllProfiles
+        /// </summary>
+        /// <param name="cb">ComboBox z nazwami wszystkich profili - ten, co jest na formularzu form</param>
+
+        public static void LoadAllProfilesFromFile(ComboBox cb)
+        {
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string crudaFolderPath = Path.Combine(appDataPath, Base_SemestrProfile.NameOfAppDataFolder);
+
+            if (!Directory.Exists(crudaFolderPath))
+                throw new ArgumentException("Żaden profil nie został nigdy stworzony!", "CRUDADirectoryDoesNotExist");
+
+            else
+            {
+                ListOfAllProfiles = Directory.GetFiles(crudaFolderPath, "*.json").ToList<string>();
+
+
+                if (ListOfAllProfiles.Count <= 0)
+                    throw new ArgumentException("Brak profili w systemie!", "NoProfilesFound");
+
+
+                else if (ListOfAllProfiles.Count > 0)
+                {
+                    foreach (string profileName in ListOfAllProfiles)
+                    {
+                        cb.Items.Add(Path.GetFileName(profileName.Remove(profileName.Length - 5)));
+                    }
+                }
+            }
+        }
+        
 
         /// <summary>
         /// Pobiera dane związane z profilem z pliku .json
         /// </summary>
 
-        public void LoadDatFromFile()
+        public void LoadDataFromFile()
         {
 
+        }
+
+        static public List<string> LoadListOfSubjectFromFile()
+        {
+            string filePath = Path.Combine(CrudaFolderPath, Base_AppState.ChosenProfile + ".json");
+
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException("Nie znaleziono pliku profilu!", filePath);
+
+            string jsonString = File.ReadAllText(filePath);
+
+            using (JsonDocument doc = JsonDocument.Parse(jsonString))
+            {
+                JsonElement root = doc.RootElement;
+
+                if (root.TryGetProperty("listOfSubjects", out JsonElement subjectsElement) &&
+                    subjectsElement.ValueKind == JsonValueKind.Array)
+                {
+                    List<string> subjects = new List<string>();
+
+                    foreach (JsonElement item in subjectsElement.EnumerateArray())
+                        subjects.Add(item.GetString());
+
+                    return subjects;
+                }
+                else
+                {
+                    throw new ArgumentException("Nie znaleziono listy przedmiotów w pliku JSON.", "ListOfSubjectsNotFound");
+                }
+            }
         }
     }
 }

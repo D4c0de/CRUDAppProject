@@ -1,7 +1,8 @@
-﻿// TODO stworzyć aby automatycznie dobierało aktualną datę podczas tworzenia zadania
-
+﻿using CRUDAppProject.CS.Interfaces;
+using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
@@ -15,7 +16,7 @@ namespace CRUDAppProject.CS.Base
     /// Klasa abstrakcyjna która jest podstawą do klas związanych z rodzajami zadań
     /// </summary>
 
-    internal abstract class Base_Task
+    internal abstract class Base_Task : ISerialize
     {
         /// <summary>
         /// Nazwa zadania
@@ -25,7 +26,18 @@ namespace CRUDAppProject.CS.Base
         public string Title
         {
             get { return this._title; }
-            set { this._title = value; }
+            set 
+            {
+                if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
+                {
+                    value = value.Trim();
+                    this._title = Side_Format.CapitalizeString(value);
+                }
+
+                else
+                    throw new ArgumentException("Nazwa zadania nie może być pusta!", "TaskTitleNullOrEmpty");
+
+            }
         }
 
 
@@ -37,7 +49,34 @@ namespace CRUDAppProject.CS.Base
         public string Description
         {
             get { return this._description; }
-            set { this._description = value; }
+            set 
+            {
+                if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
+                {
+                    value = value.Trim();
+                    this._description = value;
+                }
+
+                else
+                    throw new ArgumentException("Opis zadania nie może być pusty!", "TaskDescriptionNullOrEmpty");
+
+            }
+        }
+
+        private string _chosenSubject;
+        public string ChosenSubject
+        {
+            get { return this._chosenSubject; }
+            set
+            {
+                if (Base_AppState.ChosenProfileSubjects.Contains(Side_Format.CapitalizeString(value)))
+                {
+                    this._chosenSubject = value;
+                }
+
+                else
+                    throw new ArgumentException("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "SubjectNotFound");
+            }
         }
 
 
@@ -49,7 +88,10 @@ namespace CRUDAppProject.CS.Base
         public DateTime Deadline
         {
             get { return this._deadline; }
-            set { this._deadline = value; }
+            set 
+            { 
+                this._deadline = value; 
+            }
         }
 
 
@@ -73,10 +115,28 @@ namespace CRUDAppProject.CS.Base
         public DateTime DateOfCreation
         {
             get { return this._dateOfCreation; }
-            set { this._dateOfCreation = value; }
+            set { this._dateOfCreation = DateTime.Now.Date; }
         }
 
+        private string _shortDescription;
+        public string ShortDescription
+        {
+            get { return this._shortDescription; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value) && value.Length > 0 && value.Length <= 32)
+                {
+                    this._shortDescription = value;
+                }
 
+                else if (value.Length > 32)
+                    throw new ArgumentException("Opis jest za długi! Maksymalnie 32 znaki!", "ShortDescriptionTooLong");
+
+                else if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Opis nie może być pusty!", "EmptyShortDescription");
+
+            }
+        }
 
         /// <summary>
         /// Krotka przechowująca stan zadania
@@ -95,5 +155,30 @@ namespace CRUDAppProject.CS.Base
             get { return this._status; }
             set { this._status = value; }
         }
+
+
+        // Lista rodzajów zadań 
+
+        public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
+
+
+
+        public void SaveDataToFile()
+        {
+
+        }
+
+        public void LoadDataFromFile()
+        {
+
+        }
+
+        public abstract void TaskCreator();
+
+        public abstract void TaskDisplayer();
+
+        public abstract void TaskEditor();
+
+        public abstract void TaskRemover();
     }
 }

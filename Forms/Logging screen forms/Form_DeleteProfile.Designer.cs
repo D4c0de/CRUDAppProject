@@ -43,9 +43,9 @@
             Label_ProfileName.Font = new Font("Segoe UI", 18F);
             Label_ProfileName.Location = new Point(598, 117);
             Label_ProfileName.Name = "Label_ProfileName";
-            Label_ProfileName.Size = new Size(533, 32);
+            Label_ProfileName.Size = new Size(540, 32);
             Label_ProfileName.TabIndex = 0;
-            Label_ProfileName.Text = "Wybierz profil z listy poniżej, którychcesz usunąć";
+            Label_ProfileName.Text = "Wybierz profil z listy poniżej, który chcesz usunąć";
             // 
             // ComboBox_ProfileName
             // 
@@ -56,7 +56,6 @@
             ComboBox_ProfileName.Size = new Size(655, 36);
             ComboBox_ProfileName.TabIndex = 1;
             ComboBox_ProfileName.Text = "Wybierz profil, który chcesz usunąć";
-            
             // 
             // Button_ExitProfileDeletion
             // 
