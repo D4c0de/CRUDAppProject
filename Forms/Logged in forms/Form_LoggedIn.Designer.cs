@@ -60,7 +60,7 @@
             // 
             Panel_TaskCardsPanel.Location = new Point(182, 97);
             Panel_TaskCardsPanel.Name = "Panel_TaskCardsPanel";
-            Panel_TaskCardsPanel.Size = new Size(1200, 600);
+            Panel_TaskCardsPanel.Size = new Size(1200, 630);
             Panel_TaskCardsPanel.TabIndex = 2;
             // 
             // Form_LoggedIn
