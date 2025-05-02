@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,22 @@ namespace CRUDAppProject.Forms
         public Form_LoggedIn()
         {
             InitializeComponent();
+
+            string json = File.ReadAllText(Base_AppState.ChosenProfileFilePath);
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { new TaskConverter() },
+                PropertyNameCaseInsensitive = true
+            };
+
+            var document = JsonSerializer.Deserialize<RootObject>(json, options);
+
+            foreach (var task in document.tasks)
+            {
+                Console.WriteLine($"{task.Title}: {task.GetType().Name}");
+            }
+
         }
 
         private void Button_LogOut_Click(object sender, EventArgs e)

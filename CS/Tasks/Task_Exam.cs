@@ -108,6 +108,12 @@ namespace CRUDAppProject.CS.Tasks
 
         }
 
+        public void Test1()
+        {
+            Console.WriteLine("to jest test dla klasy Exam");
+        }
+
+
         public void SaveDataToFile()
         {
             string filePath = Base_AppState.ChosenProfileFilePath;
@@ -119,9 +125,9 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement.Clone();
 
-            List<JsonElement> taskExams = new List<JsonElement>();
-            if (root.TryGetProperty("taskExams", out JsonElement existingExams) && existingExams.ValueKind == JsonValueKind.Array)
-                taskExams.AddRange(existingExams.EnumerateArray());
+            List<JsonElement> tasks = new List<JsonElement>();
+            if (root.TryGetProperty("tasks", out JsonElement existingTasks) && existingTasks.ValueKind == JsonValueKind.Array)
+                tasks.AddRange(existingTasks.EnumerateArray());
 
             var taskObj = new
             {
@@ -138,22 +144,22 @@ namespace CRUDAppProject.CS.Tasks
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
-            taskExams.Add(JsonDocument.Parse(taskJson).RootElement);
+            tasks.Add(JsonDocument.Parse(taskJson).RootElement);
 
             var updatedProfile = new Dictionary<string, object>();
+
             foreach (var prop in root.EnumerateObject())
             {
-                if (prop.Name != "taskExams")
+                if (prop.Name != "tasks")
                     updatedProfile[prop.Name] = JsonSerializer.Deserialize<object>(prop.Value.GetRawText());
             }
 
-            updatedProfile["taskExams"] = taskExams;
+            updatedProfile["tasks"] = tasks;
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string updatedJson = JsonSerializer.Serialize(updatedProfile, options);
             File.WriteAllText(filePath, updatedJson);
         }
-
         public void LoadDataFromFile()
         {
 
@@ -164,7 +170,7 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement;
 
-            if (!root.TryGetProperty("taskExams", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
+            if (!root.TryGetProperty("tasks", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
                 throw new JsonException("Brak listy zadań w pliku profilu.");
 
             foreach (JsonElement task in tasksElement.EnumerateArray())

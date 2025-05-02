@@ -107,6 +107,11 @@ namespace CRUDAppProject.CS.Tasks
         {
 
         }
+        public void Test3()
+        {
+            Console.WriteLine("to jest test dla klasy Proj");
+        }
+
 
 
         public void SaveDataToFile()
@@ -120,13 +125,13 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement.Clone();
 
-            List<JsonElement> taskProjects = new List<JsonElement>();
-            if (root.TryGetProperty("taskProjects", out JsonElement existingProjects) && existingProjects.ValueKind == JsonValueKind.Array)
-                taskProjects.AddRange(existingProjects.EnumerateArray());
+            List<JsonElement> tasks = new List<JsonElement>();
+            if (root.TryGetProperty("tasks", out JsonElement existingTasks) && existingTasks.ValueKind == JsonValueKind.Array)
+                tasks.AddRange(existingTasks.EnumerateArray());
 
             var taskObj = new
             {
-                taskType = this.GetType().ToString(),
+                taskType = this.GetType().Name,
                 title = this.Title,
                 shortDescription = this.ShortDescription,
                 description = this.Description,
@@ -139,16 +144,17 @@ namespace CRUDAppProject.CS.Tasks
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
-            taskProjects.Add(JsonDocument.Parse(taskJson).RootElement);
+            tasks.Add(JsonDocument.Parse(taskJson).RootElement);
 
             var updatedProfile = new Dictionary<string, object>();
+
             foreach (var prop in root.EnumerateObject())
             {
-                if (prop.Name != "taskProjects")
+                if (prop.Name != "tasks")
                     updatedProfile[prop.Name] = JsonSerializer.Deserialize<object>(prop.Value.GetRawText());
             }
 
-            updatedProfile["taskProjects"] = taskProjects;
+            updatedProfile["tasks"] = tasks;
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string updatedJson = JsonSerializer.Serialize(updatedProfile, options);
@@ -165,7 +171,7 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement;
 
-            if (!root.TryGetProperty("taskProjects", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
+            if (!root.TryGetProperty("tasks", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
                 throw new JsonException("Brak listy zadań w pliku profilu.");
 
             foreach (JsonElement task in tasksElement.EnumerateArray())
@@ -175,9 +181,6 @@ namespace CRUDAppProject.CS.Tasks
                     Console.WriteLine($"Zadanie: {title.GetString()}");
                 }
             }
-
-            
-
         }
     }
 }
