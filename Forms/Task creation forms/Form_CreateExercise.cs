@@ -17,10 +17,12 @@ namespace CRUDAppProject.Forms.Logged_in_forms
     {
         public Form_CreateExercise()
         {
-            
+
             InitializeComponent();
+            Calendar_SetDeadline.MaxSelectionCount = 1;
+            Calendar_SetDeadline.MinDate = DateTime.Now.Date;
             FillComboBox();
-            
+
         }
 
         private void FillComboBox()
@@ -33,7 +35,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
         {
             try
             {
-                
+
                 Task_Exercise task = new Task_Exercise();
                 task.Title = TextBox_TaskTitle.Text;
                 task.Description = RichTextBox_TaskDescription.Text;
@@ -56,10 +58,10 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 
                 else if (ex.ParamName == "TaskDescriptionNullOrEmpty")
                     MessageBox.Show("Opis zadania nie może być pusty!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
                 else if (ex.ParamName == "SubjectNotFound")
                     MessageBox.Show("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
                 else if (ex.ParamName == "ExerciseSourceNullOrEmpty")
                     MessageBox.Show("Źródło zadania nie może być puste!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

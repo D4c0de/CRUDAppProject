@@ -30,7 +30,7 @@ namespace CRUDAppProject.CS.Base
                 if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
                 {
                     value = value.Trim();
-                    this._title = value;
+                    this._title = Side_Format.CapitalizeString(value);
                 }
 
                 else

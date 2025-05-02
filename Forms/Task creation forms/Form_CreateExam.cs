@@ -25,6 +25,8 @@ namespace CRUDAppProject.Forms.Logged_in_forms
         public Form_CreateExam()
         {
             InitializeComponent();
+            Calendar_SetDeadline.MaxSelectionCount = 1;
+            Calendar_SetDeadline.MinDate = DateTime.Now.Date;
             FillComboBox();
         }
 
@@ -51,19 +53,19 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             catch (ArgumentException ex)
             {
                 if (ex.ParamName == "TaskTitleNullOrEmpty")
-                    MessageBox.Show("Nazwa zadania nie może być pusta!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nazwa egzaminu nie może być pusta!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "TaskDescriptionNullOrEmpty")
-                    MessageBox.Show("Opis zadania nie może być pusty!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Opis egzaminu nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "SubjectNotFound")
-                    MessageBox.Show("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                else if (ex.ParamName == "ExerciseSourceNullOrEmpty")
-                    MessageBox.Show("Źródło zadania nie może być puste!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (ex.ParamName == "ExamMaterialScopeNullOrEmpty")
+                    MessageBox.Show("Materiał do nauki nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "FATALTaskTypeConflict")
-                    MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

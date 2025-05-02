@@ -33,7 +33,7 @@ namespace CRUDAppProject.CS.Tasks
                 }
 
                 else
-                    throw new ArgumentException("Zakres materiału nie może być pusty!", "ExerciseSourceNullOrEmpty");
+                    throw new ArgumentException("Zakres materiału nie może być pusty!", "ExamMaterialScopeNullOrEmpty");
 
             }
         }

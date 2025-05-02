@@ -104,7 +104,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             // 
             Calendar_SetDeadline.Location = new Point(1075, 266);
             Calendar_SetDeadline.MaxSelectionCount = 1;
-            Calendar_SetDeadline.MinDate = DateTime.Now.Date;
+            Calendar_SetDeadline.MinDate = new DateTime(2025, 5, 2, 0, 0, 0, 0);
             Calendar_SetDeadline.Name = "Calendar_SetDeadline";
             Calendar_SetDeadline.TabIndex = 6;
             // 
