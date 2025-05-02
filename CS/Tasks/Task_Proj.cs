@@ -127,6 +127,7 @@ namespace CRUDAppProject.CS.Tasks
             {
                 taskType = this.GetType().Name,
                 title = this.Title,
+                shortDescription = this.ShortDescription,
                 description = this.Description,
                 members = this.Members,
                 chosenSubject = this.ChosenSubject,

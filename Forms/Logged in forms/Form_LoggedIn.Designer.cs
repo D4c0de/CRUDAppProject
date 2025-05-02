@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             Button_CreateNewTask = new Button();
             Button_LogOut = new Button();
-            panel1 = new Panel();
+            Panel_TaskCardsPanel = new Panel();
             bindingSource1 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
@@ -56,12 +56,12 @@
             Button_LogOut.UseVisualStyleBackColor = true;
             Button_LogOut.Click += Button_LogOut_Click;
             // 
-            // panel1
+            // Panel_TaskCardsPanel
             // 
-            panel1.Location = new Point(12, 109);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1580, 620);
-            panel1.TabIndex = 2;
+            Panel_TaskCardsPanel.Location = new Point(182, 97);
+            Panel_TaskCardsPanel.Name = "Panel_TaskCardsPanel";
+            Panel_TaskCardsPanel.Size = new Size(1200, 600);
+            Panel_TaskCardsPanel.TabIndex = 2;
             // 
             // Form_LoggedIn
             // 
@@ -69,7 +69,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1604, 741);
-            Controls.Add(panel1);
+            Controls.Add(Panel_TaskCardsPanel);
             Controls.Add(Button_LogOut);
             Controls.Add(Button_CreateNewTask);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -84,7 +84,7 @@
 
         private Button Button_CreateNewTask;
         private Button Button_LogOut;
-        private Panel panel1;
+        private Panel Panel_TaskCardsPanel;
         private BindingSource bindingSource1;
     }
 }

@@ -43,6 +43,8 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Button_CreateExercise = new Button();
             ComboBox_ChooseSubject = new ComboBox();
             Label_ChooseSubject = new Label();
+            Label_ShortDescription = new Label();
+            TextBox_ShortDescription = new TextBox();
             SuspendLayout();
             // 
             // Label_WelcomeMessage
@@ -69,11 +71,12 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             // 
             Label_TaskDescription.AutoSize = true;
             Label_TaskDescription.Font = new Font("Segoe UI", 14F);
-            Label_TaskDescription.Location = new Point(242, 212);
+            Label_TaskDescription.Location = new Point(223, 266);
             Label_TaskDescription.Name = "Label_TaskDescription";
-            Label_TaskDescription.Size = new Size(214, 25);
+            Label_TaskDescription.Size = new Size(265, 25);
             Label_TaskDescription.TabIndex = 2;
-            Label_TaskDescription.Text = "Wprowadź opis zadania";
+            Label_TaskDescription.Text = "Wprowadź pełny opis zadania\r\n";
+            Label_TaskDescription.Click += Label_TaskDescription_Click;
             // 
             // Label_TaskSource
             // 
@@ -120,7 +123,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             // 
             // RichTextBox_TaskDescription
             // 
-            RichTextBox_TaskDescription.Location = new Point(35, 254);
+            RichTextBox_TaskDescription.Location = new Point(35, 294);
             RichTextBox_TaskDescription.Name = "RichTextBox_TaskDescription";
             RichTextBox_TaskDescription.Size = new Size(629, 141);
             RichTextBox_TaskDescription.TabIndex = 8;
@@ -165,12 +168,31 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Label_ChooseSubject.TabIndex = 12;
             Label_ChooseSubject.Text = "Wybierz przedmiot do którego chcesz dołączyć zadanie";
             // 
+            // Label_ShortDescription
+            // 
+            Label_ShortDescription.AutoSize = true;
+            Label_ShortDescription.Font = new Font("Segoe UI", 14F);
+            Label_ShortDescription.Location = new Point(277, 181);
+            Label_ShortDescription.Name = "Label_ShortDescription";
+            Label_ShortDescription.Size = new Size(195, 25);
+            Label_ShortDescription.TabIndex = 13;
+            Label_ShortDescription.Text = "Wprowadź krótki opis";
+            // 
+            // TextBox_ShortDescription
+            // 
+            TextBox_ShortDescription.Location = new Point(35, 209);
+            TextBox_ShortDescription.Name = "TextBox_ShortDescription";
+            TextBox_ShortDescription.Size = new Size(629, 23);
+            TextBox_ShortDescription.TabIndex = 14;
+            // 
             // Form_CreateExercise
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1608, 745);
+            Controls.Add(TextBox_ShortDescription);
+            Controls.Add(Label_ShortDescription);
             Controls.Add(Label_ChooseSubject);
             Controls.Add(ComboBox_ChooseSubject);
             Controls.Add(Button_CreateExercise);
@@ -188,6 +210,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Name = "Form_CreateExercise";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_CreateExercise";
+            Load += Form_CreateExercise_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -207,5 +230,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
         private Button Button_CreateExercise;
         private ComboBox ComboBox_ChooseSubject;
         private Label Label_ChooseSubject;
+        private Label Label_ShortDescription;
+        private TextBox TextBox_ShortDescription;
     }
 }

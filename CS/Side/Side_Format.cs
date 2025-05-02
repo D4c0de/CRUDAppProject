@@ -1,6 +1,4 @@
-﻿// TODO: formatowanie daty na czas europejski - tak myślę, czy nam się w ogóle to przyda? na ten moment niech zostanie deklaracja funkcji, może na przyszłość się to uzupełni
-
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;

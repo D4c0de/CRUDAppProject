@@ -41,6 +41,8 @@
             RichTextBox_TaskDescription = new RichTextBox();
             ComboBox_ChooseSubject = new ComboBox();
             TextBox_TaskMembers = new TextBox();
+            TextBox_ShortDescription = new TextBox();
+            Label_ShortDescription = new Label();
             SuspendLayout();
             // 
             // Label_WelcomeMessage
@@ -67,17 +69,17 @@
             // 
             Label_TaskDescription.AutoSize = true;
             Label_TaskDescription.Font = new Font("Segoe UI", 14F);
-            Label_TaskDescription.Location = new Point(256, 252);
+            Label_TaskDescription.Location = new Point(225, 328);
             Label_TaskDescription.Name = "Label_TaskDescription";
-            Label_TaskDescription.Size = new Size(218, 25);
+            Label_TaskDescription.Size = new Size(269, 25);
             Label_TaskDescription.TabIndex = 2;
-            Label_TaskDescription.Text = "Wprowadź opis projektu";
+            Label_TaskDescription.Text = "Wprowadź pełny opis projektu";
             // 
             // Label_TaskMembers
             // 
             Label_TaskMembers.AutoSize = true;
             Label_TaskMembers.Font = new Font("Segoe UI", 14F);
-            Label_TaskMembers.Location = new Point(253, 572);
+            Label_TaskMembers.Location = new Point(229, 573);
             Label_TaskMembers.Name = "Label_TaskMembers";
             Label_TaskMembers.Size = new Size(221, 25);
             Label_TaskMembers.TabIndex = 3;
@@ -97,11 +99,12 @@
             // 
             Label_SetDeadline.AutoSize = true;
             Label_SetDeadline.Font = new Font("Segoe UI", 14F);
-            Label_SetDeadline.Location = new Point(1052, 252);
+            Label_SetDeadline.Location = new Point(1098, 232);
             Label_SetDeadline.Name = "Label_SetDeadline";
-            Label_SetDeadline.Size = new Size(242, 25);
+            Label_SetDeadline.Size = new Size(212, 25);
             Label_SetDeadline.TabIndex = 5;
-            Label_SetDeadline.Text = "Wyznacz termin wykonania";
+            Label_SetDeadline.Text = "Wyznacz termin obrony";
+            Label_SetDeadline.Click += Label_SetDeadline_Click;
             // 
             // Button_ExitProjectCreator
             // 
@@ -139,7 +142,7 @@
             // 
             // RichTextBox_TaskDescription
             // 
-            RichTextBox_TaskDescription.Location = new Point(32, 286);
+            RichTextBox_TaskDescription.Location = new Point(32, 356);
             RichTextBox_TaskDescription.Name = "RichTextBox_TaskDescription";
             RichTextBox_TaskDescription.Size = new Size(629, 141);
             RichTextBox_TaskDescription.TabIndex = 10;
@@ -160,12 +163,32 @@
             TextBox_TaskMembers.Size = new Size(629, 23);
             TextBox_TaskMembers.TabIndex = 13;
             // 
+            // TextBox_ShortDescription
+            // 
+            TextBox_ShortDescription.Location = new Point(32, 252);
+            TextBox_ShortDescription.Name = "TextBox_ShortDescription";
+            TextBox_ShortDescription.Size = new Size(629, 23);
+            TextBox_ShortDescription.TabIndex = 14;
+            // 
+            // Label_ShortDescription
+            // 
+            Label_ShortDescription.AutoSize = true;
+            Label_ShortDescription.Font = new Font("Segoe UI", 14F);
+            Label_ShortDescription.Location = new Point(255, 224);
+            Label_ShortDescription.Name = "Label_ShortDescription";
+            Label_ShortDescription.Size = new Size(195, 25);
+            Label_ShortDescription.TabIndex = 15;
+            Label_ShortDescription.Text = "Wprowadź krótki opis";
+            Label_ShortDescription.Click += label1_Click;
+            // 
             // Form_CreateProj
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1608, 745);
+            Controls.Add(Label_ShortDescription);
+            Controls.Add(TextBox_ShortDescription);
             Controls.Add(TextBox_TaskMembers);
             Controls.Add(ComboBox_ChooseSubject);
             Controls.Add(RichTextBox_TaskDescription);
@@ -202,5 +225,7 @@
         private RichTextBox RichTextBox_TaskDescription;
         private ComboBox ComboBox_ChooseSubject;
         private TextBox TextBox_TaskMembers;
+        private TextBox TextBox_ShortDescription;
+        private Label Label_ShortDescription;
     }
 }

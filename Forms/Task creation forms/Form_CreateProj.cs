@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms
 {
-    public partial class Form_CreateProj: Form
+    public partial class Form_CreateProj : Form
     {
         private void FillComboBox()
         {
@@ -35,6 +35,7 @@ namespace CRUDAppProject.Forms
             {
                 Task_Proj task = new Task_Proj();
                 task.Title = TextBox_TaskTitle.Text;
+                task.ShortDescription = TextBox_ShortDescription.Text;
                 task.Description = RichTextBox_TaskDescription.Text;
                 task.Members = TextBox_TaskMembers.Text;
                 task.ChosenSubject = Side_Format.CapitalizeString(ComboBox_ChooseSubject.Text);
@@ -62,13 +63,26 @@ namespace CRUDAppProject.Forms
                 else if (ex.ParamName == "ProjectMembersSourceNullOrEmpty")
                     MessageBox.Show("Lista członków nie może być pusta!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                else if (ex.ParamName == "ShortDescriptionTooLong")
+                    MessageBox.Show("Krótki opis jest za długi! Maksymalnie 32 znaki!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                else if (ex.ParamName == "EmptyShortDescription")
+                    MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 else if (ex.ParamName == "FATALTaskTypeConflict")
                     MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void Label_SetDeadline_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

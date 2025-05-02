@@ -38,6 +38,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 
                 Task_Exercise task = new Task_Exercise();
                 task.Title = TextBox_TaskTitle.Text;
+                task.ShortDescription = TextBox_ShortDescription.Text;
                 task.Description = RichTextBox_TaskDescription.Text;
                 task.TaskSource = RichTextBox_TaskSource.Text;
                 task.ChosenSubject = Side_Format.CapitalizeString(ComboBox_ChooseSubject.Text);
@@ -65,6 +66,12 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 else if (ex.ParamName == "ExerciseSourceNullOrEmpty")
                     MessageBox.Show("Źródło zadania nie może być puste!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                else if (ex.ParamName == "ShortDescriptionTooLong")
+                    MessageBox.Show("Krótki opis jest za długi! Maksymalnie 32 znaki!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                else if (ex.ParamName == "EmptyShortDescription")
+                    MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 else if (ex.ParamName == "FATALTaskTypeConflict")
                     MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -72,5 +79,14 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 
         }
 
+        private void Form_CreateExercise_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label_TaskDescription_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

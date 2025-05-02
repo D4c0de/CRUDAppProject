@@ -1,4 +1,6 @@
 ﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Static;
+using CRUDAppProject.CS.Tasks;
 using CRUDAppProject.Forms.Logged_in_forms;
 using System;
 using System.Collections.Generic;

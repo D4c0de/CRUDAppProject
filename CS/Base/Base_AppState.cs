@@ -46,5 +46,7 @@ namespace CRUDAppProject.CS.Base
             }
         }
 
+        static public int CardCount = 0;
+
     }
 }

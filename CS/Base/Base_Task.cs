@@ -2,6 +2,7 @@
 using CRUDAppProject.CS.Static;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
@@ -117,7 +118,25 @@ namespace CRUDAppProject.CS.Base
             set { this._dateOfCreation = DateTime.Now.Date; }
         }
 
+        private string _shortDescription;
+        public string ShortDescription
+        {
+            get { return this._shortDescription; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value) && value.Length > 0 && value.Length <= 32)
+                {
+                    this._shortDescription = value;
+                }
 
+                else if (value.Length > 32)
+                    throw new ArgumentException("Opis jest za długi! Maksymalnie 32 znaki!", "ShortDescriptionTooLong");
+
+                else if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Opis nie może być pusty!", "EmptyShortDescription");
+
+            }
+        }
 
         /// <summary>
         /// Krotka przechowująca stan zadania

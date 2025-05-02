@@ -41,6 +41,8 @@
             RichTextBox_TaskDescription = new RichTextBox();
             RichTextBox_TaskMaterialScope = new RichTextBox();
             Label_SetDeadline = new Label();
+            TextBox_ShortDescription = new TextBox();
+            Label_ShortDescription = new Label();
             SuspendLayout();
             // 
             // Label_WelcomeMessage
@@ -57,7 +59,7 @@
             // 
             Label_TaskTitle.AutoSize = true;
             Label_TaskTitle.Font = new Font("Segoe UI", 14F);
-            Label_TaskTitle.Location = new Point(277, 99);
+            Label_TaskTitle.Location = new Point(252, 110);
             Label_TaskTitle.Name = "Label_TaskTitle";
             Label_TaskTitle.Size = new Size(163, 25);
             Label_TaskTitle.TabIndex = 1;
@@ -67,11 +69,11 @@
             // 
             Label_TaskDescription.AutoSize = true;
             Label_TaskDescription.Font = new Font("Segoe UI", 14F);
-            Label_TaskDescription.Location = new Point(242, 212);
+            Label_TaskDescription.Location = new Point(223, 266);
             Label_TaskDescription.Name = "Label_TaskDescription";
-            Label_TaskDescription.Size = new Size(231, 25);
+            Label_TaskDescription.Size = new Size(282, 25);
             Label_TaskDescription.TabIndex = 2;
-            Label_TaskDescription.Text = "Wprowadź opis egzaminu";
+            Label_TaskDescription.Text = "Wprowadź pełny opis egzaminu";
             // 
             // Label_TaskMaterialScope
             // 
@@ -87,7 +89,7 @@
             // 
             Label_ChooseSubject.AutoSize = true;
             Label_ChooseSubject.Font = new Font("Segoe UI", 14F);
-            Label_ChooseSubject.Location = new Point(984, 99);
+            Label_ChooseSubject.Location = new Point(985, 99);
             Label_ChooseSubject.Name = "Label_ChooseSubject";
             Label_ChooseSubject.Size = new Size(479, 25);
             Label_ChooseSubject.TabIndex = 4;
@@ -118,7 +120,7 @@
             // 
             Calendar_SetDeadline.Location = new Point(1075, 266);
             Calendar_SetDeadline.MaxSelectionCount = 1;
-            Calendar_SetDeadline.MinDate = DateTime.Now.Date;
+            Calendar_SetDeadline.MinDate = new DateTime(2025, 5, 2, 0, 0, 0, 0);
             Calendar_SetDeadline.Name = "Calendar_SetDeadline";
             Calendar_SetDeadline.TabIndex = 7;
             // 
@@ -139,7 +141,7 @@
             // 
             // RichTextBox_TaskDescription
             // 
-            RichTextBox_TaskDescription.Location = new Point(35, 254);
+            RichTextBox_TaskDescription.Location = new Point(35, 294);
             RichTextBox_TaskDescription.Name = "RichTextBox_TaskDescription";
             RichTextBox_TaskDescription.Size = new Size(629, 141);
             RichTextBox_TaskDescription.TabIndex = 10;
@@ -163,12 +165,31 @@
             Label_SetDeadline.TabIndex = 12;
             Label_SetDeadline.Text = "Wyznacz termin zaliczenia";
             // 
+            // TextBox_ShortDescription
+            // 
+            TextBox_ShortDescription.Location = new Point(35, 209);
+            TextBox_ShortDescription.Name = "TextBox_ShortDescription";
+            TextBox_ShortDescription.Size = new Size(629, 23);
+            TextBox_ShortDescription.TabIndex = 13;
+            // 
+            // Label_ShortDescription
+            // 
+            Label_ShortDescription.AutoSize = true;
+            Label_ShortDescription.Font = new Font("Segoe UI", 14F);
+            Label_ShortDescription.Location = new Point(252, 181);
+            Label_ShortDescription.Name = "Label_ShortDescription";
+            Label_ShortDescription.Size = new Size(195, 25);
+            Label_ShortDescription.TabIndex = 14;
+            Label_ShortDescription.Text = "Wprowadź krótki opis";
+            // 
             // Form_CreateExam
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1608, 745);
+            Controls.Add(Label_ShortDescription);
+            Controls.Add(TextBox_ShortDescription);
             Controls.Add(Label_SetDeadline);
             Controls.Add(RichTextBox_TaskMaterialScope);
             Controls.Add(RichTextBox_TaskDescription);
@@ -205,5 +226,7 @@
         private RichTextBox RichTextBox_TaskDescription;
         private RichTextBox RichTextBox_TaskMaterialScope;
         private Label Label_SetDeadline;
+        private TextBox TextBox_ShortDescription;
+        private Label Label_ShortDescription;
     }
 }
