@@ -46,11 +46,8 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 this.Close();
                 Form_LoggedIn screen_LoggedIn = new Form_LoggedIn();
                 screen_LoggedIn.Show();
-                
-
 
             }
-
 
             catch (ArgumentException ex)
             {

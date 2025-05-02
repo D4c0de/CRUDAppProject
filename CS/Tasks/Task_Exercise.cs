@@ -102,15 +102,14 @@ namespace CRUDAppProject.CS.Tasks
 
             List<JsonElement> tasks = new List<JsonElement>();
             if (root.TryGetProperty("tasks", out JsonElement existingTasks) && existingTasks.ValueKind == JsonValueKind.Array)
-            {
                 tasks.AddRange(existingTasks.EnumerateArray());
-            }
 
             var taskObj = new
             {
                 taskType = this.GetType().Name,
                 title = this.Title,
                 description = this.Description,
+                taskSource = this.TaskSource,
                 chosenSubject = this.ChosenSubject,
                 dateOfCreation = this.DateOfCreation,
                 deadline = this.Deadline,
