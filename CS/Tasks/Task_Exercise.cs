@@ -100,13 +100,13 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement.Clone();
 
-            List<JsonElement> tasks = new List<JsonElement>();
-            if (root.TryGetProperty("tasks", out JsonElement existingTasks) && existingTasks.ValueKind == JsonValueKind.Array)
-                tasks.AddRange(existingTasks.EnumerateArray());
+            List<JsonElement> taskExercises = new List<JsonElement>();
+            if (root.TryGetProperty("taskProjects", out JsonElement existingExercises) && existingExercises.ValueKind == JsonValueKind.Array)
+                taskExercises.AddRange(existingExercises.EnumerateArray());
 
             var taskObj = new
             {
-                taskType = this.GetType().Name,
+                taskType = this.GetType().ToString(),
                 title = this.Title,
                 shortDescription = this.ShortDescription,
                 description = this.Description,
@@ -119,17 +119,16 @@ namespace CRUDAppProject.CS.Tasks
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
-            tasks.Add(JsonDocument.Parse(taskJson).RootElement);
+            taskExercises.Add(JsonDocument.Parse(taskJson).RootElement);
 
             var updatedProfile = new Dictionary<string, object>();
-
             foreach (var prop in root.EnumerateObject())
             {
-                if (prop.Name != "tasks")
+                if (prop.Name != "taskExercises")
                     updatedProfile[prop.Name] = JsonSerializer.Deserialize<object>(prop.Value.GetRawText());
             }
 
-            updatedProfile["tasks"] = tasks;
+            updatedProfile["taskExercises"] = taskExercises;
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string updatedJson = JsonSerializer.Serialize(updatedProfile, options);
@@ -146,7 +145,7 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement;
 
-            if (!root.TryGetProperty("tasks", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
+            if (!root.TryGetProperty("taskExercises", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
                 throw new JsonException("Brak listy zadań w pliku profilu.");
 
             foreach (JsonElement task in tasksElement.EnumerateArray())
