@@ -11,8 +11,8 @@ namespace CRUDAppProject.CS.Base
 {
     public class RootObject
     {
-        public List<string> listOfSubjects { get; set; }
-        public List<Base_Task> tasks { get; set; }
+        public List<string> ListOfSubjects { get; set; }
+        public List<Base_Task> Tasks { get; set; }
     }
 
     public class TaskConverter : JsonConverter<Base_Task>
@@ -30,12 +30,12 @@ namespace CRUDAppProject.CS.Base
                 "CRUDAppProject.CS.Tasks.Task_Exercise" => JsonSerializer.Deserialize<Task_Exercise>(root.GetRawText(), options),
                 "CRUDAppProject.CS.Tasks.Task_Exam" => JsonSerializer.Deserialize<Task_Exam>(root.GetRawText(), options),
 
-                // Dodaj skrócone wersje
                 "Task_Proj" => JsonSerializer.Deserialize<Task_Proj>(root.GetRawText(), options),
                 "Task_Exercise" => JsonSerializer.Deserialize<Task_Exercise>(root.GetRawText(), options),
                 "Task_Exam" => JsonSerializer.Deserialize<Task_Exam>(root.GetRawText(), options),
 
-                _ => throw new NotSupportedException($"Nieznany typ zadania: {taskType}")
+                _ => throw new NotSupportedException($"Nieznany typ zadania: {taskType}"),
+                
             };
 
         }

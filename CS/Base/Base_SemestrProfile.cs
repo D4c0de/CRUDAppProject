@@ -1,5 +1,5 @@
 ﻿using CRUDAppProject.CS.Interfaces;
-using CRUDAppProject.CS.Static;
+using CRUDAppProject.CS.Side;
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;

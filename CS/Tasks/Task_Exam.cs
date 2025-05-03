@@ -108,9 +108,68 @@ namespace CRUDAppProject.CS.Tasks
 
         }
 
-        public void Test1()
+        public override void ShowTaskCard(Panel panelToShowOn)
         {
-            Console.WriteLine("to jest test dla klasy Exam");
+            // Create a new card panel
+            Panel cardPanel = new Panel
+            {
+                Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
+                Location = new Point(10, Base_AppState.CardCount * 110), // vertical spacing
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Cursor = Cursors.Hand
+            };
+
+            
+            Label titleLabel = new Label
+            {
+                Text = this.ChosenSubject,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Dock = DockStyle.Top,
+                Height = 25,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            
+            Label taskTye = new Label
+            {
+                Text = "Egzamin",
+                Font = new Font("Segoe UI", 9),
+                Dock = DockStyle.Top,
+                Height = 20,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Quote
+            Label shortDescriptionLabel = new Label
+            {
+                Text = this.ShortDescription,
+                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                Dock = DockStyle.Top,
+                Height = 20,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Deadline
+            Label deadlineLabel = new Label
+            {
+                Text = $"Termin: {this.Deadline.ToShortDateString()}",
+                Font = new Font("Segoe UI", 9),
+                Dock = DockStyle.Bottom,
+                Height = 25,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Add Labels
+            
+            
+            cardPanel.Controls.Add(shortDescriptionLabel);
+            cardPanel.Controls.Add(taskTye);
+            cardPanel.Controls.Add(titleLabel);
+            cardPanel.Controls.Add(deadlineLabel);
+
+            panelToShowOn.Controls.Add(cardPanel);
+            Base_AppState.CardCount++;
         }
 
 

@@ -1,4 +1,4 @@
-﻿using CRUDAppProject.CS.Static;
+﻿using CRUDAppProject.CS.Side;
 using System;
 using System.Collections.Generic;
 using System.Linq;

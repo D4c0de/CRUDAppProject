@@ -1,5 +1,5 @@
 ﻿using CRUDAppProject.CS.Base;
-using CRUDAppProject.CS.Static;
+using CRUDAppProject.CS.Side;
 using CRUDAppProject.CS.Tasks;
 using CRUDAppProject.Forms.Logged_in_forms;
 using System;
@@ -20,6 +20,8 @@ namespace CRUDAppProject.Forms
         public Form_LoggedIn()
         {
             InitializeComponent();
+            Base_AppState.CardCount = 0;
+
 
             string json = File.ReadAllText(Base_AppState.ChosenProfileFilePath);
 
@@ -31,9 +33,9 @@ namespace CRUDAppProject.Forms
 
             var document = JsonSerializer.Deserialize<RootObject>(json, options);
 
-            foreach (var task in document.tasks)
+            foreach (var task in document.Tasks)
             {
-                Console.WriteLine($"{task.Title}: {task.GetType().Name}");
+                task.ShowTaskCard(Panel_TaskCardsPanel);
             }
 
         }
