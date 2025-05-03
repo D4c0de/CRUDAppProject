@@ -17,7 +17,9 @@ namespace CRUDAppProject.Forms
     {
         public Form_Logging()
         {
-            this.Resize += Form1_Resize;
+            this.Resize += Form_Resize;
+            this.Resize += Form_Resize_Center_Buttons;
+            this.Resize += Form_Load_Center_Buttons;
             this.Padding = new Padding(2);
             this.BackColor = Color.DodgerBlue;
             InitializeComponent();
@@ -176,7 +178,7 @@ namespace CRUDAppProject.Forms
                 Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
                 Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid);
         }
-        private void Form1_Resize(object? sender, EventArgs e)
+        private void Form_Resize(object? sender, EventArgs e)
         {
 
             this.Invalidate();
@@ -198,7 +200,7 @@ namespace CRUDAppProject.Forms
             if (sender is Button btn)
                 btn.ForeColor = Color.Black;
         }
-
+        //zmiana koloru przycisku po najechaniu
         private void Menu_Button_Enter(object sender, EventArgs e)
         {
             if (sender is Button btn)
@@ -209,6 +211,23 @@ namespace CRUDAppProject.Forms
         {
             if (sender is Button btn)
                 btn.BackColor = Color.DodgerBlue;
+        }
+        //Funckja centrujaca przyciski
+        private void Center_Buttons()
+        {
+            int x = (this.ClientSize.Width - tableLayoutPanel1.Width) / 2;
+            int y = (this.ClientSize.Height - tableLayoutPanel1.Height) / 2;
+            tableLayoutPanel1.Location = new Point(x, y);
+        }
+        //event ktory centruje przyciski onLoad
+        private void Form_Load_Center_Buttons(object? sender, EventArgs e)
+        {
+            Center_Buttons();
+        }
+        //event ktory centruje przyciski podczas zmiany rozmiaru okna
+        private void Form_Resize_Center_Buttons(object? sender, EventArgs e)
+        {
+            Center_Buttons();
         }
     }
 }
