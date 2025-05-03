@@ -108,6 +108,74 @@ namespace CRUDAppProject.CS.Tasks
 
         }
 
+        public override void ShowTaskCard(Panel panelToShowOn)
+        {
+            // Create a new card panel
+            Panel cardPanel = new Panel
+            {
+                Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
+                Location = new Point(10, SpaceBetweenCardsOnY), // vertical spacing
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Cursor = Cursors.Hand
+            };
+
+            
+            Label titleLabel = new Label
+            {
+                Text = this.ChosenSubject,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Dock = DockStyle.Top,
+                Height = 25,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            
+            Label taskTye = new Label
+            {
+                Text = Base_Task.ListOfTaskTypes[2],
+                Font = new Font("Segoe UI", 9),
+                Dock = DockStyle.Top,
+                Height = 20,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Quote
+            Label shortDescriptionLabel = new Label
+            {
+                Text = this.ShortDescription,
+                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                Dock = DockStyle.Top,
+                Height = 20,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Deadline
+            Label deadlineLabel = new Label
+            {
+                Text = $"Termin: {this.Deadline.ToShortDateString()}",
+                Font = new Font("Segoe UI", 9),
+                Dock = DockStyle.Bottom,
+                Height = 25,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Add Labels            
+            
+            cardPanel.Controls.Add(shortDescriptionLabel);
+            cardPanel.Controls.Add(taskTye);
+            cardPanel.Controls.Add(titleLabel);
+            cardPanel.Controls.Add(deadlineLabel);
+
+            cardPanel.Click += Test;
+            foreach (Control control in cardPanel.Controls)
+                control.Click += Test;
+
+            panelToShowOn.Controls.Add(cardPanel);
+            Base_AppState.CardCount++;
+        }
+
+
         public void SaveDataToFile()
         {
             string filePath = Base_AppState.ChosenProfileFilePath;
@@ -174,6 +242,12 @@ namespace CRUDAppProject.CS.Tasks
                     Console.WriteLine($"Zadanie: {title.GetString()}");
                 }
             }
+        }
+
+        public override void Test(object sender, EventArgs e)
+        {
+            Console.Clear();
+            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego zakres to: {this.MaterialScope}! ");
         }
 
     }

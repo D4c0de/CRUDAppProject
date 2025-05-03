@@ -1,5 +1,5 @@
 ﻿using CRUDAppProject.CS.Interfaces;
-using CRUDAppProject.CS.Static;
+using CRUDAppProject.CS.Side;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,7 +16,7 @@ namespace CRUDAppProject.CS.Base
     /// Klasa abstrakcyjna która jest podstawą do klas związanych z rodzajami zadań
     /// </summary>
 
-    internal abstract class Base_Task : ISerialize
+    public abstract class Base_Task
     {
         /// <summary>
         /// Nazwa zadania
@@ -156,22 +156,19 @@ namespace CRUDAppProject.CS.Base
             set { this._status = value; }
         }
 
+        public static int CardLength = 1150;
+        public static int CardWidth = 100;
+        public static int SpaceBetweenCardsOnY
+        {
+            get { return Base_AppState.CardCount * 110;}
+            set { }
+        }
+
 
         // Lista rodzajów zadań 
 
         public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
 
-
-
-        public void SaveDataToFile()
-        {
-
-        }
-
-        public void LoadDataFromFile()
-        {
-
-        }
 
         public abstract void TaskCreator();
 
@@ -180,5 +177,11 @@ namespace CRUDAppProject.CS.Base
         public abstract void TaskEditor();
 
         public abstract void TaskRemover();
+
+        public abstract void ShowTaskCard(Panel panelToShowOn);
+
+        public abstract void Test(object sender, EventArgs e);
+
+
     }
 }
