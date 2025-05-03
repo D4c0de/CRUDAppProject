@@ -107,11 +107,6 @@ namespace CRUDAppProject.CS.Tasks
         {
 
         }
-        public void Test3()
-        {
-            Console.WriteLine("to jest test dla klasy Proj");
-        }
-
 
 
         public void SaveDataToFile()
@@ -242,8 +237,22 @@ namespace CRUDAppProject.CS.Tasks
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
+            cardPanel.Click += Test;
+            foreach (Control control in cardPanel.Controls)
+                control.Click += Test;
+
+
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
+
+
+
+        }
+
+        public override void Test(object sender, EventArgs e)
+        {
+            Console.Clear();
+            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego uczestnicy to: {this.Members}! ");
         }
 
     }

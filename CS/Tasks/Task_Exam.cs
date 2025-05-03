@@ -167,6 +167,10 @@ namespace CRUDAppProject.CS.Tasks
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
+            cardPanel.Click += Test;
+            foreach (Control control in cardPanel.Controls)
+                control.Click += Test;
+
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
         }
@@ -238,6 +242,12 @@ namespace CRUDAppProject.CS.Tasks
                     Console.WriteLine($"Zadanie: {title.GetString()}");
                 }
             }
+        }
+
+        public override void Test(object sender, EventArgs e)
+        {
+            Console.Clear();
+            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego zakres to: {this.MaterialScope}! ");
         }
 
     }

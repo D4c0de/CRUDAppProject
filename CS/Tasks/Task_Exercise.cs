@@ -88,10 +88,9 @@ namespace CRUDAppProject.CS.Tasks
         {
 
         }
-        public void Test2()
-        {
-            Console.WriteLine("to jest test dla klasy Exercise");
-        }
+
+
+
 
         public void SaveDataToFile()
         {
@@ -221,10 +220,18 @@ namespace CRUDAppProject.CS.Tasks
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
+            cardPanel.Click += Test;
+            foreach (Control control in cardPanel.Controls)
+                control.Click += Test;
+
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
         }
 
-
+        public override void Test(object sender, EventArgs e)
+        {
+            Console.Clear();
+            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego źródło to: {this.TaskSource}! ");
+        }
     }
 }

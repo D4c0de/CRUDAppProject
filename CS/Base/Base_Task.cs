@@ -165,7 +165,6 @@ namespace CRUDAppProject.CS.Base
         }
 
 
-
         // Lista rodzajów zadań 
 
         public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
@@ -180,5 +179,9 @@ namespace CRUDAppProject.CS.Base
         public abstract void TaskRemover();
 
         public abstract void ShowTaskCard(Panel panelToShowOn);
+
+        public abstract void Test(object sender, EventArgs e);
+
+
     }
 }
