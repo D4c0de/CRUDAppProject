@@ -108,6 +108,74 @@ namespace CRUDAppProject.CS.Tasks
 
         }
 
+        public override void ShowTaskCard(Panel panelToShowOn)
+        {
+            // Create a new card panel
+            Panel cardPanel = new Panel
+            {
+                Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
+                Location = new Point(10, SpaceBetweenCardsOnY), // vertical spacing
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Cursor = Cursors.Hand
+            };
+
+            
+            Label titleLabel = new Label
+            {
+                Text = this.ChosenSubject,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Dock = DockStyle.Top,
+                Height = 25,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            
+            Label taskTye = new Label
+            {
+                Text = Base_Task.ListOfTaskTypes[2],
+                Font = new Font("Segoe UI", 9),
+                Dock = DockStyle.Top,
+                Height = 20,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Quote
+            Label shortDescriptionLabel = new Label
+            {
+                Text = this.ShortDescription,
+                Font = new Font("Segoe UI", 9, FontStyle.Italic),
+                Dock = DockStyle.Top,
+                Height = 20,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Deadline
+            Label deadlineLabel = new Label
+            {
+                Text = $"Termin: {this.Deadline.ToShortDateString()}",
+                Font = new Font("Segoe UI", 9),
+                Dock = DockStyle.Bottom,
+                Height = 25,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            // Add Labels            
+            
+            cardPanel.Controls.Add(shortDescriptionLabel);
+            cardPanel.Controls.Add(taskTye);
+            cardPanel.Controls.Add(titleLabel);
+            cardPanel.Controls.Add(deadlineLabel);
+
+            cardPanel.Click += Test;
+            foreach (Control control in cardPanel.Controls)
+                control.Click += Test;
+
+            panelToShowOn.Controls.Add(cardPanel);
+            Base_AppState.CardCount++;
+        }
+
+
         public void SaveDataToFile()
         {
             string filePath = Base_AppState.ChosenProfileFilePath;
@@ -119,9 +187,9 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement.Clone();
 
-            List<JsonElement> taskExams = new List<JsonElement>();
-            if (root.TryGetProperty("taskExams", out JsonElement existingExams) && existingExams.ValueKind == JsonValueKind.Array)
-                taskExams.AddRange(existingExams.EnumerateArray());
+            List<JsonElement> tasks = new List<JsonElement>();
+            if (root.TryGetProperty("tasks", out JsonElement existingTasks) && existingTasks.ValueKind == JsonValueKind.Array)
+                tasks.AddRange(existingTasks.EnumerateArray());
 
             var taskObj = new
             {
@@ -138,22 +206,22 @@ namespace CRUDAppProject.CS.Tasks
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
-            taskExams.Add(JsonDocument.Parse(taskJson).RootElement);
+            tasks.Add(JsonDocument.Parse(taskJson).RootElement);
 
             var updatedProfile = new Dictionary<string, object>();
+
             foreach (var prop in root.EnumerateObject())
             {
-                if (prop.Name != "taskExams")
+                if (prop.Name != "tasks")
                     updatedProfile[prop.Name] = JsonSerializer.Deserialize<object>(prop.Value.GetRawText());
             }
 
-            updatedProfile["taskExams"] = taskExams;
+            updatedProfile["tasks"] = tasks;
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string updatedJson = JsonSerializer.Serialize(updatedProfile, options);
             File.WriteAllText(filePath, updatedJson);
         }
-
         public void LoadDataFromFile()
         {
 
@@ -164,7 +232,7 @@ namespace CRUDAppProject.CS.Tasks
             var jsonDoc = JsonDocument.Parse(jsonString);
             var root = jsonDoc.RootElement;
 
-            if (!root.TryGetProperty("taskExams", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
+            if (!root.TryGetProperty("tasks", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
                 throw new JsonException("Brak listy zadań w pliku profilu.");
 
             foreach (JsonElement task in tasksElement.EnumerateArray())
@@ -174,6 +242,12 @@ namespace CRUDAppProject.CS.Tasks
                     Console.WriteLine($"Zadanie: {title.GetString()}");
                 }
             }
+        }
+
+        public override void Test(object sender, EventArgs e)
+        {
+            Console.Clear();
+            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego zakres to: {this.MaterialScope}! ");
         }
 
     }

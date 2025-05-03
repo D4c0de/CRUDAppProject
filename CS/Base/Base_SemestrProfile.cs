@@ -1,5 +1,5 @@
 ﻿using CRUDAppProject.CS.Interfaces;
-using CRUDAppProject.CS.Static;
+using CRUDAppProject.CS.Side;
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;
@@ -74,10 +74,20 @@ namespace CRUDAppProject.CS.Base
             if (File.Exists(filePath))
                 throw new ArgumentException("Profil istnieje!", "FileAlreadyExists");
 
+            // Przygotowanie profilu
             var profile = new
             {
                 listOfSubjects = this.ListOfSubjects
             };
+
+            // Dodanie listy "tasks" do profilu
+            List<JsonElement> tasks = new List<JsonElement>();
+
+            // Serializacja profilu z dodaną listą "tasks"
+            var updatedProfile = new Dictionary<string, object>(profile.GetType().GetProperties()
+                .ToDictionary(p => p.Name, p => p.GetValue(profile)));
+
+            updatedProfile["tasks"] = tasks;
 
             var options = new JsonSerializerOptions
             {
@@ -85,9 +95,11 @@ namespace CRUDAppProject.CS.Base
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
 
-            string jsonString = JsonSerializer.Serialize(profile, options);
+            // Serializacja zaktualizowanego profilu
+            string jsonString = JsonSerializer.Serialize(updatedProfile, options);
             File.WriteAllText(filePath, jsonString);
         }
+
 
         /// <summary>
         /// Lista wszystkich profili, czyli plików z roszrzerzeniem .json
