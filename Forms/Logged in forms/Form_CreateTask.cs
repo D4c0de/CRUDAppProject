@@ -30,15 +30,14 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 
             var taskTypeMap = new Dictionary<string, Action>
             {
-                { "Ćwiczenie", () => new Task_Exercise().TaskCreator() },
-                { "Projekt", () => new Task_Proj().TaskCreator() },
-                { "Egzamin", () => new Task_Exam().TaskCreator() }
+                { Base_Task.ListOfTaskTypes[0], () => new Task_Exercise().TaskCreator() },
+                { Base_Task.ListOfTaskTypes[1], () => new Task_Proj().TaskCreator() },
+                { Base_Task.ListOfTaskTypes[2], () => new Task_Exam().TaskCreator() }
             };
 
             if (Base_Task.ListOfTaskTypes.Contains(Listbox_TaskTypes.Text) && taskTypeMap.TryGetValue(taskType, out Action createTask))
             {
                 createTask();
-
                 this.Hide();
                 this.Close();
             }

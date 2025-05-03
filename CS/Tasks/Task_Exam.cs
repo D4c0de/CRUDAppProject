@@ -114,7 +114,7 @@ namespace CRUDAppProject.CS.Tasks
             Panel cardPanel = new Panel
             {
                 Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
-                Location = new Point(10, Base_AppState.CardCount * 110), // vertical spacing
+                Location = new Point(10, SpaceBetweenCardsOnY), // vertical spacing
                 BorderStyle = BorderStyle.FixedSingle,
                 BackColor = Color.White,
                 Cursor = Cursors.Hand
@@ -133,7 +133,7 @@ namespace CRUDAppProject.CS.Tasks
             
             Label taskTye = new Label
             {
-                Text = "Egzamin",
+                Text = Base_Task.ListOfTaskTypes[2],
                 Font = new Font("Segoe UI", 9),
                 Dock = DockStyle.Top,
                 Height = 20,
@@ -160,8 +160,7 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Add Labels
-            
+            // Add Labels            
             
             cardPanel.Controls.Add(shortDescriptionLabel);
             cardPanel.Controls.Add(taskTye);

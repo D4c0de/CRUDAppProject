@@ -158,6 +158,11 @@ namespace CRUDAppProject.CS.Base
 
         public static int CardLength = 1150;
         public static int CardWidth = 100;
+        public static int SpaceBetweenCardsOnY
+        {
+            get { return Base_AppState.CardCount * 110;}
+            set { }
+        }
 
 
 
