@@ -28,121 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            panel1 = new Panel();
-            label1 = new Label();
-            btn_min = new Button();
-            btn_max = new Button();
-            btn_close = new Button();
-            imageList1 = new ImageList(components);
+            Panel_TitleBar = new Panel();
+            Label_Title = new Label();
+            Button_TitleBar_Minimalize = new Button();
+            Button_TitleBar_Maximalize = new Button();
+            Button_TtitleBar_ExitProgram = new Button();
             Button_ExitProgram = new Button();
             Button_DeleteProfile = new Button();
             Button_AddNewProfile = new Button();
             Button_ChooseProfile = new Button();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel_Menu = new TableLayoutPanel();
+            Panel_TitleBar.SuspendLayout();
+            tableLayoutPanel_Menu.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // Panel_TitleBar
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(btn_min);
-            panel1.Controls.Add(btn_max);
-            panel1.Controls.Add(btn_close);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1829, 69);
-            panel1.TabIndex = 4;
-            panel1.MouseDown += title_bar_MouseDown;
+            Panel_TitleBar.BackColor = Color.Transparent;
+            Panel_TitleBar.Controls.Add(Label_Title);
+            Panel_TitleBar.Controls.Add(Button_TitleBar_Minimalize);
+            Panel_TitleBar.Controls.Add(Button_TitleBar_Maximalize);
+            Panel_TitleBar.Controls.Add(Button_TtitleBar_ExitProgram);
+            Panel_TitleBar.Dock = DockStyle.Top;
+            Panel_TitleBar.Location = new Point(0, 0);
+            Panel_TitleBar.Name = "Panel_TitleBar";
+            Panel_TitleBar.Size = new Size(1829, 69);
+            Panel_TitleBar.TabIndex = 4;
+            Panel_TitleBar.MouseDown += title_bar_MouseDown;
             // 
-            // label1
+            // Label_Title
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.ForeColor = Color.DodgerBlue;
-            label1.Location = new Point(3, 7);
-            label1.Name = "label1";
-            label1.Size = new Size(162, 28);
-            label1.TabIndex = 3;
-            label1.Text = "CRUDAppProject";
+            Label_Title.AutoSize = true;
+            Label_Title.Font = new Font("Segoe UI", 20F);
+            Label_Title.ForeColor = Color.White;
+            Label_Title.Location = new Point(3, 7);
+            Label_Title.Name = "Label_Title";
+            Label_Title.Size = new Size(274, 46);
+            Label_Title.TabIndex = 3;
+            Label_Title.Text = "CRUDAppProject";
             // 
-            // btn_min
+            // Button_TitleBar_Minimalize
             // 
-            btn_min.AutoSize = true;
-            btn_min.BackColor = Color.Transparent;
-            btn_min.Cursor = Cursors.Hand;
-            btn_min.Dock = DockStyle.Right;
-            btn_min.FlatAppearance.BorderSize = 0;
-            btn_min.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btn_min.FlatStyle = FlatStyle.Flat;
-            btn_min.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            btn_min.ForeColor = Color.Black;
-            btn_min.ImageAlign = ContentAlignment.TopCenter;
-            btn_min.Location = new Point(1645, 0);
-            btn_min.Margin = new Padding(0);
-            btn_min.Name = "btn_min";
-            btn_min.Size = new Size(64, 69);
-            btn_min.TabIndex = 2;
-            btn_min.Text = "–";
-            btn_min.UseVisualStyleBackColor = false;
-            btn_min.Click += btn_min_Click;
-            btn_min.MouseEnter += TitleBar_Button_Enter;
-            btn_min.MouseLeave += TitleBar_Button_Leave;
+            Button_TitleBar_Minimalize.AutoSize = true;
+            Button_TitleBar_Minimalize.BackColor = Color.Transparent;
+            Button_TitleBar_Minimalize.Cursor = Cursors.Hand;
+            Button_TitleBar_Minimalize.Dock = DockStyle.Right;
+            Button_TitleBar_Minimalize.FlatAppearance.BorderSize = 0;
+            Button_TitleBar_Minimalize.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            Button_TitleBar_Minimalize.FlatStyle = FlatStyle.Flat;
+            Button_TitleBar_Minimalize.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            Button_TitleBar_Minimalize.ForeColor = Color.White;
+            Button_TitleBar_Minimalize.ImageAlign = ContentAlignment.TopCenter;
+            Button_TitleBar_Minimalize.Location = new Point(1645, 0);
+            Button_TitleBar_Minimalize.Margin = new Padding(0);
+            Button_TitleBar_Minimalize.Name = "Button_TitleBar_Minimalize";
+            Button_TitleBar_Minimalize.Size = new Size(64, 69);
+            Button_TitleBar_Minimalize.TabIndex = 2;
+            Button_TitleBar_Minimalize.Text = "–";
+            Button_TitleBar_Minimalize.UseVisualStyleBackColor = false;
+            Button_TitleBar_Minimalize.Click += btn_min_Click;
+            Button_TitleBar_Minimalize.MouseEnter += TitleBar_Button_Enter;
+            Button_TitleBar_Minimalize.MouseLeave += TitleBar_Button_Leave;
             // 
-            // btn_max
+            // Button_TitleBar_Maximalize
             // 
-            btn_max.AutoSize = true;
-            btn_max.BackColor = Color.Transparent;
-            btn_max.Cursor = Cursors.Hand;
-            btn_max.Dock = DockStyle.Right;
-            btn_max.FlatAppearance.BorderSize = 0;
-            btn_max.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btn_max.FlatStyle = FlatStyle.Flat;
-            btn_max.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            btn_max.ForeColor = Color.Black;
-            btn_max.ImageAlign = ContentAlignment.TopCenter;
-            btn_max.Location = new Point(1709, 0);
-            btn_max.Margin = new Padding(0);
-            btn_max.Name = "btn_max";
-            btn_max.Size = new Size(60, 69);
-            btn_max.TabIndex = 1;
-            btn_max.Text = "◱";
-            btn_max.UseVisualStyleBackColor = false;
-            btn_max.Click += btn_max_Click;
-            btn_max.MouseEnter += TitleBar_Button_Enter;
-            btn_max.MouseLeave += TitleBar_Button_Leave;
+            Button_TitleBar_Maximalize.AutoSize = true;
+            Button_TitleBar_Maximalize.BackColor = Color.Transparent;
+            Button_TitleBar_Maximalize.Cursor = Cursors.Hand;
+            Button_TitleBar_Maximalize.Dock = DockStyle.Right;
+            Button_TitleBar_Maximalize.FlatAppearance.BorderSize = 0;
+            Button_TitleBar_Maximalize.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            Button_TitleBar_Maximalize.FlatStyle = FlatStyle.Flat;
+            Button_TitleBar_Maximalize.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            Button_TitleBar_Maximalize.ForeColor = Color.White;
+            Button_TitleBar_Maximalize.ImageAlign = ContentAlignment.TopCenter;
+            Button_TitleBar_Maximalize.Location = new Point(1709, 0);
+            Button_TitleBar_Maximalize.Margin = new Padding(0);
+            Button_TitleBar_Maximalize.Name = "Button_TitleBar_Maximalize";
+            Button_TitleBar_Maximalize.Size = new Size(60, 69);
+            Button_TitleBar_Maximalize.TabIndex = 1;
+            Button_TitleBar_Maximalize.Text = "◱";
+            Button_TitleBar_Maximalize.UseVisualStyleBackColor = false;
+            Button_TitleBar_Maximalize.Click += btn_max_Click;
+            Button_TitleBar_Maximalize.MouseEnter += TitleBar_Button_Enter;
+            Button_TitleBar_Maximalize.MouseLeave += TitleBar_Button_Leave;
             // 
-            // btn_close
+            // Button_TtitleBar_ExitProgram
             // 
-            btn_close.AutoSize = true;
-            btn_close.Cursor = Cursors.Hand;
-            btn_close.Dock = DockStyle.Right;
-            btn_close.FlatAppearance.BorderSize = 0;
-            btn_close.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btn_close.FlatStyle = FlatStyle.Flat;
-            btn_close.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            btn_close.ForeColor = Color.Black;
-            btn_close.ImageAlign = ContentAlignment.TopCenter;
-            btn_close.Location = new Point(1769, 0);
-            btn_close.Margin = new Padding(0);
-            btn_close.Name = "btn_close";
-            btn_close.Size = new Size(60, 69);
-            btn_close.TabIndex = 0;
-            btn_close.Text = "x";
-            btn_close.TextAlign = ContentAlignment.TopCenter;
-            btn_close.UseVisualStyleBackColor = true;
-            btn_close.Click += btn_close_Click;
-            btn_close.MouseEnter += TitleBar_Button_Enter;
-            btn_close.MouseLeave += TitleBar_Button_Leave;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageSize = new Size(16, 16);
-            imageList1.TransparentColor = Color.Transparent;
+            Button_TtitleBar_ExitProgram.AutoSize = true;
+            Button_TtitleBar_ExitProgram.Cursor = Cursors.Hand;
+            Button_TtitleBar_ExitProgram.Dock = DockStyle.Right;
+            Button_TtitleBar_ExitProgram.FlatAppearance.BorderSize = 0;
+            Button_TtitleBar_ExitProgram.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            Button_TtitleBar_ExitProgram.FlatStyle = FlatStyle.Flat;
+            Button_TtitleBar_ExitProgram.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            Button_TtitleBar_ExitProgram.ForeColor = Color.White;
+            Button_TtitleBar_ExitProgram.ImageAlign = ContentAlignment.TopCenter;
+            Button_TtitleBar_ExitProgram.Location = new Point(1769, 0);
+            Button_TtitleBar_ExitProgram.Margin = new Padding(0);
+            Button_TtitleBar_ExitProgram.Name = "Button_TtitleBar_ExitProgram";
+            Button_TtitleBar_ExitProgram.Size = new Size(60, 69);
+            Button_TtitleBar_ExitProgram.TabIndex = 0;
+            Button_TtitleBar_ExitProgram.Text = "x";
+            Button_TtitleBar_ExitProgram.TextAlign = ContentAlignment.TopCenter;
+            Button_TtitleBar_ExitProgram.UseVisualStyleBackColor = true;
+            Button_TtitleBar_ExitProgram.Click += btn_close_Click;
+            Button_TtitleBar_ExitProgram.MouseEnter += TitleBar_Button_Enter;
+            Button_TtitleBar_ExitProgram.MouseLeave += TitleBar_Button_Leave;
             // 
             // Button_ExitProgram
             // 
@@ -151,7 +143,7 @@
             Button_ExitProgram.Cursor = Cursors.Hand;
             Button_ExitProgram.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitProgram.ForeColor = Color.White;
-            Button_ExitProgram.Location = new Point(4, 222);
+            Button_ExitProgram.Location = new Point(4, 332);
             Button_ExitProgram.Margin = new Padding(3, 4, 3, 4);
             Button_ExitProgram.Name = "Button_ExitProgram";
             Button_ExitProgram.Size = new Size(971, 100);
@@ -169,7 +161,7 @@
             Button_DeleteProfile.Cursor = Cursors.Hand;
             Button_DeleteProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_DeleteProfile.ForeColor = Color.White;
-            Button_DeleteProfile.Location = new Point(4, 113);
+            Button_DeleteProfile.Location = new Point(4, 222);
             Button_DeleteProfile.Margin = new Padding(3, 4, 3, 4);
             Button_DeleteProfile.Name = "Button_DeleteProfile";
             Button_DeleteProfile.Size = new Size(971, 100);
@@ -187,7 +179,7 @@
             Button_AddNewProfile.Cursor = Cursors.Hand;
             Button_AddNewProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_AddNewProfile.ForeColor = Color.White;
-            Button_AddNewProfile.Location = new Point(4, 332);
+            Button_AddNewProfile.Location = new Point(4, 113);
             Button_AddNewProfile.Margin = new Padding(3, 4, 3, 4);
             Button_AddNewProfile.Name = "Button_AddNewProfile";
             Button_AddNewProfile.Size = new Size(971, 100);
@@ -215,60 +207,60 @@
             Button_ChooseProfile.MouseEnter += Menu_Button_Enter;
             Button_ChooseProfile.MouseLeave += Menu_Button_Leave;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel_Menu
             // 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(Button_ChooseProfile, 0, 0);
-            tableLayoutPanel1.Controls.Add(Button_DeleteProfile, 0, 1);
-            tableLayoutPanel1.Controls.Add(Button_ExitProgram, 0, 2);
-            tableLayoutPanel1.Controls.Add(Button_AddNewProfile, 0, 3);
-            tableLayoutPanel1.Location = new Point(580, 124);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Size = new Size(979, 437);
-            tableLayoutPanel1.TabIndex = 9;
+            tableLayoutPanel_Menu.AutoSize = true;
+            tableLayoutPanel_Menu.ColumnCount = 1;
+            tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel_Menu.Controls.Add(Button_ChooseProfile, 0, 0);
+            tableLayoutPanel_Menu.Controls.Add(Button_ExitProgram, 0, 3);
+            tableLayoutPanel_Menu.Controls.Add(Button_AddNewProfile, 0, 1);
+            tableLayoutPanel_Menu.Controls.Add(Button_DeleteProfile, 0, 2);
+            tableLayoutPanel_Menu.Location = new Point(451, 211);
+            tableLayoutPanel_Menu.Name = "tableLayoutPanel_Menu";
+            tableLayoutPanel_Menu.RowCount = 4;
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel_Menu.Size = new Size(979, 437);
+            tableLayoutPanel_Menu.TabIndex = 9;
             // 
             // Form_Logging
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(45, 45, 55);
             ClientSize = new Size(1829, 983);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(panel1);
+            Controls.Add(tableLayoutPanel_Menu);
+            Controls.Add(Panel_TitleBar);
             Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             MinimumSize = new Size(1024, 720);
             Name = "Form_Logging";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_Logging";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
+            Panel_TitleBar.ResumeLayout(false);
+            Panel_TitleBar.PerformLayout();
+            tableLayoutPanel_Menu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Panel panel1;
-        private Button btn_min;
-        private Button btn_max;
-        private Button btn_close;
-        private ImageList imageList1;
+        private Panel Panel_TitleBar;
+        private Button Button_TitleBar_Minimalize;
+        private Button Button_TitleBar_Maximalize;
+        private Button Button_TtitleBar_ExitProgram;
         private TextBox textBox1;
-        private Label label1;
+        private Label Label_Title;
         private Button Button_ExitProgram;
         private Button Button_DeleteProfile;
         private Button Button_AddNewProfile;
         private Button Button_ChooseProfile;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel_Menu;
     }
 }
