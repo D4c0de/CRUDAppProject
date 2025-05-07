@@ -139,7 +139,7 @@
             // Button_ExitProgram
             // 
             Button_ExitProgram.Anchor = AnchorStyles.None;
-            Button_ExitProgram.BackColor = Color.DodgerBlue;
+            Button_ExitProgram.BackColor = Color.FromArgb(0, 31, 132);
             Button_ExitProgram.Cursor = Cursors.Hand;
             Button_ExitProgram.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitProgram.ForeColor = Color.White;
@@ -148,7 +148,7 @@
             Button_ExitProgram.Name = "Button_ExitProgram";
             Button_ExitProgram.Size = new Size(971, 100);
             Button_ExitProgram.TabIndex = 8;
-            Button_ExitProgram.Text = "Opuść program";
+            Button_ExitProgram.Text = "Edytuj istniejący semestr";
             Button_ExitProgram.UseVisualStyleBackColor = false;
             Button_ExitProgram.Click += Button_ExitProgram_Click;
             Button_ExitProgram.MouseEnter += Menu_Button_Enter;
@@ -157,7 +157,7 @@
             // Button_DeleteProfile
             // 
             Button_DeleteProfile.Anchor = AnchorStyles.None;
-            Button_DeleteProfile.BackColor = Color.DodgerBlue;
+            Button_DeleteProfile.BackColor = Color.FromArgb(0, 31, 132);
             Button_DeleteProfile.Cursor = Cursors.Hand;
             Button_DeleteProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_DeleteProfile.ForeColor = Color.White;
@@ -175,7 +175,7 @@
             // Button_AddNewProfile
             // 
             Button_AddNewProfile.Anchor = AnchorStyles.None;
-            Button_AddNewProfile.BackColor = Color.DodgerBlue;
+            Button_AddNewProfile.BackColor = Color.FromArgb(0, 31, 132);
             Button_AddNewProfile.Cursor = Cursors.Hand;
             Button_AddNewProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_AddNewProfile.ForeColor = Color.White;
@@ -192,7 +192,7 @@
             // 
             // Button_ChooseProfile
             // 
-            Button_ChooseProfile.BackColor = Color.DodgerBlue;
+            Button_ChooseProfile.BackColor = Color.FromArgb(0, 31, 132);
             Button_ChooseProfile.Cursor = Cursors.Hand;
             Button_ChooseProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 238);
             Button_ChooseProfile.ForeColor = Color.White;

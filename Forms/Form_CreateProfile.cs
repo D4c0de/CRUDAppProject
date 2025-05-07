@@ -83,10 +83,10 @@ namespace CRUDAppProject.Forms
             int borderThickness = 2;
 
             ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid);
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid,
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid,
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid,
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid);
         }
         private void Form_Resize(object? sender, EventArgs e)
         {
@@ -209,13 +209,13 @@ namespace CRUDAppProject.Forms
         private void Menu_Button_Enter(object sender, EventArgs e)
         {
             if (sender is Button btn)
-                btn.BackColor = Color.RoyalBlue;
+                btn.BackColor = Color.FromArgb(0, 61, 162);
         }
 
         private void Menu_Button_Leave(object sender, EventArgs e)
         {
             if (sender is Button btn)
-                btn.BackColor = Color.DodgerBlue;
+                btn.BackColor = Color.FromArgb(0, 31, 132);
         }
 
 

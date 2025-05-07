@@ -100,7 +100,7 @@
             // Button_CreateProfile
             // 
             Button_CreateProfile.Anchor = AnchorStyles.None;
-            Button_CreateProfile.BackColor = Color.DodgerBlue;
+            Button_CreateProfile.BackColor = Color.FromArgb(0, 31, 132);
             Button_CreateProfile.Cursor = Cursors.Hand;
             Button_CreateProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_CreateProfile.ForeColor = Color.White;
@@ -132,7 +132,7 @@
             // Button_ExitProfileCreator
             // 
             Button_ExitProfileCreator.Anchor = AnchorStyles.None;
-            Button_ExitProfileCreator.BackColor = Color.DodgerBlue;
+            Button_ExitProfileCreator.BackColor = Color.FromArgb(0, 31, 132);
             Button_ExitProfileCreator.Cursor = Cursors.Hand;
             Button_ExitProfileCreator.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitProfileCreator.ForeColor = Color.White;

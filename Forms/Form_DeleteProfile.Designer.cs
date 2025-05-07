@@ -74,7 +74,7 @@
             // Button_ExitProfileDeletion
             // 
             Button_ExitProfileDeletion.Anchor = AnchorStyles.None;
-            Button_ExitProfileDeletion.BackColor = Color.DodgerBlue;
+            Button_ExitProfileDeletion.BackColor = Color.FromArgb(0, 31, 132);
             Button_ExitProfileDeletion.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitProfileDeletion.ForeColor = Color.White;
             Button_ExitProfileDeletion.Location = new Point(3, 417);
@@ -91,7 +91,7 @@
             // Button_ConfirmProfileDeletion
             // 
             Button_ConfirmProfileDeletion.Anchor = AnchorStyles.None;
-            Button_ConfirmProfileDeletion.BackColor = Color.DodgerBlue;
+            Button_ConfirmProfileDeletion.BackColor = Color.FromArgb(0, 31, 132);
             Button_ConfirmProfileDeletion.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ConfirmProfileDeletion.ForeColor = Color.White;
             Button_ConfirmProfileDeletion.Location = new Point(3, 297);
@@ -123,11 +123,11 @@
             Label_RewriteProfileName.AutoSize = true;
             Label_RewriteProfileName.Font = new Font("Arial Black", 17F, FontStyle.Bold);
             Label_RewriteProfileName.ForeColor = Color.White;
-            Label_RewriteProfileName.Location = new Point(33, 134);
+            Label_RewriteProfileName.Location = new Point(38, 134);
             Label_RewriteProfileName.Margin = new Padding(3, 10, 3, 10);
             Label_RewriteProfileName.MaximumSize = new Size(1000, 0);
             Label_RewriteProfileName.Name = "Label_RewriteProfileName";
-            Label_RewriteProfileName.Size = new Size(910, 82);
+            Label_RewriteProfileName.Size = new Size(900, 82);
             Label_RewriteProfileName.TabIndex = 5;
             Label_RewriteProfileName.Text = "Jeśli jesteś pewien, że chcesz konkretny profil usunąć - przepisz dosłownie jego nazwę";
             Label_RewriteProfileName.TextAlign = ContentAlignment.MiddleCenter;

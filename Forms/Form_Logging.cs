@@ -157,7 +157,7 @@ namespace CRUDAppProject.Forms
 
         private void Button_ExitProgram_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void Button_ChooseProfile_Click(object sender, EventArgs e)
@@ -172,10 +172,10 @@ namespace CRUDAppProject.Forms
             int borderThickness = 2;
 
             ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid,
-                Color.DodgerBlue, borderThickness, ButtonBorderStyle.Solid);
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid,
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid,
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid,
+                Color.FromArgb(0, 61, 162), borderThickness, ButtonBorderStyle.Solid);
         }
         private void Form_Resize(object? sender, EventArgs e)
         {
@@ -191,7 +191,7 @@ namespace CRUDAppProject.Forms
         private void TitleBar_Button_Enter(object sender, EventArgs e)
         {
             if (sender is Button btn)
-                btn.ForeColor = Color.DodgerBlue;
+                btn.ForeColor = Color.FromArgb(0, 61, 162);
         }
         
         private void TitleBar_Button_Leave(object sender, EventArgs e)
@@ -203,13 +203,13 @@ namespace CRUDAppProject.Forms
         private void Menu_Button_Enter(object sender, EventArgs e)
         {
             if (sender is Button btn)
-                btn.BackColor = Color.RoyalBlue;
+                btn.BackColor = Color.FromArgb(0, 61, 162);
         }
 
         private void Menu_Button_Leave(object sender, EventArgs e)
         {
             if (sender is Button btn)
-                btn.BackColor = Color.DodgerBlue;
+                btn.BackColor = Color.FromArgb(0, 31, 132);
         }
         //Funckja centrujaca przyciski
         private void Center_Buttons()
