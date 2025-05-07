@@ -228,9 +228,7 @@
             // 
             // tableLayoutPanel_Menu
             // 
-            tableLayoutPanel_Menu.Anchor = AnchorStyles.None;
             tableLayoutPanel_Menu.AutoSize = true;
-            tableLayoutPanel_Menu.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel_Menu.ColumnCount = 1;
             tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel_Menu.Controls.Add(Label_ProfileName, 0, 0);
@@ -239,7 +237,7 @@
             tableLayoutPanel_Menu.Controls.Add(Label_RewriteProfileName, 0, 2);
             tableLayoutPanel_Menu.Controls.Add(TextBox_RewriteProfileName, 0, 3);
             tableLayoutPanel_Menu.Controls.Add(Button_ConfirmProfileDeletion, 0, 4);
-            tableLayoutPanel_Menu.Location = new Point(222, 202);
+            tableLayoutPanel_Menu.Location = new Point(384, 188);
             tableLayoutPanel_Menu.Margin = new Padding(3, 10, 3, 10);
             tableLayoutPanel_Menu.Name = "tableLayoutPanel_Menu";
             tableLayoutPanel_Menu.RowCount = 6;
