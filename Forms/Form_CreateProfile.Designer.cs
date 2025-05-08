@@ -62,7 +62,7 @@
             Label_ProfileName.AutoSize = true;
             Label_ProfileName.Font = new Font("Arial Black", 20F, FontStyle.Bold);
             Label_ProfileName.ForeColor = Color.White;
-            Label_ProfileName.Location = new Point(366, 10);
+            Label_ProfileName.Location = new Point(363, 10);
             Label_ProfileName.Margin = new Padding(3, 10, 3, 10);
             Label_ProfileName.Name = "Label_ProfileName";
             Label_ProfileName.Size = new Size(530, 48);
@@ -76,7 +76,7 @@
             Label_ListOfSubjects.BackColor = Color.Transparent;
             Label_ListOfSubjects.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Label_ListOfSubjects.ForeColor = Color.White;
-            Label_ListOfSubjects.Location = new Point(6, 138);
+            Label_ListOfSubjects.Location = new Point(3, 138);
             Label_ListOfSubjects.Margin = new Padding(3, 10, 3, 10);
             Label_ListOfSubjects.Name = "Label_ListOfSubjects";
             Label_ListOfSubjects.Size = new Size(1251, 32);
@@ -89,11 +89,11 @@
             RichTextBox_ListOfSubjects.BackColor = Color.FromArgb(25, 25, 35);
             RichTextBox_ListOfSubjects.Font = new Font("Arial Black", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             RichTextBox_ListOfSubjects.ForeColor = Color.FromArgb(65, 65, 85);
-            RichTextBox_ListOfSubjects.Location = new Point(257, 190);
+            RichTextBox_ListOfSubjects.Location = new Point(254, 190);
             RichTextBox_ListOfSubjects.Margin = new Padding(3, 10, 3, 10);
             RichTextBox_ListOfSubjects.Name = "RichTextBox_ListOfSubjects";
-            RichTextBox_ListOfSubjects.Size = new Size(748, 251);
-            RichTextBox_ListOfSubjects.TabIndex = 5;
+            RichTextBox_ListOfSubjects.Size = new Size(748, 151);
+            RichTextBox_ListOfSubjects.TabIndex = 2;
             RichTextBox_ListOfSubjects.Text = "Wpisz, Swoje, Przedmioty, W, Taki, Sposób";
             RichTextBox_ListOfSubjects.Click += RichTextBox_ListOfSubjects_Click;
             // 
@@ -104,7 +104,7 @@
             Button_CreateProfile.Cursor = Cursors.Hand;
             Button_CreateProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_CreateProfile.ForeColor = Color.White;
-            Button_CreateProfile.Location = new Point(146, 461);
+            Button_CreateProfile.Location = new Point(143, 361);
             Button_CreateProfile.Margin = new Padding(3, 10, 3, 10);
             Button_CreateProfile.Name = "Button_CreateProfile";
             Button_CreateProfile.Size = new Size(971, 100);
@@ -121,11 +121,11 @@
             TextBox_ProfileName.BackColor = Color.FromArgb(25, 25, 35);
             TextBox_ProfileName.Font = new Font("Arial Black", 13.8F);
             TextBox_ProfileName.ForeColor = Color.FromArgb(65, 65, 85);
-            TextBox_ProfileName.Location = new Point(257, 78);
+            TextBox_ProfileName.Location = new Point(254, 78);
             TextBox_ProfileName.Margin = new Padding(3, 10, 3, 10);
             TextBox_ProfileName.Name = "TextBox_ProfileName";
             TextBox_ProfileName.Size = new Size(748, 40);
-            TextBox_ProfileName.TabIndex = 8;
+            TextBox_ProfileName.TabIndex = 1;
             TextBox_ProfileName.Text = "Twoja nazwa semestru";
             TextBox_ProfileName.Click += TextBox_ProfileName_Click;
             // 
@@ -136,7 +136,7 @@
             Button_ExitProfileCreator.Cursor = Cursors.Hand;
             Button_ExitProfileCreator.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitProfileCreator.ForeColor = Color.White;
-            Button_ExitProfileCreator.Location = new Point(146, 582);
+            Button_ExitProfileCreator.Location = new Point(143, 481);
             Button_ExitProfileCreator.Margin = new Padding(3, 10, 3, 10);
             Button_ExitProfileCreator.Name = "Button_ExitProfileCreator";
             Button_ExitProfileCreator.Size = new Size(971, 100);
@@ -158,7 +158,7 @@
             Panel_TitleBar.Location = new Point(0, 0);
             Panel_TitleBar.Name = "Panel_TitleBar";
             Panel_TitleBar.Size = new Size(1829, 69);
-            Panel_TitleBar.TabIndex = 10;
+            Panel_TitleBar.TabIndex = 99;
             Panel_TitleBar.MouseDown += Panel_TitleBar_MouseDown;
             // 
             // Label_Title
@@ -244,14 +244,15 @@
             // tableLayoutPanel_Menu
             // 
             tableLayoutPanel_Menu.AutoSize = true;
+            tableLayoutPanel_Menu.BackColor = Color.Transparent;
             tableLayoutPanel_Menu.ColumnCount = 1;
             tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel_Menu.Controls.Add(Label_ProfileName, 0, 0);
             tableLayoutPanel_Menu.Controls.Add(TextBox_ProfileName, 0, 1);
             tableLayoutPanel_Menu.Controls.Add(Label_ListOfSubjects, 0, 2);
-            tableLayoutPanel_Menu.Controls.Add(RichTextBox_ListOfSubjects, 0, 3);
             tableLayoutPanel_Menu.Controls.Add(Button_CreateProfile, 0, 4);
             tableLayoutPanel_Menu.Controls.Add(Button_ExitProfileCreator, 0, 5);
+            tableLayoutPanel_Menu.Controls.Add(RichTextBox_ListOfSubjects, 0, 3);
             tableLayoutPanel_Menu.Location = new Point(404, 104);
             tableLayoutPanel_Menu.Name = "tableLayoutPanel_Menu";
             tableLayoutPanel_Menu.RowCount = 6;
@@ -261,7 +262,7 @@
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
-            tableLayoutPanel_Menu.Size = new Size(1263, 693);
+            tableLayoutPanel_Menu.Size = new Size(1257, 591);
             tableLayoutPanel_Menu.TabIndex = 11;
             // 
             // Form_CreateProfile
@@ -279,7 +280,7 @@
             MinimumSize = new Size(1024, 720);
             Name = "Form_CreateProfile";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form_CreateProfile";
+            Text = "7";
             Panel_TitleBar.ResumeLayout(false);
             Panel_TitleBar.PerformLayout();
             tableLayoutPanel_Menu.ResumeLayout(false);

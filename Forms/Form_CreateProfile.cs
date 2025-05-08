@@ -21,6 +21,7 @@ namespace CRUDAppProject.Forms
             this.Resize += Form_Resize_Center_Menu;
             this.Resize += Form_Load_Center_Menu;
             InitializeComponent();
+            Panel_TitleBar.BringToFront();
         }
 
         private void Button_CreateProfile_Click(object sender, EventArgs e)
@@ -249,4 +250,5 @@ namespace CRUDAppProject.Forms
             Center_Menu();
         }
     }
+
 }

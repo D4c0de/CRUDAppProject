@@ -60,6 +60,7 @@ namespace CRUDAppProject.Forms
             this.Resize += Form_Resize_Center_Menu;
             this.Resize += Form_Load_Center_Menu;
             InitializeComponent();
+            Panel_TitleBar.BringToFront();
             LoadAllProfilesFromFile(ComboBox_ProfileName);
         }
 

@@ -22,6 +22,7 @@ namespace CRUDAppProject.Forms
             this.Resize += Form_Load_Center_Buttons;
             this.Padding = new Padding(2);
             InitializeComponent();
+            Panel_TitleBar.BringToFront();
         }
 
         //Przycisk zamykania
