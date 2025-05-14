@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms
 {
-    public partial class ITaskLuncher : Form
+    public partial class Form_EditProfile: Form
     {
-        public ITaskLuncher()
+        public Form_EditProfile()
         {
             InitializeComponent();
         }
