@@ -15,6 +15,7 @@ namespace CRUDAppProject
 {
     class CRUDAppProject
     {
+        [STAThread]
         static void Main(string[] args)
         {
             
