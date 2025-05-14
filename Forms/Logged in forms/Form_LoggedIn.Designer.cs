@@ -58,6 +58,7 @@
             // 
             // Panel_TaskCardsPanel
             // 
+            Panel_TaskCardsPanel.AutoScroll = true;
             Panel_TaskCardsPanel.Location = new Point(182, 97);
             Panel_TaskCardsPanel.Name = "Panel_TaskCardsPanel";
             Panel_TaskCardsPanel.Size = new Size(1200, 630);

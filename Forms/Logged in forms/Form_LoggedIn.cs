@@ -18,11 +18,11 @@ namespace CRUDAppProject.Forms
 {
     public partial class Form_LoggedIn : Form
     {
+
         public Form_LoggedIn()
         {
             InitializeComponent();
             _Task_Manager_.DisplayTasksOnLoggedInScreen(Panel_TaskCardsPanel);
-
         }
 
         private void Button_LogOut_Click(object sender, EventArgs e)
