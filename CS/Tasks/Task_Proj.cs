@@ -2,6 +2,7 @@
 using CRUDAppProject.CS.Interfaces;
 using CRUDAppProject.Forms;
 using CRUDAppProject.Forms.Logged_in_forms;
+using CRUDAppProject.Forms.Task_display_forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +37,7 @@ namespace CRUDAppProject.CS.Tasks
                 }
 
                 else
-                    throw new ArgumentException("Rozpiska członków nie może być pusta!", "ProjectMembersSourceNullOrEmpty");
-
+                    this._members = "Projekt samodzielny :)";
             }
         }
 
@@ -66,7 +66,8 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void TaskDisplayer()
         {
-
+            Form_DisplayProj screenTaskDisplayer = new Form_DisplayProj(this);
+            screenTaskDisplayer.Show();
         }
 
         public override void TaskEditor()
@@ -95,7 +96,17 @@ namespace CRUDAppProject.CS.Tasks
 
         public void DisplayTask(Base_Task task)
         {
+            if (task is Task_Proj projectTask)
+            {
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                    Application.OpenForms[i].Close();
 
+                task.TaskDisplayer();
+            }
+
+
+            else
+                throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
         public void EditTask(Base_Task task)
@@ -133,9 +144,7 @@ namespace CRUDAppProject.CS.Tasks
                 members = this.Members,
                 chosenSubject = this.ChosenSubject,
                 dateOfCreation = this.DateOfCreation,
-                deadline = this.Deadline,
-                status = this.Status,
-                isCompleted = this.IsCompleted
+                deadline = this.Deadline
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
@@ -180,7 +189,6 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void ShowTaskCard(Panel panelToShowOn)
         {
-            // Create a new card panel
             Panel cardPanel = new Panel
             {
                 Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
@@ -210,7 +218,6 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Quote
             Label shortDescriptionLabel = new Label
             {
                 Text = this.ShortDescription,
@@ -220,7 +227,6 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Deadline
             Label deadlineLabel = new Label
             {
                 Text = $"Termin: {this.Deadline.ToShortDateString()}",
@@ -230,30 +236,20 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Add Labels
-
             cardPanel.Controls.Add(shortDescriptionLabel);
             cardPanel.Controls.Add(taskTye);
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
-            cardPanel.Click += Test;
+            cardPanel.Click += CardPanel_Click;
             foreach (Control control in cardPanel.Controls)
-                control.Click += Test;
-
+                control.Click += CardPanel_Click;
 
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
-
-
-
         }
 
-        public override void Test(object sender, EventArgs e)
-        {
-            Console.Clear();
-            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego uczestnicy to: {this.Members}! ");
-        }
+        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);
 
     }
 }

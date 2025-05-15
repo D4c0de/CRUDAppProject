@@ -76,7 +76,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Label_TaskDescription.Size = new Size(265, 25);
             Label_TaskDescription.TabIndex = 2;
             Label_TaskDescription.Text = "Wprowadź pełny opis zadania\r\n";
-            Label_TaskDescription.Click += Label_TaskDescription_Click;
             // 
             // Label_TaskSource
             // 
@@ -138,6 +137,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Button_ExitExerciseCreator.TabIndex = 9;
             Button_ExitExerciseCreator.Text = "Opuść bez zapisywania";
             Button_ExitExerciseCreator.UseVisualStyleBackColor = true;
+            Button_ExitExerciseCreator.Click += Button_ExitExerciseCreator_Click;
             // 
             // Button_CreateExercise
             // 
@@ -210,7 +210,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Name = "Form_CreateExercise";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_CreateExercise";
-            Load += Form_CreateExercise_Load;
             ResumeLayout(false);
             PerformLayout();
         }

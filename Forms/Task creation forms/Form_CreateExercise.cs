@@ -42,7 +42,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 task.Description = RichTextBox_TaskDescription.Text;
                 task.TaskSource = RichTextBox_TaskSource.Text;
                 task.ChosenSubject = Side_Format.CapitalizeString(ComboBox_ChooseSubject.Text);
-                task.Status = task.TupleOfStatuses.TODO;
                 task.Deadline = Calendar_SetDeadline.SelectionStart;
                 task.CreateTask(task);
                 this.Hide();
@@ -79,14 +78,12 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 
         }
 
-        private void Form_CreateExercise_Load(object sender, EventArgs e)
+        private void Button_ExitExerciseCreator_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Label_TaskDescription_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
+            this.Hide();
+            Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+            screenLoggedIn.Show();
         }
     }
 }

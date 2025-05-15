@@ -104,7 +104,6 @@
             Label_SetDeadline.Size = new Size(212, 25);
             Label_SetDeadline.TabIndex = 5;
             Label_SetDeadline.Text = "Wyznacz termin obrony";
-            Label_SetDeadline.Click += Label_SetDeadline_Click;
             // 
             // Button_ExitProjectCreator
             // 
@@ -115,6 +114,7 @@
             Button_ExitProjectCreator.TabIndex = 6;
             Button_ExitProjectCreator.Text = "Opuść bez zapisywania";
             Button_ExitProjectCreator.UseVisualStyleBackColor = true;
+            Button_ExitProjectCreator.Click += Button_ExitProjectCreator_Click;
             // 
             // Button_CreateProject
             // 
@@ -179,7 +179,6 @@
             Label_ShortDescription.Size = new Size(195, 25);
             Label_ShortDescription.TabIndex = 15;
             Label_ShortDescription.Text = "Wprowadź krótki opis";
-            Label_ShortDescription.Click += label1_Click;
             // 
             // Form_CreateProj
             // 

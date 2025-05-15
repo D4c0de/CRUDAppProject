@@ -39,7 +39,6 @@ namespace CRUDAppProject.Forms
                 task.Description = RichTextBox_TaskDescription.Text;
                 task.Members = TextBox_TaskMembers.Text;
                 task.ChosenSubject = Side_Format.CapitalizeString(ComboBox_ChooseSubject.Text);
-                task.Status = task.TupleOfStatuses.TODO;
                 task.Deadline = Calendar_SetDeadline.SelectionStart;
                 task.CreateTask(task);
                 this.Hide();
@@ -75,14 +74,12 @@ namespace CRUDAppProject.Forms
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Button_ExitProjectCreator_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Label_SetDeadline_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
+            this.Hide();
+            Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+            screenLoggedIn.Show();
         }
     }
 }
