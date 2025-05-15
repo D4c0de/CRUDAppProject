@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms.Logged_in_forms
 {
-    public partial class Form_CreateExercise : Form
+    partial class Form_CreateExercise : Form
     {
         public Form_CreateExercise()
         {
@@ -78,6 +78,20 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             this.Hide();
             Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
             screenLoggedIn.Show();
+        }
+
+        public void SwitchToEditForm(Task_Exercise task)
+        {
+            Label_WelcomeMessage.Text = "Edytor ćwiczenia";
+            Button_CreateExercise.Text = "Zapisz zadanie";
+
+            TextBox_TaskTitle.Text = task.Title;
+            TextBox_ShortDescription.Text = task.ShortDescription;
+            RichTextBox_TaskDescription.Text = task.Description;
+            RichTextBox_TaskSource.Text = task.TaskSource;
+            ComboBox_ChooseSubject.Text = task.ChosenSubject;
+            Calendar_SetDeadline.SelectionStart = task.Deadline;
+            Calendar_SetDeadline.SelectionEnd = task.Deadline;
         }
     }
 }

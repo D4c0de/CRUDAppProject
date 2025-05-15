@@ -47,7 +47,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 this.Close();
                 Form_LoggedIn screen_LoggedIn = new Form_LoggedIn();
                 screen_LoggedIn.Show();
-
             }
 
             catch (ArgumentException ex)
@@ -71,8 +70,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                     MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "FATALTaskTypeConflict")
-                    MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                
+                    MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);                                
             }
         }
 
@@ -83,6 +81,5 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
             screenLoggedIn.Show();
         }
-
     }
 }

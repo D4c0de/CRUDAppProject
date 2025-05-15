@@ -19,9 +19,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
         {                          
             InitializeComponent();
             foreach (string task in Base_Task.ListOfTaskTypes)
-            {
                 Listbox_TaskTypes.Items.Add(task);
-            }
         }
 
         private void ChooseTaskType()

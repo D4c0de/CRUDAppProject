@@ -136,6 +136,7 @@
             Button_EditTask.TabIndex = 9;
             Button_EditTask.Text = "Edytuj treść zadania";
             Button_EditTask.UseVisualStyleBackColor = true;
+            Button_EditTask.Click += Button_EditTask_Click;
             // 
             // TextBox_TaskTitle
             // 

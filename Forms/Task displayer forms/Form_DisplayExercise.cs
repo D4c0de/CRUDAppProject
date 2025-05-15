@@ -1,8 +1,10 @@
-﻿using CRUDAppProject.CS.Tasks;
+﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Tasks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -14,6 +16,9 @@ namespace CRUDAppProject.Forms.Task_display_forms
 {
     partial class Form_DisplayExercise : Form
     {
+        private Task_Exercise ActiveTask = new Task_Exercise();
+        static public bool IsSwitchedToEditing = false;
+
         private void FillAllTextBoxes(Task_Exercise task)
         {
             TextBox_TaskTitle.Text = task.Title;
@@ -27,7 +32,8 @@ namespace CRUDAppProject.Forms.Task_display_forms
         public Form_DisplayExercise(Task_Exercise task)
         {
             InitializeComponent();
-            FillAllTextBoxes(task);
+            ActiveTask = task;
+            FillAllTextBoxes(ActiveTask);
         }
 
         private void Button_ExitExerciseDisplayer_Click(object sender, EventArgs e)
@@ -36,6 +42,14 @@ namespace CRUDAppProject.Forms.Task_display_forms
             this.Close();
             Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
             screenLoggedIn.Show();
+        }
+
+        private void Button_EditTask_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            ActiveTask.EditTask(ActiveTask);
+            IsSwitchedToEditing = true;
         }
     }
 }
