@@ -54,6 +54,7 @@
             Button_ExitTaskTypePicker.TabIndex = 2;
             Button_ExitTaskTypePicker.Text = "Wróć do zadań bez zapisywania";
             Button_ExitTaskTypePicker.UseVisualStyleBackColor = true;
+            Button_ExitTaskTypePicker.Click += Button_ExitTaskTypePicker_Click;
             // 
             // Button_EnterTaskCreator
             // 

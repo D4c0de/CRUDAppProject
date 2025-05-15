@@ -17,10 +17,10 @@ namespace CRUDAppProject.Forms
     {
         public Form_CreateProfile()
         {
+            InitializeComponent();
             this.Resize += Form_Resize;
             this.Resize += Form_Resize_Center_Menu;
-            this.Resize += Form_Load_Center_Menu;
-            InitializeComponent();
+            this.Resize += Form_Load_Center_Menu;            
             Panel_TitleBar.BringToFront();
         }
 
@@ -92,9 +92,9 @@ namespace CRUDAppProject.Forms
         }
         private void Form_Resize(object? sender, EventArgs e)
         {
-
             this.Invalidate();
         }
+
         //zmiana koloru czcionki po najechaniu
         private void TitleBar_Button_Enter(object sender, EventArgs e)
         {

@@ -75,14 +75,12 @@ namespace CRUDAppProject.Forms
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Button_ExitProjectCreator_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Label_SetDeadline_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
+            this.Hide();
+            Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+            screenLoggedIn.Show();
         }
     }
 }

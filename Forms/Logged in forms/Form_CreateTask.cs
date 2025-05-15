@@ -65,5 +65,14 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             
 
         }
+
+        private void Button_ExitTaskTypePicker_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+            screenLoggedIn.Show();
+        }
+
     }
 }

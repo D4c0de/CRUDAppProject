@@ -104,6 +104,7 @@
             Button_ExitExamCreator.TabIndex = 5;
             Button_ExitExamCreator.Text = "Opuść bez zapisywania";
             Button_ExitExamCreator.UseVisualStyleBackColor = true;
+            Button_ExitExamCreator.Click += Button_ExitExamCreator_Click;
             // 
             // Button_CreateExam
             // 
