@@ -19,8 +19,8 @@ namespace CRUDAppProject
         static void Main(string[] args)
         {
             
-            Form_Logging Screen_Logging = new Form_Logging();
-            Screen_Logging.Show();
+            Form_Logging screenLogging = new Form_Logging();
+            screenLogging.Show();
 
             Application.Run();                 
 

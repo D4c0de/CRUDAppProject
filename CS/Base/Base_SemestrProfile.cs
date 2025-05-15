@@ -27,7 +27,11 @@ namespace CRUDAppProject.CS.Base
             get { return this._name; }
             set
             {
-                this._name = Side_Format.CapitalizeString(value);
+                if (value.Length > 32)
+                    throw new ArgumentException("Nazwa profilu jest za długa!", "TooLongProfileName");
+
+                else
+                    this._name = Side_Format.CapitalizeString(value);
             }
         }
               

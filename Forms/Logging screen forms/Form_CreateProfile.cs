@@ -26,44 +26,45 @@ namespace CRUDAppProject.Forms
 
         private void Button_CreateProfile_Click(object sender, EventArgs e)
         {
-            Base_SemestrProfile Profile = new Base_SemestrProfile();
-
-            Profile.Name = TextBox_ProfileName.Text;
-
-            Profile.ListOfSubjects = Side_Format.CutIntoSingleWords(RichTextBox_ListOfSubjects.Text);
-
-
             try
             {
-                Profile.SaveDataToFile();
+                Base_SemestrProfile profile = new Base_SemestrProfile();
 
-                // Jeśli wszystko ok - cofnij się do głównego ekranu logowania
+                profile.Name = TextBox_ProfileName.Text;
+
+                profile.ListOfSubjects = Side_Format.CutIntoSingleWords(RichTextBox_ListOfSubjects.Text);
+
+                foreach (string subject in profile.ListOfSubjects)
+                {
+                    if (subject.Length >= 32)
+                    {
+                        throw new ArgumentException("Nazwa przedmiotu jest za długa!", "TooLongSubjectTitle");
+                    }
+                }
+
+                profile.SaveDataToFile();
 
                 this.Close();
                 this.Hide();
-                Form_Logging form_Logging = new Form_Logging();
-                form_Logging.Show();
+                Form_Logging screenLogging = new Form_Logging();
+                screenLogging.Show();
             }
 
-
-            // Obsłuż wyjątek, w którym lista jest pusta (bo to jedyny wyjątek jaki wyrzucamy)
-            // Profil nie ma żadnej nazwy tylko działa
             catch (ArgumentException ex)
             {
                 if (ex.ParamName == "FileAlreadyExists")
-                {
                     MessageBox.Show(ex.Message, "Nazwy profili nie mogą się powtarzać.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                else if (ex.ParamName == "TooLongProfileName")
+                    MessageBox.Show(ex.Message, "Za długa nazwa profilu! Maksymalna długość nazwy to 32 znaki!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 else if (ex.ParamName == "EmptyListOfSubjects")
-                {
                     MessageBox.Show(ex.Message, "Lista nie może być pusta.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
 
                 else if (ex.ParamName == "NullOrEmptyFileName")
-                {
                     MessageBox.Show(ex.Message, "Nazwa profilu nie może być pusta!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+
+                else if (ex.ParamName == "TooLongSubjectTitle")
+                    MessageBox.Show(ex.Message, "Za długa nazwa przedmiotu! Maksymalna długość nazwy to 32 znaki!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
