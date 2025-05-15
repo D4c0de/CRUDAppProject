@@ -39,8 +39,5 @@ namespace CRUDAppProject.CS.Managers
                 task.ShowTaskCard(Panel_TaskCardsPanel);
             }
         }
-
-
-
     }
 }

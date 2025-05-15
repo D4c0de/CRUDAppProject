@@ -1,6 +1,7 @@
 ﻿using CRUDAppProject.CS.Base;
 using CRUDAppProject.CS.Interfaces;
 using CRUDAppProject.Forms.Logged_in_forms;
+using CRUDAppProject.Forms.Task_display_forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,8 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void TaskDisplayer()
         {
-
+            Form_DisplayExercise screenTaskDisplayer = new Form_DisplayExercise(this);
+            screenTaskDisplayer.Show();
         }
 
         public override void TaskEditor()
@@ -65,18 +67,20 @@ namespace CRUDAppProject.CS.Tasks
             if (task is Task_Exercise exerciseTask)
             {
                 exerciseTask.SaveDataToFile();
-                MessageBox.Show("Zadanie zostało stworzone i zapisane pomyślnie.", "Tworzenie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                MessageBox.Show("Zadanie zostało stworzone i zapisane pomyślnie.", "Tworzenie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);                
             }
 
             else
-                throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
-            
+                throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");            
         }
 
         public void DisplayTask(Base_Task task)
         {
-            
+            if (task is Task_Exercise exerciseTask)
+                task.TaskDisplayer();
+
+            else
+                throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
         public void EditTask(Base_Task task)
@@ -88,8 +92,6 @@ namespace CRUDAppProject.CS.Tasks
         {
 
         }
-
-
 
 
         public void SaveDataToFile()
@@ -230,8 +232,9 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void Test(object sender, EventArgs e)
         {
-            Console.Clear();
-            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego źródło to: {this.TaskSource}! ");
+            DisplayTask(this);
         }
+
+        
     }
 }
