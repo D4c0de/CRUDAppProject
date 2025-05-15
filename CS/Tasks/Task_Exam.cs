@@ -1,6 +1,7 @@
 ﻿using CRUDAppProject.CS.Base;
 using CRUDAppProject.CS.Interfaces;
 using CRUDAppProject.Forms.Logged_in_forms;
+using CRUDAppProject.Forms.Task_display_forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,7 +67,8 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void TaskDisplayer()
         {
-
+            Form_DisplayExam screenTaskDisplayer = new Form_DisplayExam(this);
+            screenTaskDisplayer.Show();
         }
 
         public override void TaskEditor()
@@ -95,7 +97,17 @@ namespace CRUDAppProject.CS.Tasks
 
         public void DisplayTask(Base_Task task)
         {
+            if (task is Task_Exam examTask)
+            {
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                    Application.OpenForms[i].Close();
 
+                task.TaskDisplayer();
+            }
+
+
+            else
+                throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
         public void EditTask(Base_Task task)
@@ -167,9 +179,9 @@ namespace CRUDAppProject.CS.Tasks
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
-            cardPanel.Click += Test;
+            cardPanel.Click += CardPanel_Click;
             foreach (Control control in cardPanel.Controls)
-                control.Click += Test;
+                control.Click += CardPanel_Click;
 
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
@@ -244,11 +256,7 @@ namespace CRUDAppProject.CS.Tasks
             }
         }
 
-        public override void Test(object sender, EventArgs e)
-        {
-            Console.Clear();
-            Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego zakres to: {this.MaterialScope}! ");
-        }
+        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);
 
     }
 }

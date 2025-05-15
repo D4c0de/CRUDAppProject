@@ -36,7 +36,6 @@ namespace CRUDAppProject.CS.Tasks
 
                 else
                     throw new ArgumentException("Źródło zadania nie może być puste!", "ExerciseSourceNullOrEmpty");
-
             }
         }
 
@@ -77,7 +76,13 @@ namespace CRUDAppProject.CS.Tasks
         public void DisplayTask(Base_Task task)
         {
             if (task is Task_Exercise exerciseTask)
-                task.TaskDisplayer();
+            {
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                    Application.OpenForms[i].Close();
+
+                task.TaskDisplayer();                
+            }
+                
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
@@ -222,19 +227,14 @@ namespace CRUDAppProject.CS.Tasks
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
-            cardPanel.Click += Test;
+            cardPanel.Click += CardPanel_Click;
             foreach (Control control in cardPanel.Controls)
-                control.Click += Test;
+                control.Click += CardPanel_Click;
 
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
         }
 
-        public override void Test(object sender, EventArgs e)
-        {
-            DisplayTask(this);
-        }
-
-        
+        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);
     }
 }

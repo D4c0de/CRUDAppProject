@@ -5,37 +5,37 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CRUDAppProject.Forms.Task_display_forms
 {
-    partial class Form_DisplayExercise : Form
+    partial class Form_DisplayExam : Form
     {
-        private void FillAlBoxes(Task_Exercise task)
+        private void FillAlBoxes(Task_Exam task)
         {
             TextBox_TaskTitle.Text = task.Title;
             TextBox_ShortDescription.Text = task.ShortDescription;
             TextBox_TaskSubject.Text = task.ChosenSubject;
             RichTextBox_TaskDescription.Text = task.Description;
             TextBox_TaskDeadline.Text = task.Deadline.ToShortDateString();
-            RichTextBox_TaskSource.Text = task.TaskSource;
+            RichTextBox_TaskMaterialScope.Text = task.MaterialScope;
         }
 
-        public Form_DisplayExercise(Task_Exercise task)
+        public Form_DisplayExam(Task_Exam task)
         {
             InitializeComponent();
             FillAlBoxes(task);
         }
 
-        private void Button_ExitExerciseDisplayer_Click(object sender, EventArgs e)
-        {            
+        private void Button_ExitExamDisplayer_Click(object sender, EventArgs e)
+        {
             this.Hide();
             this.Close();
             Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
             screenLoggedIn.Show();
         }
+
     }
 }

@@ -237,9 +237,9 @@ namespace CRUDAppProject.CS.Tasks
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
-            cardPanel.Click += Test;
+            cardPanel.Click += CardPanel_Click;
             foreach (Control control in cardPanel.Controls)
-                control.Click += Test;
+                control.Click += CardPanel_Click;
 
 
             panelToShowOn.Controls.Add(cardPanel);
@@ -249,7 +249,7 @@ namespace CRUDAppProject.CS.Tasks
 
         }
 
-        public override void Test(object sender, EventArgs e)
+        public override void CardPanel_Click(object sender, EventArgs e)
         {
             Console.Clear();
             Console.WriteLine($"Kliknąłeś taska z klasy {this.GetType().Name} o opisie: {this.ShortDescription}. Jego uczestnicy to: {this.Members}! ");

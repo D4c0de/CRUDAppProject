@@ -30,7 +30,6 @@
         {
             Label_WelcomeMessage = new Label();
             Label_TaskTitle = new Label();
-            Label_ShortDescription = new Label();
             Label_TaskDescription = new Label();
             Label_TaskSource = new Label();
             Label_TaskSubject = new Label();
@@ -44,6 +43,7 @@
             RichTextBox_TaskSource = new RichTextBox();
             TextBox_TaskDeadline = new TextBox();
             TextBox_TaskSubject = new TextBox();
+            Label_ShortDescription = new Label();
             SuspendLayout();
             // 
             // Label_WelcomeMessage
@@ -62,19 +62,9 @@
             Label_TaskTitle.Font = new Font("Segoe UI", 14F);
             Label_TaskTitle.Location = new Point(50, 84);
             Label_TaskTitle.Name = "Label_TaskTitle";
-            Label_TaskTitle.Size = new Size(80, 25);
+            Label_TaskTitle.Size = new Size(97, 25);
             Label_TaskTitle.TabIndex = 1;
-            Label_TaskTitle.Text = "Zadanie";
-            // 
-            // Label_ShortDescription
-            // 
-            Label_ShortDescription.AutoSize = true;
-            Label_ShortDescription.Font = new Font("Segoe UI", 14F);
-            Label_ShortDescription.Location = new Point(50, 159);
-            Label_ShortDescription.Name = "Label_ShortDescription";
-            Label_ShortDescription.Size = new Size(172, 25);
-            Label_ShortDescription.TabIndex = 2;
-            Label_ShortDescription.Text = "Krótki opis zadania";
+            Label_TaskTitle.Text = "Ćwiczenie";
             // 
             // Label_TaskDescription
             // 
@@ -82,9 +72,9 @@
             Label_TaskDescription.Font = new Font("Segoe UI", 14F);
             Label_TaskDescription.Location = new Point(50, 302);
             Label_TaskDescription.Name = "Label_TaskDescription";
-            Label_TaskDescription.Size = new Size(168, 25);
+            Label_TaskDescription.Size = new Size(184, 25);
             Label_TaskDescription.TabIndex = 3;
-            Label_TaskDescription.Text = "Pełny opis zadania";
+            Label_TaskDescription.Text = "Pełny opis ćwiczenia";
             // 
             // Label_TaskSource
             // 
@@ -92,9 +82,9 @@
             Label_TaskSource.Font = new Font("Segoe UI", 14F);
             Label_TaskSource.Location = new Point(50, 558);
             Label_TaskSource.Name = "Label_TaskSource";
-            Label_TaskSource.Size = new Size(139, 25);
+            Label_TaskSource.Size = new Size(155, 25);
             Label_TaskSource.TabIndex = 4;
-            Label_TaskSource.Text = "Źródło zadania";
+            Label_TaskSource.Text = "Źródło ćwiczenia";
             // 
             // Label_TaskSubject
             // 
@@ -125,6 +115,7 @@
             Button_ExitExerciseDisplayer.TabIndex = 7;
             Button_ExitExerciseDisplayer.Text = "Opuść bez zapisywania";
             Button_ExitExerciseDisplayer.UseVisualStyleBackColor = true;
+            Button_ExitExerciseDisplayer.Click += Button_ExitExerciseDisplayer_Click;
             // 
             // Button_MarkAsDone
             // 
@@ -196,6 +187,16 @@
             TextBox_TaskSubject.Size = new Size(629, 23);
             TextBox_TaskSubject.TabIndex = 15;
             // 
+            // Label_ShortDescription
+            // 
+            Label_ShortDescription.AutoSize = true;
+            Label_ShortDescription.Font = new Font("Segoe UI", 14F);
+            Label_ShortDescription.Location = new Point(50, 159);
+            Label_ShortDescription.Name = "Label_ShortDescription";
+            Label_ShortDescription.Size = new Size(188, 25);
+            Label_ShortDescription.TabIndex = 2;
+            Label_ShortDescription.Text = "Krótki opis ćwiczenia";
+            // 
             // Form_DisplayExercise
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -229,7 +230,6 @@
 
         private Label Label_WelcomeMessage;
         private Label Label_TaskTitle;
-        private Label Label_ShortDescription;
         private Label Label_TaskDescription;
         private Label Label_TaskSource;
         private Label Label_TaskSubject;
@@ -243,5 +243,6 @@
         private RichTextBox RichTextBox_TaskSource;
         private TextBox TextBox_TaskDeadline;
         private TextBox TextBox_TaskSubject;
+        private Label Label_ShortDescription;
     }
 }

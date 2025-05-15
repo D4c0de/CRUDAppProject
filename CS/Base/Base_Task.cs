@@ -169,7 +169,6 @@ namespace CRUDAppProject.CS.Base
 
         public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
 
-
         public abstract void TaskCreator();
 
         public abstract void TaskDisplayer();
@@ -180,8 +179,6 @@ namespace CRUDAppProject.CS.Base
 
         public abstract void ShowTaskCard(Panel panelToShowOn);
 
-        public abstract void Test(object sender, EventArgs e);
-
-
+        public abstract void CardPanel_Click(object sender, EventArgs e);
     }
 }
