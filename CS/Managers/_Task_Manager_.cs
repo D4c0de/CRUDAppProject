@@ -35,9 +35,7 @@ namespace CRUDAppProject.CS.Managers
             var document = JsonSerializer.Deserialize<RootObject>(json, options);
 
             foreach (var task in document.Tasks)
-            {
                 task.ShowTaskCard(Panel_TaskCardsPanel);
-            }
         }
     }
 }

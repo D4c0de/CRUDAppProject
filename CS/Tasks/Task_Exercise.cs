@@ -123,9 +123,7 @@ namespace CRUDAppProject.CS.Tasks
                 taskSource = this.TaskSource,
                 chosenSubject = this.ChosenSubject,
                 dateOfCreation = this.DateOfCreation,
-                deadline = this.Deadline,
-                status = this.Status,
-                isCompleted = this.IsCompleted
+                deadline = this.Deadline
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
@@ -170,7 +168,6 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void ShowTaskCard(Panel panelToShowOn)
         {
-            // Create a new card panel
             Panel cardPanel = new Panel
             {
                 Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
@@ -200,7 +197,7 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Quote
+
             Label shortDescriptionLabel = new Label
             {
                 Text = this.ShortDescription,
@@ -210,7 +207,7 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Deadline
+            
             Label deadlineLabel = new Label
             {
                 Text = $"Termin: {this.Deadline.ToShortDateString()}",
@@ -220,8 +217,7 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Add Labels
-
+            
             cardPanel.Controls.Add(shortDescriptionLabel);
             cardPanel.Controls.Add(taskTye);
             cardPanel.Controls.Add(titleLabel);

@@ -88,24 +88,8 @@ namespace CRUDAppProject.CS.Base
         public DateTime Deadline
         {
             get { return this._deadline; }
-            set 
-            { 
-                this._deadline = value; 
-            }
+            set { this._deadline = value; }
         }
-
-
-        /// <summary>
-        /// Czy zadanie zostało wykonane 
-        /// </summary>
-
-        protected bool _isCompleted = false;
-        public bool IsCompleted
-        {
-            get { return this._isCompleted; }
-            set { this._isCompleted = value; }
-        }
-
 
         /// <summary>
         /// Data utworzenia zadania
@@ -143,18 +127,6 @@ namespace CRUDAppProject.CS.Base
         /// </summary>
 
         public (string TODO, string InProgress, string Done) TupleOfStatuses = ("Do zrobienia", "W trakcie", "Gotowe");
-
-        
-        /// <summary>
-        /// Stan zadania
-        /// </summary>
-
-        protected string _status = ("Do zrobienia", "W trakcie", "Gotowe").Item1;
-        public string Status
-        {
-            get { return this._status; }
-            set { this._status = value; }
-        }
 
         public static int CardLength = 1150;
         public static int CardWidth = 100;

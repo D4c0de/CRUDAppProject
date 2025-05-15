@@ -212,9 +212,7 @@ namespace CRUDAppProject.CS.Tasks
                 materialScope = this.MaterialScope,
                 chosenSubject = this.ChosenSubject,
                 dateOfCreation = this.DateOfCreation,
-                deadline = this.Deadline,
-                status = this.Status,
-                isCompleted = this.IsCompleted
+                deadline = this.Deadline
             };
 
             string taskJson = JsonSerializer.Serialize(taskObj);
@@ -236,7 +234,6 @@ namespace CRUDAppProject.CS.Tasks
         }
         public void LoadDataFromFile()
         {
-
             if (!File.Exists(Base_AppState.ChosenProfileFilePath))
                 throw new FileNotFoundException("Plik profilu nie istnieje.", Base_AppState.ChosenProfileFilePath);
 
@@ -246,14 +243,10 @@ namespace CRUDAppProject.CS.Tasks
 
             if (!root.TryGetProperty("tasks", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
                 throw new JsonException("Brak listy zadań w pliku profilu.");
-
+            
             foreach (JsonElement task in tasksElement.EnumerateArray())
-            {
                 if (task.TryGetProperty("title", out JsonElement title))
-                {
                     Console.WriteLine($"Zadanie: {title.GetString()}");
-                }
-            }
         }
 
         public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);

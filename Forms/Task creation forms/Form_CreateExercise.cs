@@ -42,7 +42,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 task.Description = RichTextBox_TaskDescription.Text;
                 task.TaskSource = RichTextBox_TaskSource.Text;
                 task.ChosenSubject = Side_Format.CapitalizeString(ComboBox_ChooseSubject.Text);
-                task.Status = task.TupleOfStatuses.TODO;
                 task.Deadline = Calendar_SetDeadline.SelectionStart;
                 task.CreateTask(task);
                 this.Hide();

@@ -14,7 +14,7 @@ namespace CRUDAppProject.Forms.Task_display_forms
 {
     partial class Form_DisplayExercise : Form
     {
-        private void FillAlBoxes(Task_Exercise task)
+        private void FillAllTextBoxes(Task_Exercise task)
         {
             TextBox_TaskTitle.Text = task.Title;
             TextBox_ShortDescription.Text = task.ShortDescription;
@@ -27,7 +27,7 @@ namespace CRUDAppProject.Forms.Task_display_forms
         public Form_DisplayExercise(Task_Exercise task)
         {
             InitializeComponent();
-            FillAlBoxes(task);
+            FillAllTextBoxes(task);
         }
 
         private void Button_ExitExerciseDisplayer_Click(object sender, EventArgs e)
