@@ -31,7 +31,12 @@ namespace CRUDAppProject.CS.Base
                 if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
                 {
                     value = value.Trim();
-                    this._title = Side_Format.CapitalizeString(value);
+
+                    if (value.Length > 32)
+                        throw new ArgumentException("Nazwa zadania za długa! Maksymalnie 32 znaki.", "TaskTitleTooLong");
+
+                    else
+                        this._title = Side_Format.CapitalizeString(value);
                 }
 
                 else
@@ -58,8 +63,7 @@ namespace CRUDAppProject.CS.Base
                 }
 
                 else
-                    throw new ArgumentException("Opis zadania nie może być pusty!", "TaskDescriptionNullOrEmpty");
-
+                    this._description = value;
             }
         }
 

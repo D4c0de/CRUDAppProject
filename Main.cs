@@ -17,13 +17,11 @@ namespace CRUDAppProject
     {
         [STAThread]
         static void Main(string[] args)
-        {
-            
+        {            
             Form_Logging screenLogging = new Form_Logging();
             screenLogging.Show();
 
             Application.Run();                 
-
         }
     }
 }

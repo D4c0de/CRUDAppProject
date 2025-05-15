@@ -53,8 +53,8 @@ namespace CRUDAppProject.Forms
                 if (ex.ParamName == "TaskTitleNullOrEmpty")
                     MessageBox.Show("Nazwa projektu nie może być pusta!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                else if (ex.ParamName == "TaskDescriptionNullOrEmpty")
-                    MessageBox.Show("Opis projektu nie może być pusty!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (ex.ParamName == "TaskTitleTooLong")
+                    MessageBox.Show("Nazwa zadania za długa! Maksymalnie 32 znaki!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "SubjectNotFound")
                     MessageBox.Show("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,10 +63,10 @@ namespace CRUDAppProject.Forms
                     MessageBox.Show("Lista członków nie może być pusta!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "ShortDescriptionTooLong")
-                    MessageBox.Show("Krótki opis jest za długi! Maksymalnie 32 znaki!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Krótki opis jest za długi! Maksymalnie 32 znaki!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "EmptyShortDescription")
-                    MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "FATALTaskTypeConflict")
                     MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie projektu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
