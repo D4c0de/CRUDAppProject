@@ -35,7 +35,7 @@
             Label_TaskSubject = new Label();
             Label_TaskDeadline = new Label();
             Button_ExitExerciseDisplayer = new Button();
-            Button_MarkAsDone = new Button();
+            Button_RemoveTask = new Button();
             Button_EditTask = new Button();
             TextBox_TaskTitle = new TextBox();
             TextBox_ShortDescription = new TextBox();
@@ -117,16 +117,16 @@
             Button_ExitExerciseDisplayer.UseVisualStyleBackColor = true;
             Button_ExitExerciseDisplayer.Click += Button_ExitExerciseDisplayer_Click;
             // 
-            // Button_MarkAsDone
+            // Button_RemoveTask
             // 
-            Button_MarkAsDone.Font = new Font("Segoe UI", 18F);
-            Button_MarkAsDone.Location = new Point(1155, 364);
-            Button_MarkAsDone.Name = "Button_MarkAsDone";
-            Button_MarkAsDone.Size = new Size(254, 107);
-            Button_MarkAsDone.TabIndex = 8;
-            Button_MarkAsDone.Text = "Usuń zadanie";
-            Button_MarkAsDone.UseVisualStyleBackColor = true;
-            Button_MarkAsDone.Click += Button_RemoveTask_Click;
+            Button_RemoveTask.Font = new Font("Segoe UI", 18F);
+            Button_RemoveTask.Location = new Point(1155, 364);
+            Button_RemoveTask.Name = "Button_RemoveTask";
+            Button_RemoveTask.Size = new Size(254, 107);
+            Button_RemoveTask.TabIndex = 8;
+            Button_RemoveTask.Text = "Usuń zadanie";
+            Button_RemoveTask.UseVisualStyleBackColor = true;
+            Button_RemoveTask.Click += Button_RemoveTask_Click;
             // 
             // Button_EditTask
             // 
@@ -212,7 +212,7 @@
             Controls.Add(TextBox_ShortDescription);
             Controls.Add(TextBox_TaskTitle);
             Controls.Add(Button_EditTask);
-            Controls.Add(Button_MarkAsDone);
+            Controls.Add(Button_RemoveTask);
             Controls.Add(Button_ExitExerciseDisplayer);
             Controls.Add(Label_TaskDeadline);
             Controls.Add(Label_TaskSubject);
@@ -237,7 +237,7 @@
         private Label Label_TaskSubject;
         private Label Label_TaskDeadline;
         private Button Button_ExitExerciseDisplayer;
-        private Button Button_MarkAsDone;
+        private Button Button_RemoveTask;
         private Button Button_EditTask;
         private TextBox TextBox_TaskTitle;
         private TextBox TextBox_ShortDescription;

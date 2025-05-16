@@ -143,16 +143,6 @@ namespace CRUDAppProject.CS.Base
                 }
             }
         }
-        
-
-        /// <summary>
-        /// Pobiera dane związane z profilem z pliku .json
-        /// </summary>
-
-        public void LoadDataFromFile()
-        {
-
-        }
 
         static public List<string> LoadListOfSubjectFromFile()
         {

@@ -129,10 +129,7 @@ namespace CRUDAppProject.CS.Base
             set { }
         }
 
-        public Base_Task()
-        {
-            _dateOfCreation = DateTime.Now;
-        }
+        public Base_Task() => _dateOfCreation = DateTime.Now;
 
 
         // Lista rodzajów zadań 
@@ -144,8 +141,6 @@ namespace CRUDAppProject.CS.Base
         public abstract void TaskDisplayer();
 
         public abstract void TaskEditor();
-
-        public abstract void TaskRemover();
 
         public abstract void ShowTaskCard(Panel panelToShowOn);
 

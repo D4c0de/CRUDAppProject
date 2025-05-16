@@ -50,11 +50,21 @@ namespace CRUDAppProject.Forms.Task_display_forms
 
         private void Button_RemoveTask_Click(object sender, EventArgs e)
         {
-            ActiveTask.RemoveTask(ActiveTask);
-            this.Hide();
-            this.Close();
-            Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
-            screenLoggedIn.Show();
+            DialogResult result = MessageBox.Show(
+                "Czy na pewno chcesz usunąć to zadanie?",
+                "Potwierdzenie usunięcia",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.OK)
+            {
+                ActiveTask.RemoveTask(ActiveTask);
+                this.Hide();
+                this.Close();
+                Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+                screenLoggedIn.Show();
+            }
         }
     }
 }
