@@ -100,8 +100,8 @@ namespace CRUDAppProject.CS.Base
         protected DateTime _dateOfCreation;
         public DateTime DateOfCreation
         {
-            get { return this._dateOfCreation; }
-            set { this._dateOfCreation = DateTime.Now.Date; }
+            get { return _dateOfCreation; }
+            set { _dateOfCreation = value; }
         }
 
         private string _shortDescription;
@@ -121,18 +121,17 @@ namespace CRUDAppProject.CS.Base
             }
         }
 
-        /// <summary>
-        /// Krotka przechowująca stan zadania
-        /// </summary>
-
-        public (string TODO, string InProgress, string Done) TupleOfStatuses = ("Do zrobienia", "W trakcie", "Gotowe");
-
         public static int CardLength = 1150;
         public static int CardWidth = 100;
         public static int SpaceBetweenCardsOnY
         {
             get { return Base_AppState.CardCount * 110;}
             set { }
+        }
+
+        public Base_Task()
+        {
+            _dateOfCreation = DateTime.Now;
         }
 
 

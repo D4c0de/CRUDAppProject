@@ -41,23 +41,6 @@ namespace CRUDAppProject.CS.Tasks
             }
         }
 
-
-        /// <summary>
-        /// Pozwala dodanie uczestnika projektu do listy uczestników
-        /// </summary>
-        static public void AddMember()
-        {
-
-        }
-
-
-        /// <summary>
-        /// Pozwala usunąć uczestnika projektu z listy uczestników
-        /// </summary>
-        static public void RemoveMember()
-        {
-
-        }
         public override void TaskCreator()
         {
             Form_CreateProj screen_ProjectCreator = new Form_CreateProj();
@@ -116,7 +99,57 @@ namespace CRUDAppProject.CS.Tasks
 
         public void RemoveTask(Base_Task task)
         {
+            string filePath = Base_AppState.ChosenProfileFilePath;
 
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException("Plik profilu nie istnieje.", filePath);
+
+            string jsonString = File.ReadAllText(filePath);
+            var jsonDoc = JsonDocument.Parse(jsonString);
+            var root = jsonDoc.RootElement;
+
+            if (!root.TryGetProperty("tasks", out JsonElement tasksElement) || tasksElement.ValueKind != JsonValueKind.Array)
+                throw new JsonException("Brak listy zadań w pliku profilu.");
+
+            List<JsonElement> updatedTasks = new List<JsonElement>();
+            bool taskFound = false;
+
+            foreach (JsonElement existingTask in tasksElement.EnumerateArray())
+            {
+                bool isMatch =
+                    existingTask.TryGetProperty("title", out JsonElement titleElem) &&
+                    existingTask.TryGetProperty("taskType", out JsonElement typeElem) &&
+                    string.Equals(titleElem.GetString()?.Trim(), task.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(typeElem.GetString(), task.GetType().Name);
+
+
+                if (!isMatch)
+                {
+                    updatedTasks.Add(existingTask);
+                }
+                else
+                    taskFound = true;
+            }
+
+            if (!taskFound)
+                throw new InvalidOperationException("Nie znaleziono zadania do usunięcia.");
+
+
+            var updatedProfile = new Dictionary<string, object>();
+
+            foreach (var prop in root.EnumerateObject())
+            {
+                if (prop.Name != "tasks")
+                    updatedProfile[prop.Name] = JsonSerializer.Deserialize<object>(prop.Value.GetRawText());
+            }
+
+            updatedProfile["tasks"] = updatedTasks;
+
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string updatedJson = JsonSerializer.Serialize(updatedProfile, options);
+            File.WriteAllText(filePath, updatedJson);
+
+            MessageBox.Show("Zadanie zostało pomyślnie usunięte.", "Usuwanie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
