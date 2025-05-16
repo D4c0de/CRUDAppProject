@@ -23,6 +23,13 @@ namespace CRUDAppProject.Forms.Task_editor_forms
             TextBox_ShortDescription.Text = task.ShortDescription;
             ComboBox_ChooseSubject.Text = task.ChosenSubject;
             RichTextBox_TaskDescription.Text = task.Description;
+
+            if (Calendar_SetDeadline.MinDate > task.Deadline)
+                Calendar_SetDeadline.MinDate = task.Deadline.Date;
+
+            if (Calendar_SetDeadline.MaxDate < task.Deadline)
+                Calendar_SetDeadline.MaxDate = task.Deadline.Date;
+
             Calendar_SetDeadline.SelectionStart = task.Deadline;
             Calendar_SetDeadline.SelectionEnd = task.Deadline;
             RichTextBox_TaskSource.Text = task.TaskSource;
@@ -54,6 +61,7 @@ namespace CRUDAppProject.Forms.Task_editor_forms
             InitializeComponent();
             ActiveTask = task;
             Calendar_SetDeadline.MaxSelectionCount = 1;
+            Calendar_SetDeadline.MinDate = task.DateOfCreation;
             FillAllTextBoxes(ActiveTask);
             FillComboBox();
         }
@@ -97,7 +105,7 @@ namespace CRUDAppProject.Forms.Task_editor_forms
             }
         }
 
-        private void Button_ExitExerciseCreator_Click(object sender, EventArgs e)
+        private void Button_ExitExerciseEditor_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Hide();

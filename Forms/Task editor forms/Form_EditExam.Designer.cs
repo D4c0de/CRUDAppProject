@@ -114,6 +114,7 @@
             Button_ExitExamEditor.TabIndex = 5;
             Button_ExitExamEditor.Text = "Opuść bez zapisywania";
             Button_ExitExamEditor.UseVisualStyleBackColor = true;
+            Button_ExitExamEditor.Click += Button_ExitExamEditor_Click;
             // 
             // Button_SaveEditedExam
             // 
@@ -124,6 +125,7 @@
             Button_SaveEditedExam.TabIndex = 7;
             Button_SaveEditedExam.Text = "Zapisz nową treść zadania";
             Button_SaveEditedExam.UseVisualStyleBackColor = true;
+            Button_SaveEditedExam.Click += Button_SaveEditedExam_Click;
             // 
             // Calendar_SetDeadline
             // 

@@ -124,6 +124,7 @@
             Button_ExitProjEditor.TabIndex = 7;
             Button_ExitProjEditor.Text = "Opuść bez zapisywania";
             Button_ExitProjEditor.UseVisualStyleBackColor = true;
+            Button_ExitProjEditor.Click += Button_ExitProjEditor_Click;
             // 
             // Button_SaveEditedProj
             // 
@@ -134,6 +135,7 @@
             Button_SaveEditedProj.TabIndex = 8;
             Button_SaveEditedProj.Text = "Zapisz nową treść zadania";
             Button_SaveEditedProj.UseVisualStyleBackColor = true;
+            Button_SaveEditedProj.Click += Button_SaveEditedProj_Click;
             // 
             // Calendar_SetDeadline
             // 

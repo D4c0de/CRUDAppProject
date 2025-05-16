@@ -168,7 +168,7 @@
             Button_ExitExerciseEditor.TabIndex = 13;
             Button_ExitExerciseEditor.Text = "Opuść bez zapisywania";
             Button_ExitExerciseEditor.UseVisualStyleBackColor = true;
-            Button_ExitExerciseEditor.Click += Button_ExitExerciseCreator_Click;
+            Button_ExitExerciseEditor.Click += Button_ExitExerciseEditor_Click;
             // 
             // Button_SaveEditedExercise
             // 

@@ -1,4 +1,5 @@
 ﻿using CRUDAppProject.CS.Tasks;
+using CRUDAppProject.Forms.Task_editor_forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,14 @@ namespace CRUDAppProject.Forms.Task_display_forms
                 Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
                 screenLoggedIn.Show();
             }
+        }
+
+        private void Button_EditTask_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            Form_EditExam screenEditExam = new Form_EditExam(ActiveTask);
+            screenEditExam.Show();
         }
     }
 }
