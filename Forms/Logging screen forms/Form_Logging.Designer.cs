@@ -33,7 +33,7 @@
             Button_TitleBar_Minimalize = new Button();
             Button_TitleBar_Maximalize = new Button();
             Button_TtitleBar_ExitProgram = new Button();
-            Button_ExitProgram = new Button();
+            Button_EditProfile = new Button();
             Button_DeleteProfile = new Button();
             Button_AddNewProfile = new Button();
             Button_ChooseProfile = new Button();
@@ -63,7 +63,7 @@
             Label_Title.ForeColor = Color.White;
             Label_Title.Location = new Point(3, 7);
             Label_Title.Name = "Label_Title";
-            Label_Title.Size = new Size(274, 46);
+            Label_Title.Size = new Size(218, 37);
             Label_Title.TabIndex = 3;
             Label_Title.Text = "CRUDAppProject";
             // 
@@ -136,23 +136,23 @@
             Button_TtitleBar_ExitProgram.MouseEnter += TitleBar_Button_Enter;
             Button_TtitleBar_ExitProgram.MouseLeave += TitleBar_Button_Leave;
             // 
-            // Button_ExitProgram
+            // Button_EditProfile
             // 
-            Button_ExitProgram.Anchor = AnchorStyles.None;
-            Button_ExitProgram.BackColor = Color.FromArgb(0, 31, 132);
-            Button_ExitProgram.Cursor = Cursors.Hand;
-            Button_ExitProgram.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
-            Button_ExitProgram.ForeColor = Color.White;
-            Button_ExitProgram.Location = new Point(4, 332);
-            Button_ExitProgram.Margin = new Padding(3, 4, 3, 4);
-            Button_ExitProgram.Name = "Button_ExitProgram";
-            Button_ExitProgram.Size = new Size(971, 100);
-            Button_ExitProgram.TabIndex = 8;
-            Button_ExitProgram.Text = "Edytuj istniejący semestr";
-            Button_ExitProgram.UseVisualStyleBackColor = false;
-            Button_ExitProgram.Click += Button_ExitProgram_Click;
-            Button_ExitProgram.MouseEnter += Menu_Button_Enter;
-            Button_ExitProgram.MouseLeave += Menu_Button_Leave;
+            Button_EditProfile.Anchor = AnchorStyles.None;
+            Button_EditProfile.BackColor = Color.FromArgb(0, 31, 132);
+            Button_EditProfile.Cursor = Cursors.Hand;
+            Button_EditProfile.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
+            Button_EditProfile.ForeColor = Color.White;
+            Button_EditProfile.Location = new Point(4, 332);
+            Button_EditProfile.Margin = new Padding(3, 4, 3, 4);
+            Button_EditProfile.Name = "Button_EditProfile";
+            Button_EditProfile.Size = new Size(971, 100);
+            Button_EditProfile.TabIndex = 8;
+            Button_EditProfile.Text = "Edytuj istniejący semestr";
+            Button_EditProfile.UseVisualStyleBackColor = false;
+            Button_EditProfile.Click += Button_EditProfile_Click;
+            Button_EditProfile.MouseEnter += Menu_Button_Enter;
+            Button_EditProfile.MouseLeave += Menu_Button_Leave;
             // 
             // Button_DeleteProfile
             // 
@@ -213,7 +213,7 @@
             tableLayoutPanel_Menu.ColumnCount = 1;
             tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel_Menu.Controls.Add(Button_ChooseProfile, 0, 0);
-            tableLayoutPanel_Menu.Controls.Add(Button_ExitProgram, 0, 3);
+            tableLayoutPanel_Menu.Controls.Add(Button_EditProfile, 0, 3);
             tableLayoutPanel_Menu.Controls.Add(Button_AddNewProfile, 0, 1);
             tableLayoutPanel_Menu.Controls.Add(Button_DeleteProfile, 0, 2);
             tableLayoutPanel_Menu.Location = new Point(451, 211);
@@ -228,7 +228,7 @@
             // 
             // Form_Logging
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(45, 45, 55);
@@ -257,7 +257,7 @@
         private Button Button_TtitleBar_ExitProgram;
         private TextBox textBox1;
         private Label Label_Title;
-        private Button Button_ExitProgram;
+        private Button Button_EditProfile;
         private Button Button_DeleteProfile;
         private Button Button_AddNewProfile;
         private Button Button_ChooseProfile;
