@@ -124,8 +124,9 @@
             Button_MarkAsDone.Name = "Button_MarkAsDone";
             Button_MarkAsDone.Size = new Size(254, 107);
             Button_MarkAsDone.TabIndex = 8;
-            Button_MarkAsDone.Text = "Oznacz jako wykonane";
+            Button_MarkAsDone.Text = "Usuń zadanie";
             Button_MarkAsDone.UseVisualStyleBackColor = true;
+            Button_MarkAsDone.Click += Button_RemoveTask_Click;
             // 
             // Button_EditTask
             // 

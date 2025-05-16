@@ -16,6 +16,8 @@ namespace CRUDAppProject.Forms.Task_display_forms
 {
     partial class Form_DisplayExercise : Form
     {
+        Task_Exercise ActiveTask = new Task_Exercise();
+
         private void FillAllTextBoxes(Task_Exercise task)
         {
             TextBox_TaskTitle.Text = task.Title;
@@ -29,7 +31,8 @@ namespace CRUDAppProject.Forms.Task_display_forms
         public Form_DisplayExercise(Task_Exercise task)
         {
             InitializeComponent();
-            FillAllTextBoxes(task);
+            ActiveTask = task;
+            FillAllTextBoxes(ActiveTask);
         }
 
         private void Button_ExitExerciseDisplayer_Click(object sender, EventArgs e)
@@ -43,7 +46,15 @@ namespace CRUDAppProject.Forms.Task_display_forms
         private void Button_EditTask_Click(object sender, EventArgs e)
         {
 
+        }
 
+        private void Button_RemoveTask_Click(object sender, EventArgs e)
+        {
+            ActiveTask.RemoveTask(ActiveTask);
+            this.Hide();
+            this.Close();
+            Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+            screenLoggedIn.Show();
         }
     }
 }
