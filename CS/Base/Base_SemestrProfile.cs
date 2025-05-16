@@ -168,9 +168,7 @@ namespace CRUDAppProject.CS.Base
                     return subjects;
                 }
                 else
-                {
                     throw new ArgumentException("Nie znaleziono listy przedmiotów w pliku JSON.", "ListOfSubjectsNotFound");
-                }
             }
         }
     }

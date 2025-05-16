@@ -102,9 +102,9 @@
             Label_TaskDeadline.Font = new Font("Segoe UI", 14F);
             Label_TaskDeadline.Location = new Point(60, 510);
             Label_TaskDeadline.Name = "Label_TaskDeadline";
-            Label_TaskDeadline.Size = new Size(164, 25);
+            Label_TaskDeadline.Size = new Size(134, 25);
             Label_TaskDeadline.TabIndex = 5;
-            Label_TaskDeadline.Text = "Termin wykonania";
+            Label_TaskDeadline.Text = "Termin obrony";
             // 
             // Label_TaskMembers
             // 
