@@ -52,10 +52,7 @@ namespace CRUDAppProject.CS.Tasks
         }
 
         public override void TaskEditor()
-        {
-            Form_CreateExercise screenTaskCreator = new Form_CreateExercise();
-            screenTaskCreator.SwitchToEditForm(this);
-            screenTaskCreator.Show();            
+        {   
         }
 
         public override void TaskRemover()
@@ -68,9 +65,7 @@ namespace CRUDAppProject.CS.Tasks
             if (task is Task_Exercise exerciseTask)
             {
                 exerciseTask.SaveDataToFile();
-                if (Form_DisplayExercise.IsSwitchedToEditing == false)
-                    MessageBox.Show("Zadanie zostało stworzone i zapisane pomyślnie.", "Tworzenie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);                
-                
+                MessageBox.Show("Zadanie zostało stworzone i zapisane pomyślnie.", "Tworzenie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -93,16 +88,6 @@ namespace CRUDAppProject.CS.Tasks
 
         public void EditTask(Base_Task task)
         {
-            if (task is Task_Exercise exerciseTask)
-            {                
-                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
-                    Application.OpenForms[i].Close();
-
-                task.TaskEditor();
-            }
-
-            else
-                throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
         public void RemoveTask(Base_Task task)

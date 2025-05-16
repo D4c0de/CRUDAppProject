@@ -74,9 +74,7 @@ namespace CRUDAppProject.CS.Base
             set
             {
                 if (Base_AppState.ChosenProfileSubjects.Contains(Side_Format.CapitalizeString(value)))
-                {
                     this._chosenSubject = value;
-                }
 
                 else
                     throw new ArgumentException("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "SubjectNotFound");
@@ -113,16 +111,13 @@ namespace CRUDAppProject.CS.Base
             set
             {
                 if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value) && value.Length > 0 && value.Length <= 32)
-                {
                     this._shortDescription = value;
-                }
 
                 else if (value.Length > 32)
                     throw new ArgumentException("Opis jest za długi! Maksymalnie 32 znaki!", "ShortDescriptionTooLong");
 
                 else if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("Opis nie może być pusty!", "EmptyShortDescription");
-
             }
         }
 
