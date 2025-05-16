@@ -168,6 +168,7 @@
             Button_ExitExerciseEditor.TabIndex = 13;
             Button_ExitExerciseEditor.Text = "Opuść bez zapisywania";
             Button_ExitExerciseEditor.UseVisualStyleBackColor = true;
+            Button_ExitExerciseEditor.Click += Button_ExitExerciseCreator_Click;
             // 
             // Button_SaveEditedExercise
             // 
@@ -178,6 +179,7 @@
             Button_SaveEditedExercise.TabIndex = 14;
             Button_SaveEditedExercise.Text = "Zapisz nową treść zadania";
             Button_SaveEditedExercise.UseVisualStyleBackColor = true;
+            Button_SaveEditedExercise.Click += Button_SaveEditedExercise_Click;
             // 
             // Form_EditExercise
             // 

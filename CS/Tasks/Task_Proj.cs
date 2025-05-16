@@ -61,11 +61,7 @@ namespace CRUDAppProject.CS.Tasks
         public void CreateTask(Base_Task task)
         {
             if (task is Task_Proj projectTask)
-            {
                 projectTask.SaveDataToFile();
-                MessageBox.Show("Zadanie zostało stworzone i zapisane pomyślnie.", "Tworzenie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");

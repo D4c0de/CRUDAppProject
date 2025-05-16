@@ -1,5 +1,6 @@
 ﻿using CRUDAppProject.CS.Base;
 using CRUDAppProject.CS.Tasks;
+using CRUDAppProject.Forms.Task_editor_forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,10 @@ namespace CRUDAppProject.Forms.Task_display_forms
 
         private void Button_EditTask_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            this.Close();
+            Form_EditExercise screenEditExercise = new Form_EditExercise(ActiveTask);
+            screenEditExercise.Show();
         }
 
         private void Button_RemoveTask_Click(object sender, EventArgs e)

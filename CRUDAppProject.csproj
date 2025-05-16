@@ -23,8 +23,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Forms\Task editor forms\" />
-  </ItemGroup>
-
 </Project>

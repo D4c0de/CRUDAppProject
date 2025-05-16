@@ -59,15 +59,10 @@ namespace CRUDAppProject.CS.Tasks
         public void CreateTask(Base_Task task)
         {
             if (task is Task_Exam examTask)
-            {
                 examTask.SaveDataToFile();
-                MessageBox.Show("Egzamin został stworzony i zapisany pomyślnie.", "Tworzenie egzaminu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
-
         }
 
         public void DisplayTask(Base_Task task)
@@ -79,7 +74,6 @@ namespace CRUDAppProject.CS.Tasks
 
                 task.TaskDisplayer();
             }
-
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
@@ -148,7 +142,7 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void ShowTaskCard(Panel panelToShowOn)
         {
-            // Create a new card panel
+            
             Panel cardPanel = new Panel
             {
                 Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
@@ -178,7 +172,6 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Quote
             Label shortDescriptionLabel = new Label
             {
                 Text = this.ShortDescription,
@@ -188,7 +181,6 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Deadline
             Label deadlineLabel = new Label
             {
                 Text = $"Termin: {this.Deadline.ToShortDateString()}",
@@ -198,7 +190,6 @@ namespace CRUDAppProject.CS.Tasks
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Add Labels            
             
             cardPanel.Controls.Add(shortDescriptionLabel);
             cardPanel.Controls.Add(taskTye);
@@ -212,7 +203,6 @@ namespace CRUDAppProject.CS.Tasks
             panelToShowOn.Controls.Add(cardPanel);
             Base_AppState.CardCount++;
         }
-
 
         public void SaveDataToFile()
         {
@@ -260,6 +250,5 @@ namespace CRUDAppProject.CS.Tasks
         }
 
         public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);
-
     }
 }
