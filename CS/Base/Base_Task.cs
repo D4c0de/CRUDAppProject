@@ -31,7 +31,12 @@ namespace CRUDAppProject.CS.Base
                 if (!string.IsNullOrWhiteSpace(value) && !string.IsNullOrEmpty(value))
                 {
                     value = value.Trim();
-                    this._title = Side_Format.CapitalizeString(value);
+
+                    if (value.Length > 32)
+                        throw new ArgumentException("Nazwa zadania za długa! Maksymalnie 32 znaki.", "TaskTitleTooLong");
+
+                    else
+                        this._title = Side_Format.CapitalizeString(value);
                 }
 
                 else
@@ -58,8 +63,7 @@ namespace CRUDAppProject.CS.Base
                 }
 
                 else
-                    throw new ArgumentException("Opis zadania nie może być pusty!", "TaskDescriptionNullOrEmpty");
-
+                    this._description = value;
             }
         }
 
@@ -70,9 +74,7 @@ namespace CRUDAppProject.CS.Base
             set
             {
                 if (Base_AppState.ChosenProfileSubjects.Contains(Side_Format.CapitalizeString(value)))
-                {
                     this._chosenSubject = value;
-                }
 
                 else
                     throw new ArgumentException("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "SubjectNotFound");
@@ -98,8 +100,8 @@ namespace CRUDAppProject.CS.Base
         protected DateTime _dateOfCreation;
         public DateTime DateOfCreation
         {
-            get { return this._dateOfCreation; }
-            set { this._dateOfCreation = DateTime.Now.Date; }
+            get { return _dateOfCreation; }
+            set { _dateOfCreation = value; }
         }
 
         private string _shortDescription;
@@ -109,24 +111,15 @@ namespace CRUDAppProject.CS.Base
             set
             {
                 if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value) && value.Length > 0 && value.Length <= 32)
-                {
                     this._shortDescription = value;
-                }
 
                 else if (value.Length > 32)
                     throw new ArgumentException("Opis jest za długi! Maksymalnie 32 znaki!", "ShortDescriptionTooLong");
 
                 else if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("Opis nie może być pusty!", "EmptyShortDescription");
-
             }
         }
-
-        /// <summary>
-        /// Krotka przechowująca stan zadania
-        /// </summary>
-
-        public (string TODO, string InProgress, string Done) TupleOfStatuses = ("Do zrobienia", "W trakcie", "Gotowe");
 
         public static int CardLength = 1150;
         public static int CardWidth = 100;
@@ -135,6 +128,8 @@ namespace CRUDAppProject.CS.Base
             get { return Base_AppState.CardCount * 110;}
             set { }
         }
+
+        public Base_Task() => _dateOfCreation = DateTime.Now;
 
 
         // Lista rodzajów zadań 
@@ -146,8 +141,6 @@ namespace CRUDAppProject.CS.Base
         public abstract void TaskDisplayer();
 
         public abstract void TaskEditor();
-
-        public abstract void TaskRemover();
 
         public abstract void ShowTaskCard(Panel panelToShowOn);
 

@@ -143,16 +143,6 @@ namespace CRUDAppProject.CS.Base
                 }
             }
         }
-        
-
-        /// <summary>
-        /// Pobiera dane związane z profilem z pliku .json
-        /// </summary>
-
-        public void LoadDataFromFile()
-        {
-
-        }
 
         static public List<string> LoadListOfSubjectFromFile()
         {
@@ -178,9 +168,7 @@ namespace CRUDAppProject.CS.Base
                     return subjects;
                 }
                 else
-                {
                     throw new ArgumentException("Nie znaleziono listy przedmiotów w pliku JSON.", "ListOfSubjectsNotFound");
-                }
             }
         }
     }

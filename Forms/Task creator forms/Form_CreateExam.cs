@@ -15,7 +15,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 {
     public partial class Form_CreateExam: Form
     {
-
         private void FillComboBox()
         {
             foreach (string item in Base_AppState.ChosenProfileSubjects)
@@ -47,7 +46,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 this.Close();
                 Form_LoggedIn screen_LoggedIn = new Form_LoggedIn();
                 screen_LoggedIn.Show();
-
             }
 
             catch (ArgumentException ex)
@@ -55,8 +53,8 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 if (ex.ParamName == "TaskTitleNullOrEmpty")
                     MessageBox.Show("Nazwa egzaminu nie może być pusta!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                else if (ex.ParamName == "TaskDescriptionNullOrEmpty")
-                    MessageBox.Show("Opis egzaminu nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (ex.ParamName == "TaskTitleTooLong")
+                    MessageBox.Show("Nazwa zadania za długa! Maksymalnie 32 znaki!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "SubjectNotFound")
                     MessageBox.Show("Wybrany przedmiot nie istnieje w liście zapisanych przedmiotów dla danego profilu!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,16 +63,14 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                     MessageBox.Show("Materiał do nauki nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "ShortDescriptionTooLong")
-                    MessageBox.Show("Krótki opis jest za długi! Maksymalnie 32 znaki!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Krótki opis jest za długi! Maksymalnie 32 znaki!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "EmptyShortDescription")
-                    MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie zadania nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "FATALTaskTypeConflict")
                     MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
-
         }
 
         private void Button_ExitExamCreator_Click(object sender, EventArgs e)
@@ -84,6 +80,5 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
             screenLoggedIn.Show();
         }
-
     }
 }

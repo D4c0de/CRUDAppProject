@@ -42,7 +42,7 @@
             RichTextBox_TaskDescription = new RichTextBox();
             RichTextBox_TaskMaterialScope = new RichTextBox();
             Button_ExitExamDisplayer = new Button();
-            Button_MarkAsDone = new Button();
+            Button_RemoveTask = new Button();
             Button_EditTask = new Button();
             SuspendLayout();
             // 
@@ -177,15 +177,16 @@
             Button_ExitExamDisplayer.UseVisualStyleBackColor = true;
             Button_ExitExamDisplayer.Click += Button_ExitExamDisplayer_Click;
             // 
-            // Button_MarkAsDone
+            // Button_RemoveTask
             // 
-            Button_MarkAsDone.Font = new Font("Segoe UI", 18F);
-            Button_MarkAsDone.Location = new Point(1154, 313);
-            Button_MarkAsDone.Name = "Button_MarkAsDone";
-            Button_MarkAsDone.Size = new Size(254, 107);
-            Button_MarkAsDone.TabIndex = 14;
-            Button_MarkAsDone.Text = "Oznacz jako wykonane";
-            Button_MarkAsDone.UseVisualStyleBackColor = true;
+            Button_RemoveTask.Font = new Font("Segoe UI", 18F);
+            Button_RemoveTask.Location = new Point(1154, 313);
+            Button_RemoveTask.Name = "Button_RemoveTask";
+            Button_RemoveTask.Size = new Size(254, 107);
+            Button_RemoveTask.TabIndex = 14;
+            Button_RemoveTask.Text = "Usuń zadanie";
+            Button_RemoveTask.UseVisualStyleBackColor = true;
+            Button_RemoveTask.Click += Button_RemoveTask_Click;
             // 
             // Button_EditTask
             // 
@@ -196,6 +197,7 @@
             Button_EditTask.TabIndex = 15;
             Button_EditTask.Text = "Edytuj treść zadania";
             Button_EditTask.UseVisualStyleBackColor = true;
+            Button_EditTask.Click += Button_EditTask_Click;
             // 
             // Form_DisplayExam
             // 
@@ -204,7 +206,7 @@
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1612, 749);
             Controls.Add(Button_EditTask);
-            Controls.Add(Button_MarkAsDone);
+            Controls.Add(Button_RemoveTask);
             Controls.Add(Button_ExitExamDisplayer);
             Controls.Add(RichTextBox_TaskMaterialScope);
             Controls.Add(RichTextBox_TaskDescription);
@@ -243,7 +245,7 @@
         private RichTextBox RichTextBox_TaskDescription;
         private RichTextBox RichTextBox_TaskMaterialScope;
         private Button Button_ExitExamDisplayer;
-        private Button Button_MarkAsDone;
+        private Button Button_RemoveTask;
         private Button Button_EditTask;
     }
 }

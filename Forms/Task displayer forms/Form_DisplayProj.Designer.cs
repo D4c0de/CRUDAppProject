@@ -36,7 +36,7 @@
             Label_TaskDeadline = new Label();
             Label_TaskMembers = new Label();
             Button_ExitProjectDisplayer = new Button();
-            Button_MarkAsDone = new Button();
+            Button_RemoveTask = new Button();
             Button_EditTask = new Button();
             TextBox_TaskTitle = new TextBox();
             TextBox_ShortDescription = new TextBox();
@@ -102,9 +102,9 @@
             Label_TaskDeadline.Font = new Font("Segoe UI", 14F);
             Label_TaskDeadline.Location = new Point(60, 510);
             Label_TaskDeadline.Name = "Label_TaskDeadline";
-            Label_TaskDeadline.Size = new Size(164, 25);
+            Label_TaskDeadline.Size = new Size(134, 25);
             Label_TaskDeadline.TabIndex = 5;
-            Label_TaskDeadline.Text = "Termin wykonania";
+            Label_TaskDeadline.Text = "Termin obrony";
             // 
             // Label_TaskMembers
             // 
@@ -127,15 +127,16 @@
             Button_ExitProjectDisplayer.UseVisualStyleBackColor = true;
             Button_ExitProjectDisplayer.Click += Button_ExitProjectDisplayer_Click;
             // 
-            // Button_MarkAsDone
+            // Button_RemoveTask
             // 
-            Button_MarkAsDone.Font = new Font("Segoe UI", 18F);
-            Button_MarkAsDone.Location = new Point(1189, 286);
-            Button_MarkAsDone.Name = "Button_MarkAsDone";
-            Button_MarkAsDone.Size = new Size(254, 107);
-            Button_MarkAsDone.TabIndex = 8;
-            Button_MarkAsDone.Text = "Oznacz jako wykonane";
-            Button_MarkAsDone.UseVisualStyleBackColor = true;
+            Button_RemoveTask.Font = new Font("Segoe UI", 18F);
+            Button_RemoveTask.Location = new Point(1189, 286);
+            Button_RemoveTask.Name = "Button_RemoveTask";
+            Button_RemoveTask.Size = new Size(254, 107);
+            Button_RemoveTask.TabIndex = 8;
+            Button_RemoveTask.Text = "Usuń zadanie";
+            Button_RemoveTask.UseVisualStyleBackColor = true;
+            Button_RemoveTask.Click += Button_RemoveTask_Click;
             // 
             // Button_EditTask
             // 
@@ -146,6 +147,7 @@
             Button_EditTask.TabIndex = 9;
             Button_EditTask.Text = "Edytuj treść zadania";
             Button_EditTask.UseVisualStyleBackColor = true;
+            Button_EditTask.Click += Button_EditTask_Click;
             // 
             // TextBox_TaskTitle
             // 
@@ -210,7 +212,7 @@
             Controls.Add(TextBox_ShortDescription);
             Controls.Add(TextBox_TaskTitle);
             Controls.Add(Button_EditTask);
-            Controls.Add(Button_MarkAsDone);
+            Controls.Add(Button_RemoveTask);
             Controls.Add(Button_ExitProjectDisplayer);
             Controls.Add(Label_TaskMembers);
             Controls.Add(Label_TaskDeadline);
@@ -236,7 +238,7 @@
         private Label Label_TaskDeadline;
         private Label Label_TaskMembers;
         private Button Button_ExitProjectDisplayer;
-        private Button Button_MarkAsDone;
+        private Button Button_RemoveTask;
         private Button Button_EditTask;
         private TextBox TextBox_TaskTitle;
         private TextBox TextBox_ShortDescription;

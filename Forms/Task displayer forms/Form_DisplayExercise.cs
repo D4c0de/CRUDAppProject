@@ -1,8 +1,11 @@
-﻿using CRUDAppProject.CS.Tasks;
+﻿using CRUDAppProject.CS.Base;
+using CRUDAppProject.CS.Tasks;
+using CRUDAppProject.Forms.Task_editor_forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -14,6 +17,8 @@ namespace CRUDAppProject.Forms.Task_display_forms
 {
     partial class Form_DisplayExercise : Form
     {
+        Task_Exercise ActiveTask = new Task_Exercise();
+
         private void FillAllTextBoxes(Task_Exercise task)
         {
             TextBox_TaskTitle.Text = task.Title;
@@ -27,7 +32,8 @@ namespace CRUDAppProject.Forms.Task_display_forms
         public Form_DisplayExercise(Task_Exercise task)
         {
             InitializeComponent();
-            FillAllTextBoxes(task);
+            ActiveTask = task;
+            FillAllTextBoxes(ActiveTask);
         }
 
         private void Button_ExitExerciseDisplayer_Click(object sender, EventArgs e)
@@ -36,6 +42,33 @@ namespace CRUDAppProject.Forms.Task_display_forms
             this.Close();
             Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
             screenLoggedIn.Show();
+        }
+
+        private void Button_EditTask_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            Form_EditExercise screenEditExercise = new Form_EditExercise(ActiveTask);
+            screenEditExercise.Show();
+        }
+
+        private void Button_RemoveTask_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Czy na pewno chcesz usunąć to zadanie?",
+                "Potwierdzenie usunięcia",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.OK)
+            {
+                ActiveTask.RemoveTask(ActiveTask);
+                this.Hide();
+                this.Close();
+                Form_LoggedIn screenLoggedIn = new Form_LoggedIn();
+                screenLoggedIn.Show();
+            }
         }
     }
 }
