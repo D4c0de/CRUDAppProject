@@ -15,7 +15,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
 {
     public partial class Form_CreateExam: Form
     {
-
         private void FillComboBox()
         {
             foreach (string item in Base_AppState.ChosenProfileSubjects)
@@ -70,7 +69,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                     MessageBox.Show("Krótki opis nie może być pusty!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 else if (ex.ParamName == "FATALTaskTypeConflict")
-                    MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);                                
+                    MessageBox.Show("FATAL: konflikt typów zadań!", "Tworzenie egzaminu nie powiodło się.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
