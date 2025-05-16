@@ -114,24 +114,27 @@ namespace CRUDAppProject.CS.Tasks
 
             foreach (JsonElement existingTask in tasksElement.EnumerateArray())
             {
-                bool isMatch =
-                    existingTask.TryGetProperty("title", out JsonElement titleElem) &&
-                    existingTask.TryGetProperty("taskType", out JsonElement typeElem) &&
-                    string.Equals(titleElem.GetString()?.Trim(), task.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals(typeElem.GetString(), task.GetType().Name);
+                bool isMatch = false;
 
+                if (existingTask.TryGetProperty("taskType", out JsonElement typeElem) &&
+                    existingTask.TryGetProperty("title", out JsonElement titleElem) &&
+                    existingTask.TryGetProperty("dateOfCreation", out JsonElement dateElem) &&
+                    string.Equals(typeElem.GetString(), task.GetType().Name) &&
+                    string.Equals(titleElem.GetString()?.Trim(), task.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    DateTime.TryParse(dateElem.GetString(), out DateTime parsedDate) &&
+                    parsedDate == task.DateOfCreation)
+                {
+                    isMatch = true;
+                }
 
                 if (!isMatch)
-                {
                     updatedTasks.Add(existingTask);
-                }
                 else
                     taskFound = true;
             }
 
             if (!taskFound)
                 throw new InvalidOperationException("Nie znaleziono zadania do usunięcia.");
-
 
             var updatedProfile = new Dictionary<string, object>();
 
@@ -146,8 +149,6 @@ namespace CRUDAppProject.CS.Tasks
             var options = new JsonSerializerOptions { WriteIndented = true };
             string updatedJson = JsonSerializer.Serialize(updatedProfile, options);
             File.WriteAllText(filePath, updatedJson);
-
-            MessageBox.Show("Zadanie zostało pomyślnie usunięte.", "Usuwanie zadania", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public override void ShowTaskCard(Panel panelToShowOn)
