@@ -9,11 +9,21 @@ using System.Threading.Tasks;
 
 namespace CRUDAppProject.CS.Base
 {
+
+    /// <summary>
+    /// Klasa zawierająca listę przedmiotów oraz listę zadań
+    /// </summary>
+
     public class RootObject
     {
         public List<string> ListOfSubjects { get; set; }
         public List<Base_Task> Tasks { get; set; }
     }
+
+
+    /// <summary>
+    /// Konwerter JSON służący do serializacji i deserializacji obiektów typu Base_Task
+    /// </summary>
 
     public class TaskConverter : JsonConverter<Base_Task>
     {
@@ -39,6 +49,15 @@ namespace CRUDAppProject.CS.Base
             };
 
         }
+
+
+        /// <summary>
+        /// Serializuje obiekt typu <see cref="Base_Task"/> do formatu JSON.
+        /// Uwzględnia rzeczywisty typ obiektu przy serializacji.
+        /// </summary>
+        /// <param name="writer">Obiekt zapisujący dane w formacie JSON.</param>
+        /// <param name="value">Obiekt zadania, który ma zostać zserializowany.</param>
+        /// <param name="options">Opcje używane podczas serializacji JSON.</param>
 
         public override void Write(Utf8JsonWriter writer, Base_Task value, JsonSerializerOptions options)
         {

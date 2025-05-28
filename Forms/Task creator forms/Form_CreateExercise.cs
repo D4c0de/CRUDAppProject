@@ -40,7 +40,7 @@ namespace CRUDAppProject.Forms.Logged_in_forms
                 task.TaskSource = RichTextBox_TaskSource.Text;
                 task.ChosenSubject = Side_Format.CapitalizeString(ComboBox_ChooseSubject.Text);
                 task.Deadline = Calendar_SetDeadline.SelectionStart;
-                task.CreateTask(task);
+                task.CreateTask();
                 this.Hide();
                 this.Close();
                 Form_LoggedIn screen_LoggedIn = new Form_LoggedIn();

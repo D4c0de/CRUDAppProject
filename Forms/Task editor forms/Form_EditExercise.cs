@@ -72,8 +72,8 @@ namespace CRUDAppProject.Forms.Task_editor_forms
             {
                 Task_Exercise editedTask = new Task_Exercise();
                 editedTask = GetEditedData();
-                editedTask.CreateTask(editedTask);
-                ActiveTask.RemoveTask(ActiveTask);
+                editedTask.CreateTask();
+                ActiveTask.RemoveTask();
                 this.Hide();
                 this.Close();
                 Form_LoggedIn screen_LoggedIn = new Form_LoggedIn();

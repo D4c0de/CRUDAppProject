@@ -7,15 +7,31 @@ using System.Threading.Tasks;
 
 namespace CRUDAppProject.CS.Interfaces
 {
+
+    /// <summary>
+    /// Metody które należy zaimplementować do klasy która dziedziczy po klasie abstrakcyjnej Base_Task
+    /// </summary>
+
     interface ITaskCRUD
     {
-        void CreateTask(Base_Task task);
+        /// <summary>
+        /// Tworzenie tasków
+        /// </summary>
 
-        void DisplayTask(Base_Task task);
+        void CreateTask();
 
-        void EditTask(Base_Task task);
 
-        void RemoveTask(Base_Task task);
-        
+        /// <summary>
+        /// Wyświetlanie tasków
+        /// </summary>
+
+        void DisplayTask();
+
+        /// <summary>
+        /// Usuwanie tasków
+        /// </summary>
+
+        void RemoveTask();        
+
     }
 }

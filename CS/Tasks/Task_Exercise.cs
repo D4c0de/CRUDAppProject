@@ -51,38 +51,30 @@ namespace CRUDAppProject.CS.Tasks
             screenTaskDisplayer.Show();
         }
 
-        public override void TaskEditor()
+        public void CreateTask()
         {
-        }
-
-        public void CreateTask(Base_Task task)
-        {
-            if (task is Task_Exercise exerciseTask)
+            if (this is Task_Exercise exerciseTask)
                 exerciseTask.SaveDataToFile();
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");            
         }
 
-        public void DisplayTask(Base_Task task)
+        public void DisplayTask()
         {
-            if (task is Task_Exercise exerciseTask)
+            if (this is Task_Exercise exerciseTask)
             {
                 for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
                     Application.OpenForms[i].Close();
 
-                task.TaskDisplayer();                
+                this.TaskDisplayer();                
             }                
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
-        public void EditTask(Base_Task task)
-        {
-        }
-
-        public void RemoveTask(Base_Task task)
+        public void RemoveTask()
         {
             string filePath = Base_AppState.ChosenProfileFilePath;
 
@@ -106,10 +98,10 @@ namespace CRUDAppProject.CS.Tasks
                 if (existingTask.TryGetProperty("taskType", out JsonElement typeElem) &&
                     existingTask.TryGetProperty("title", out JsonElement titleElem) &&
                     existingTask.TryGetProperty("dateOfCreation", out JsonElement dateElem) &&
-                    string.Equals(typeElem.GetString(), task.GetType().Name) &&
-                    string.Equals(titleElem.GetString()?.Trim(), task.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(typeElem.GetString(), this.GetType().Name) &&
+                    string.Equals(titleElem.GetString()?.Trim(), this.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
                     DateTime.TryParse(dateElem.GetString(), out DateTime parsedDate) &&
-                    parsedDate == task.DateOfCreation)
+                    parsedDate == this.DateOfCreation)
                 {
                     isMatch = true;
                 }
@@ -183,7 +175,6 @@ namespace CRUDAppProject.CS.Tasks
             File.WriteAllText(filePath, updatedJson);
         }
 
-
         public override void ShowTaskCard(Panel panelToShowOn)
         {
             Panel cardPanel = new Panel
@@ -249,6 +240,6 @@ namespace CRUDAppProject.CS.Tasks
             Base_AppState.CardCount++;
         }
 
-        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);
+        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask();
     }
 }

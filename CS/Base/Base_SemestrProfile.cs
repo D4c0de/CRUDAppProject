@@ -54,6 +54,10 @@ namespace CRUDAppProject.CS.Base
             set { this._listOfSubjects = value; }
         }
 
+
+
+        // Są to skrócone zapisy ścieżek do folderu appdata i folderu aplikacji 
+
         public static string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public static string CrudaFolderPath = Path.Combine(AppDataPath, NameOfAppDataFolder);
 
@@ -129,20 +133,20 @@ namespace CRUDAppProject.CS.Base
             {
                 ListOfAllProfiles = Directory.GetFiles(crudaFolderPath, "*.json").ToList<string>();
 
-
                 if (ListOfAllProfiles.Count <= 0)
                     throw new ArgumentException("Brak profili w systemie!", "NoProfilesFound");
 
 
                 else if (ListOfAllProfiles.Count > 0)
-                {
                     foreach (string profileName in ListOfAllProfiles)
-                    {
                         cb.Items.Add(Path.GetFileName(profileName.Remove(profileName.Length - 5)));
-                    }
-                }
             }
         }
+
+
+        /// <summary>
+        /// Metoda pobierająca listę przedmiotów z pliku .json
+        /// </summary>
 
         static public List<string> LoadListOfSubjectFromFile()
         {

@@ -53,7 +53,7 @@ namespace CRUDAppProject.Forms.Task_display_forms
 
             if (result == DialogResult.OK)
             {
-                ActiveTask.RemoveTask(ActiveTask);
+                ActiveTask.RemoveTask();
                 this.Hide();
                 this.Close();
                 Form_LoggedIn screenLoggedIn = new Form_LoggedIn();

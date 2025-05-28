@@ -73,7 +73,7 @@ namespace CRUDAppProject.CS.Side
         /// stosując tę samą kapitalizację co w metodzie CutIntoSingleWords.
         /// </summary>
         /// <param name="words">Lista wyrazów</param>
-        /// <returns>String, np. {"Ala", "Ma", "Kota"} → "Ala, Ma, Kota"</returns>
+        /// <returns>String, np. {"Ala", "Ma", "Kota"} -> "Ala, Ma, Kota"</returns>
         public static string JoinWordsIntoString(List<string> words)
         {
             if (words == null || words.Count == 0)

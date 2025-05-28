@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 
 namespace CRUDAppProject
 {
+    /// <summary>
+    /// Klasa główna aplikacji
+    /// </summary>
+
     class CRUDAppProject
     {
         [STAThread]
