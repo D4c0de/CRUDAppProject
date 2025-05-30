@@ -41,8 +41,8 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void TaskCreator()
         {
-            Form_CreateExam Screen_ExamCreator = new Form_CreateExam();
-            Screen_ExamCreator.Show();
+            Form_CreateExam screenExamCreator = new Form_CreateExam();
+            screenExamCreator.Show();
         }
 
         public override void TaskDisplayer()
@@ -51,40 +51,30 @@ namespace CRUDAppProject.CS.Tasks
             screenTaskDisplayer.Show();
         }
 
-        public override void TaskEditor()
+        public void CreateTask()
         {
-
-        }
-
-        public void CreateTask(Base_Task task)
-        {
-            if (task is Task_Exam examTask)
+            if (this is Task_Exam examTask)
                 examTask.SaveDataToFile();
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
-        public void DisplayTask(Base_Task task)
+        public void DisplayTask()
         {
-            if (task is Task_Exam examTask)
+            if (this is Task_Exam examTask)
             {
                 for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
                     Application.OpenForms[i].Close();
 
-                task.TaskDisplayer();
+                this.TaskDisplayer();
             }
 
             else
                 throw new ArgumentException("FATAL: konflikt typów zadań", "FATALTaskTypeConflict");
         }
 
-        public void EditTask(Base_Task task)
-        {
-
-        }
-
-        public void RemoveTask(Base_Task task)
+        public void RemoveTask()
         {
             string filePath = Base_AppState.ChosenProfileFilePath;
 
@@ -108,10 +98,10 @@ namespace CRUDAppProject.CS.Tasks
                 if (existingTask.TryGetProperty("taskType", out JsonElement typeElem) &&
                     existingTask.TryGetProperty("title", out JsonElement titleElem) &&
                     existingTask.TryGetProperty("dateOfCreation", out JsonElement dateElem) &&
-                    string.Equals(typeElem.GetString(), task.GetType().Name) &&
-                    string.Equals(titleElem.GetString()?.Trim(), task.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(typeElem.GetString(), this.GetType().Name) &&
+                    string.Equals(titleElem.GetString()?.Trim(), this.Title?.Trim(), StringComparison.OrdinalIgnoreCase) &&
                     DateTime.TryParse(dateElem.GetString(), out DateTime parsedDate) &&
-                    parsedDate == task.DateOfCreation)
+                    parsedDate == this.DateOfCreation)
                 {
                     isMatch = true;
                 }
@@ -163,7 +153,7 @@ namespace CRUDAppProject.CS.Tasks
             };
 
             
-            Label taskTye = new Label
+            Label taskType = new Label
             {
                 Text = Base_Task.ListOfTaskTypes[2],
                 Font = new Font("Segoe UI", 9),
@@ -192,7 +182,7 @@ namespace CRUDAppProject.CS.Tasks
 
             
             cardPanel.Controls.Add(shortDescriptionLabel);
-            cardPanel.Controls.Add(taskTye);
+            cardPanel.Controls.Add(taskType);
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 
@@ -249,6 +239,6 @@ namespace CRUDAppProject.CS.Tasks
             File.WriteAllText(filePath, updatedJson);
         }
 
-        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask(this);
+        public override void CardPanel_Click(object sender, EventArgs e) => DisplayTask();
     }
 }

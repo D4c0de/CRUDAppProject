@@ -10,7 +10,7 @@ namespace CRUDAppProject.CS.Side
 {
 
     /// <summary>
-    /// Klasa statyczna implementująca metody do formatowania danych
+    /// Klasa statyczna zawierająca metody do formatowania wszystkich danych 
     /// </summary>
 
     internal static class Side_Format

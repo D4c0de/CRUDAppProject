@@ -35,6 +35,11 @@ namespace CRUDAppProject.CS.Base
             get { return _chosenProfileSubjects; }
         }
 
+
+        /// <summary>
+        /// Ścieżka do wybranego profilu semestru w appdata
+        /// </summary>
+
         static public string ChosenProfileFilePath
         {
             get
@@ -45,6 +50,11 @@ namespace CRUDAppProject.CS.Base
                 return Path.Combine(Base_SemestrProfile.CrudaFolderPath, Base_AppState.ChosenProfile + ".json");
             }
         }
+
+
+        /// <summary>
+        /// Ilość kart na ekranie - pomaga w wyświetlaniu następnych kart
+        /// </summary>
 
         static public int CardCount = 0;
 

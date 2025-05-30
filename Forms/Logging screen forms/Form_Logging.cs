@@ -21,8 +21,7 @@ namespace CRUDAppProject.Forms
             this.Resize += Form_Resize;
             this.Resize += Form_Resize_Center_Buttons;
             this.Resize += Form_Load_Center_Buttons;
-            this.Padding = new Padding(2);            
-            
+            this.Padding = new Padding(2);                        
         }
 
         //Przycisk zamykania
@@ -41,7 +40,6 @@ namespace CRUDAppProject.Forms
             }
             else
             {
-
                 this.WindowState = FormWindowState.Maximized;
             }
         }
@@ -156,9 +154,8 @@ namespace CRUDAppProject.Forms
             }
         }
 
-        private void Button_ExitProgram_Click(object sender, EventArgs e)
+        private void Button_EditProfile_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void Button_ChooseProfile_Click(object sender, EventArgs e)

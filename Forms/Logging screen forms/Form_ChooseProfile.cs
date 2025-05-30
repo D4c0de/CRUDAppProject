@@ -20,7 +20,6 @@ namespace CRUDAppProject.Forms
             Base_SemestrProfile.LoadAllProfilesFromFile(ComboBox_ProfileName);
         }
 
-        // DODAĆ DO FUNKCJI PONIŻEJ LOGIKĘ OTWIERANIA FORMY PO ZALOGOWANIU
         private void ChooseProfileToLogIn()
         {
             string pathOfProfileToLogIn = $"{Base_SemestrProfile.CrudaFolderPath}\\{Side_Format.CapitalizeString(ComboBox_ProfileName.Text)}.json";
@@ -42,12 +41,10 @@ namespace CRUDAppProject.Forms
         private void Button_LogIn_Click(object sender, EventArgs e)
         {            
             try
-            {
-                
+            {                
                 ChooseProfileToLogIn();
                 Form_LoggedIn Screen_LoggedIn = new Form_LoggedIn();
                 Screen_LoggedIn.Show();
-
             }
 
             catch (ArgumentException ex)

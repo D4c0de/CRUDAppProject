@@ -50,10 +50,10 @@
             Label_ProfileName.AutoSize = true;
             Label_ProfileName.Font = new Font("Arial Black", 17F, FontStyle.Bold);
             Label_ProfileName.ForeColor = Color.White;
-            Label_ProfileName.Location = new Point(89, 10);
-            Label_ProfileName.Margin = new Padding(3, 10, 3, 10);
+            Label_ProfileName.Location = new Point(109, 8);
+            Label_ProfileName.Margin = new Padding(3, 8, 3, 8);
             Label_ProfileName.Name = "Label_ProfileName";
-            Label_ProfileName.Size = new Size(798, 41);
+            Label_ProfileName.Size = new Size(638, 32);
             Label_ProfileName.TabIndex = 0;
             Label_ProfileName.Text = "Wybierz profil z listy poniżej, który chcesz usunąć";
             // 
@@ -61,15 +61,15 @@
             // 
             ComboBox_ProfileName.Anchor = AnchorStyles.None;
             ComboBox_ProfileName.BackColor = Color.FromArgb(25, 25, 35);
+            ComboBox_ProfileName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_ProfileName.Font = new Font("Segoe UI", 15F);
             ComboBox_ProfileName.ForeColor = Color.White;
             ComboBox_ProfileName.FormattingEnabled = true;
-            ComboBox_ProfileName.Location = new Point(114, 71);
-            ComboBox_ProfileName.Margin = new Padding(3, 10, 3, 10);
+            ComboBox_ProfileName.Location = new Point(100, 56);
+            ComboBox_ProfileName.Margin = new Padding(3, 8, 3, 8);
             ComboBox_ProfileName.Name = "ComboBox_ProfileName";
-            ComboBox_ProfileName.Size = new Size(748, 43);
+            ComboBox_ProfileName.Size = new Size(655, 36);
             ComboBox_ProfileName.TabIndex = 1;
-            ComboBox_ProfileName.Text = "Wybierz profil, który chcesz usunąć";
             // 
             // Button_ExitProfileDeletion
             // 
@@ -77,10 +77,10 @@
             Button_ExitProfileDeletion.BackColor = Color.FromArgb(0, 31, 132);
             Button_ExitProfileDeletion.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitProfileDeletion.ForeColor = Color.White;
-            Button_ExitProfileDeletion.Location = new Point(3, 417);
-            Button_ExitProfileDeletion.Margin = new Padding(3, 10, 3, 10);
+            Button_ExitProfileDeletion.Location = new Point(3, 329);
+            Button_ExitProfileDeletion.Margin = new Padding(3, 8, 3, 8);
             Button_ExitProfileDeletion.Name = "Button_ExitProfileDeletion";
-            Button_ExitProfileDeletion.Size = new Size(971, 100);
+            Button_ExitProfileDeletion.Size = new Size(850, 75);
             Button_ExitProfileDeletion.TabIndex = 2;
             Button_ExitProfileDeletion.Text = "Opuść bez zapisywania";
             Button_ExitProfileDeletion.UseVisualStyleBackColor = false;
@@ -94,10 +94,10 @@
             Button_ConfirmProfileDeletion.BackColor = Color.FromArgb(0, 31, 132);
             Button_ConfirmProfileDeletion.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ConfirmProfileDeletion.ForeColor = Color.White;
-            Button_ConfirmProfileDeletion.Location = new Point(3, 297);
-            Button_ConfirmProfileDeletion.Margin = new Padding(3, 10, 3, 10);
+            Button_ConfirmProfileDeletion.Location = new Point(3, 238);
+            Button_ConfirmProfileDeletion.Margin = new Padding(3, 8, 3, 8);
             Button_ConfirmProfileDeletion.Name = "Button_ConfirmProfileDeletion";
-            Button_ConfirmProfileDeletion.Size = new Size(971, 100);
+            Button_ConfirmProfileDeletion.Size = new Size(850, 75);
             Button_ConfirmProfileDeletion.TabIndex = 3;
             Button_ConfirmProfileDeletion.Text = "Usuń profil";
             Button_ConfirmProfileDeletion.UseVisualStyleBackColor = false;
@@ -111,10 +111,10 @@
             TextBox_RewriteProfileName.BackColor = Color.FromArgb(25, 25, 35);
             TextBox_RewriteProfileName.Font = new Font("Segoe UI", 15F);
             TextBox_RewriteProfileName.ForeColor = Color.White;
-            TextBox_RewriteProfileName.Location = new Point(114, 236);
-            TextBox_RewriteProfileName.Margin = new Padding(3, 10, 3, 10);
+            TextBox_RewriteProfileName.Location = new Point(100, 188);
+            TextBox_RewriteProfileName.Margin = new Padding(3, 8, 3, 8);
             TextBox_RewriteProfileName.Name = "TextBox_RewriteProfileName";
-            TextBox_RewriteProfileName.Size = new Size(748, 41);
+            TextBox_RewriteProfileName.Size = new Size(655, 34);
             TextBox_RewriteProfileName.TabIndex = 4;
             // 
             // Label_RewriteProfileName
@@ -123,11 +123,11 @@
             Label_RewriteProfileName.AutoSize = true;
             Label_RewriteProfileName.Font = new Font("Arial Black", 17F, FontStyle.Bold);
             Label_RewriteProfileName.ForeColor = Color.White;
-            Label_RewriteProfileName.Location = new Point(38, 134);
-            Label_RewriteProfileName.Margin = new Padding(3, 10, 3, 10);
-            Label_RewriteProfileName.MaximumSize = new Size(1000, 0);
+            Label_RewriteProfileName.Location = new Point(17, 108);
+            Label_RewriteProfileName.Margin = new Padding(3, 8, 3, 8);
+            Label_RewriteProfileName.MaximumSize = new Size(875, 0);
             Label_RewriteProfileName.Name = "Label_RewriteProfileName";
-            Label_RewriteProfileName.Size = new Size(900, 82);
+            Label_RewriteProfileName.Size = new Size(822, 64);
             Label_RewriteProfileName.TabIndex = 5;
             Label_RewriteProfileName.Text = "Jeśli jesteś pewien, że chcesz konkretny profil usunąć - przepisz dosłownie jego nazwę";
             Label_RewriteProfileName.TextAlign = ContentAlignment.MiddleCenter;
@@ -141,8 +141,9 @@
             Panel_TitleBar.Controls.Add(Button_TtitleBar_ExitProgram);
             Panel_TitleBar.Dock = DockStyle.Top;
             Panel_TitleBar.Location = new Point(0, 0);
+            Panel_TitleBar.Margin = new Padding(3, 2, 3, 2);
             Panel_TitleBar.Name = "Panel_TitleBar";
-            Panel_TitleBar.Size = new Size(1829, 69);
+            Panel_TitleBar.Size = new Size(1600, 52);
             Panel_TitleBar.TabIndex = 11;
             Panel_TitleBar.MouseDown += Panel_TitleBar_MouseDown;
             // 
@@ -151,9 +152,9 @@
             Label_Title.AutoSize = true;
             Label_Title.Font = new Font("Segoe UI", 20F);
             Label_Title.ForeColor = Color.White;
-            Label_Title.Location = new Point(3, 7);
+            Label_Title.Location = new Point(3, 5);
             Label_Title.Name = "Label_Title";
-            Label_Title.Size = new Size(274, 46);
+            Label_Title.Size = new Size(218, 37);
             Label_Title.TabIndex = 3;
             Label_Title.Text = "CRUDAppProject";
             // 
@@ -169,10 +170,10 @@
             Button_TitleBar_Minimalize.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             Button_TitleBar_Minimalize.ForeColor = Color.White;
             Button_TitleBar_Minimalize.ImageAlign = ContentAlignment.TopCenter;
-            Button_TitleBar_Minimalize.Location = new Point(1645, 0);
+            Button_TitleBar_Minimalize.Location = new Point(1440, 0);
             Button_TitleBar_Minimalize.Margin = new Padding(0);
             Button_TitleBar_Minimalize.Name = "Button_TitleBar_Minimalize";
-            Button_TitleBar_Minimalize.Size = new Size(64, 69);
+            Button_TitleBar_Minimalize.Size = new Size(56, 52);
             Button_TitleBar_Minimalize.TabIndex = 2;
             Button_TitleBar_Minimalize.Text = "–";
             Button_TitleBar_Minimalize.UseVisualStyleBackColor = false;
@@ -192,10 +193,10 @@
             Button_TitleBar_Maximalize.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             Button_TitleBar_Maximalize.ForeColor = Color.White;
             Button_TitleBar_Maximalize.ImageAlign = ContentAlignment.TopCenter;
-            Button_TitleBar_Maximalize.Location = new Point(1709, 0);
+            Button_TitleBar_Maximalize.Location = new Point(1496, 0);
             Button_TitleBar_Maximalize.Margin = new Padding(0);
             Button_TitleBar_Maximalize.Name = "Button_TitleBar_Maximalize";
-            Button_TitleBar_Maximalize.Size = new Size(60, 69);
+            Button_TitleBar_Maximalize.Size = new Size(52, 52);
             Button_TitleBar_Maximalize.TabIndex = 1;
             Button_TitleBar_Maximalize.Text = "◱";
             Button_TitleBar_Maximalize.UseVisualStyleBackColor = false;
@@ -214,10 +215,10 @@
             Button_TtitleBar_ExitProgram.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             Button_TtitleBar_ExitProgram.ForeColor = Color.White;
             Button_TtitleBar_ExitProgram.ImageAlign = ContentAlignment.TopCenter;
-            Button_TtitleBar_ExitProgram.Location = new Point(1769, 0);
+            Button_TtitleBar_ExitProgram.Location = new Point(1548, 0);
             Button_TtitleBar_ExitProgram.Margin = new Padding(0);
             Button_TtitleBar_ExitProgram.Name = "Button_TtitleBar_ExitProgram";
-            Button_TtitleBar_ExitProgram.Size = new Size(60, 69);
+            Button_TtitleBar_ExitProgram.Size = new Size(52, 52);
             Button_TtitleBar_ExitProgram.TabIndex = 0;
             Button_TtitleBar_ExitProgram.Text = "x";
             Button_TtitleBar_ExitProgram.TextAlign = ContentAlignment.TopCenter;
@@ -237,8 +238,8 @@
             tableLayoutPanel_Menu.Controls.Add(Label_RewriteProfileName, 0, 2);
             tableLayoutPanel_Menu.Controls.Add(TextBox_RewriteProfileName, 0, 3);
             tableLayoutPanel_Menu.Controls.Add(Button_ConfirmProfileDeletion, 0, 4);
-            tableLayoutPanel_Menu.Location = new Point(384, 188);
-            tableLayoutPanel_Menu.Margin = new Padding(3, 10, 3, 10);
+            tableLayoutPanel_Menu.Location = new Point(336, 141);
+            tableLayoutPanel_Menu.Margin = new Padding(3, 8, 3, 8);
             tableLayoutPanel_Menu.Name = "tableLayoutPanel_Menu";
             tableLayoutPanel_Menu.RowCount = 6;
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
@@ -247,21 +248,20 @@
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
-            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel_Menu.Size = new Size(977, 527);
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+            tableLayoutPanel_Menu.Size = new Size(856, 412);
             tableLayoutPanel_Menu.TabIndex = 13;
             // 
             // Form_DeleteProfile
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(45, 45, 55);
-            ClientSize = new Size(1829, 983);
+            ClientSize = new Size(1600, 737);
             Controls.Add(tableLayoutPanel_Menu);
             Controls.Add(Panel_TitleBar);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(1024, 720);
+            MinimumSize = new Size(896, 540);
             Name = "Form_DeleteProfile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form_DeleteProfile";

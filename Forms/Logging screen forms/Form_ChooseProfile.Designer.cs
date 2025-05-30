@@ -57,13 +57,13 @@
             // 
             // ComboBox_ProfileName
             // 
+            ComboBox_ProfileName.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBox_ProfileName.Font = new Font("Segoe UI", 15F);
             ComboBox_ProfileName.FormattingEnabled = true;
             ComboBox_ProfileName.Location = new Point(505, 265);
             ComboBox_ProfileName.Name = "ComboBox_ProfileName";
             ComboBox_ProfileName.Size = new Size(640, 36);
             ComboBox_ProfileName.TabIndex = 2;
-            ComboBox_ProfileName.Text = "Wybierz profil, na który chcesz się zalogować";
             // 
             // Button_LogIn
             // 
@@ -75,7 +75,6 @@
             Button_LogIn.Text = "Zaloguj się";
             Button_LogIn.UseVisualStyleBackColor = true;
             Button_LogIn.Click += Button_LogIn_Click;
-
             // 
             // Button_ExitProfileChoosing
             // 
@@ -87,7 +86,6 @@
             Button_ExitProfileChoosing.Text = "Wróć do głównego menu";
             Button_ExitProfileChoosing.UseVisualStyleBackColor = true;
             Button_ExitProfileChoosing.Click += Button_ExitProfileChoosing_Click;
-
             // 
             // Form_ChooseProfile
             // 

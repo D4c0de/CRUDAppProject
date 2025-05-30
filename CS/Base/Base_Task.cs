@@ -67,7 +67,12 @@ namespace CRUDAppProject.CS.Base
             }
         }
 
-        private string _chosenSubject;
+
+        /// <summary>
+        /// Wybrany przedmiot np. matematyka
+        /// </summary>
+
+        protected string _chosenSubject;
         public string ChosenSubject
         {
             get { return this._chosenSubject; }
@@ -104,7 +109,12 @@ namespace CRUDAppProject.CS.Base
             set { _dateOfCreation = value; }
         }
 
-        private string _shortDescription;
+
+        /// <summary>
+        /// Prosty, krótki opis zwiazany z zadaniem
+        /// </summary>
+
+        protected string _shortDescription;
         public string ShortDescription
         {
             get { return this._shortDescription; }
@@ -121,6 +131,21 @@ namespace CRUDAppProject.CS.Base
             }
         }
 
+
+        /// <summary>
+        /// Lista rodzajów zadań 
+        /// </summary>
+
+        public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
+
+
+
+
+
+
+        // Informacje dotyczące wyświetlanych "kart" jako zadania
+
+
         public static int CardLength = 1150;
         public static int CardWidth = 100;
         public static int SpaceBetweenCardsOnY
@@ -128,21 +153,33 @@ namespace CRUDAppProject.CS.Base
             get { return Base_AppState.CardCount * 110;}
             set { }
         }
-
         public Base_Task() => _dateOfCreation = DateTime.Now;
 
 
-        // Lista rodzajów zadań 
-
-        public static List<string> ListOfTaskTypes = new List<string>() { "Ćwiczenie", "Projekt", "Egzamin" };
+        /// <summary>
+        /// Uruchamianie kreatora zadań
+        /// </summary>
 
         public abstract void TaskCreator();
 
+
+        /// <summary>
+        /// Uruchamianie ekranu wyświetlenia zadania
+        /// </summary>
+
         public abstract void TaskDisplayer();
 
-        public abstract void TaskEditor();
+
+        /// <summary>
+        /// Logika wyświetlania kart na ekranie po zalogowaniu
+        /// </summary>
 
         public abstract void ShowTaskCard(Panel panelToShowOn);
+
+
+        /// <summary>
+        /// Akcja która się wykona po naciśnięciu karty
+        /// </summary>
 
         public abstract void CardPanel_Click(object sender, EventArgs e);
     }

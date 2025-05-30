@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace CRUDAppProject.CS.Interfaces
 {
+
+    /// <summary>
+    /// Metody które należy zaimplementować do klasy która ma zawierać element zapisywania do pliku .JSON
+    /// </summary>
     interface ISerialize
     {
         /// <summary>
