@@ -67,30 +67,5 @@ namespace CRUDAppProject.CS.Side
             return listOfWords;
         }
 
-
-        /// <summary>
-        /// Łączy listę wyrazów w jeden string oddzielony przecinkami i spacją,
-        /// stosując tę samą kapitalizację co w metodzie CutIntoSingleWords.
-        /// </summary>
-        /// <param name="words">Lista wyrazów</param>
-        /// <returns>String, np. {"Ala", "Ma", "Kota"} -> "Ala, Ma, Kota"</returns>
-        public static string JoinWordsIntoString(List<string> words)
-        {
-            if (words == null || words.Count == 0)
-                return string.Empty;
-
-            List<string> formattedWords = new List<string>();
-
-            foreach (string word in words)
-            {
-                if (!string.IsNullOrWhiteSpace(word))
-                {
-                    formattedWords.Add(CapitalizeString(word));
-                }
-            }
-
-            return string.Join(", ", formattedWords);
-        }
-
     }
 }

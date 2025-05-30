@@ -156,10 +156,6 @@ namespace CRUDAppProject.Forms
 
         private void Button_EditProfile_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Hide();
-            Form_EditProfile screenEditProfile = new Form_EditProfile();
-            screenEditProfile.Show();
         }
 
         private void Button_ChooseProfile_Click(object sender, EventArgs e)
