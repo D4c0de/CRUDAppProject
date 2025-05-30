@@ -41,8 +41,8 @@ namespace CRUDAppProject.CS.Tasks
 
         public override void TaskCreator()
         {
-            Form_CreateExam Screen_ExamCreator = new Form_CreateExam();
-            Screen_ExamCreator.Show();
+            Form_CreateExam screenExamCreator = new Form_CreateExam();
+            screenExamCreator.Show();
         }
 
         public override void TaskDisplayer()
@@ -153,7 +153,7 @@ namespace CRUDAppProject.CS.Tasks
             };
 
             
-            Label taskTye = new Label
+            Label taskType = new Label
             {
                 Text = Base_Task.ListOfTaskTypes[2],
                 Font = new Font("Segoe UI", 9),
@@ -182,7 +182,7 @@ namespace CRUDAppProject.CS.Tasks
 
             
             cardPanel.Controls.Add(shortDescriptionLabel);
-            cardPanel.Controls.Add(taskTye);
+            cardPanel.Controls.Add(taskType);
             cardPanel.Controls.Add(titleLabel);
             cardPanel.Controls.Add(deadlineLabel);
 

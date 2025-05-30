@@ -72,7 +72,7 @@ namespace CRUDAppProject.CS.Base
         /// Wybrany przedmiot np. matematyka
         /// </summary>
 
-        private string _chosenSubject;
+        protected string _chosenSubject;
         public string ChosenSubject
         {
             get { return this._chosenSubject; }
@@ -114,7 +114,7 @@ namespace CRUDAppProject.CS.Base
         /// Prosty, krótki opis zwiazany z zadaniem
         /// </summary>
 
-        private string _shortDescription;
+        protected string _shortDescription;
         public string ShortDescription
         {
             get { return this._shortDescription; }
