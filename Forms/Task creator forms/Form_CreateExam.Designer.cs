@@ -174,6 +174,7 @@
             // TextBox_TaskTitle
             // 
             TextBox_TaskTitle.BackColor = Color.FromArgb(25, 25, 35);
+            TextBox_TaskTitle.ForeColor = Color.White;
             TextBox_TaskTitle.Location = new Point(3, 103);
             TextBox_TaskTitle.Margin = new Padding(3, 4, 3, 4);
             TextBox_TaskTitle.Name = "TextBox_TaskTitle";

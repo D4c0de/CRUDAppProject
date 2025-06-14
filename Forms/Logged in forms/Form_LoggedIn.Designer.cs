@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             Button_CreateNewTask = new Button();
             Button_LogOut = new Button();
-            Panel_TaskCardsPanel = new Panel();
             bindingSource1 = new BindingSource(components);
             Panel_TitleBar = new Panel();
             Label_Title = new Label();
@@ -39,20 +38,21 @@
             Button_TitleBar_Maximalize = new Button();
             Button_TtitleBar_ExitProgram = new Button();
             tableLayoutPanel_Menu = new TableLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            Panel_TaskCardsPanel = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             Panel_TitleBar.SuspendLayout();
             tableLayoutPanel_Menu.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // Button_CreateNewTask
             // 
-            Button_CreateNewTask.Anchor = AnchorStyles.Top;
+            Button_CreateNewTask.Anchor = AnchorStyles.None;
             Button_CreateNewTask.BackColor = Color.FromArgb(0, 31, 132);
             Button_CreateNewTask.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_CreateNewTask.ForeColor = Color.White;
-            Button_CreateNewTask.Location = new Point(618, 4);
+            Button_CreateNewTask.Location = new Point(1228, 19);
             Button_CreateNewTask.Margin = new Padding(3, 4, 3, 4);
             Button_CreateNewTask.Name = "Button_CreateNewTask";
             Button_CreateNewTask.Size = new Size(290, 86);
@@ -65,11 +65,11 @@
             // 
             // Button_LogOut
             // 
-            Button_LogOut.Anchor = AnchorStyles.Top;
+            Button_LogOut.Anchor = AnchorStyles.None;
             Button_LogOut.BackColor = Color.FromArgb(0, 31, 132);
             Button_LogOut.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_LogOut.ForeColor = Color.White;
-            Button_LogOut.Location = new Point(109, 4);
+            Button_LogOut.Location = new Point(314, 19);
             Button_LogOut.Margin = new Padding(3, 4, 3, 4);
             Button_LogOut.Name = "Button_LogOut";
             Button_LogOut.Size = new Size(290, 86);
@@ -79,18 +79,6 @@
             Button_LogOut.Click += Button_LogOut_Click;
             Button_LogOut.MouseEnter += Menu_Button_Enter;
             Button_LogOut.MouseLeave += Menu_Button_Leave;
-            // 
-            // Panel_TaskCardsPanel
-            // 
-            Panel_TaskCardsPanel.AutoScroll = true;
-            Panel_TaskCardsPanel.AutoSize = true;
-            Panel_TaskCardsPanel.BackColor = Color.Transparent;
-            Panel_TaskCardsPanel.ForeColor = Color.White;
-            Panel_TaskCardsPanel.Location = new Point(3, 104);
-            Panel_TaskCardsPanel.Margin = new Padding(3, 4, 3, 4);
-            Panel_TaskCardsPanel.Name = "Panel_TaskCardsPanel";
-            Panel_TaskCardsPanel.Size = new Size(0, 0);
-            Panel_TaskCardsPanel.TabIndex = 2;
             // 
             // Panel_TitleBar
             // 
@@ -188,33 +176,50 @@
             // 
             // tableLayoutPanel_Menu
             // 
+            tableLayoutPanel_Menu.Anchor = AnchorStyles.None;
             tableLayoutPanel_Menu.AutoScroll = true;
+            tableLayoutPanel_Menu.AutoScrollMargin = new Size(10, 0);
+            tableLayoutPanel_Menu.BackColor = Color.Transparent;
             tableLayoutPanel_Menu.ColumnCount = 1;
             tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel_Menu.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel_Menu.Controls.Add(Panel_TaskCardsPanel, 0, 1);
             tableLayoutPanel_Menu.Location = new Point(396, 148);
+            tableLayoutPanel_Menu.Margin = new Padding(40, 3, 40, 3);
             tableLayoutPanel_Menu.Name = "tableLayoutPanel_Menu";
             tableLayoutPanel_Menu.RowCount = 2;
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
             tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
-            tableLayoutPanel_Menu.Size = new Size(1024, 501);
+            tableLayoutPanel_Menu.Size = new Size(1000, 501);
             tableLayoutPanel_Menu.TabIndex = 14;
             // 
-            // tableLayoutPanel2
+            // Panel_TaskCardsPanel
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(Button_LogOut, 0, 0);
-            tableLayoutPanel2.Controls.Add(Button_CreateNewTask, 1, 0);
-            tableLayoutPanel2.Location = new Point(3, 3);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1018, 94);
-            tableLayoutPanel2.TabIndex = 0;
+            Panel_TaskCardsPanel.AutoScroll = true;
+            Panel_TaskCardsPanel.AutoSize = true;
+            Panel_TaskCardsPanel.BackColor = Color.Transparent;
+            Panel_TaskCardsPanel.ForeColor = Color.White;
+            Panel_TaskCardsPanel.Location = new Point(3, 4);
+            Panel_TaskCardsPanel.Margin = new Padding(3, 4, 3, 4);
+            Panel_TaskCardsPanel.Name = "Panel_TaskCardsPanel";
+            Panel_TaskCardsPanel.Size = new Size(0, 0);
+            Panel_TaskCardsPanel.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = Color.Transparent;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(Button_CreateNewTask, 1, 0);
+            tableLayoutPanel1.Controls.Add(Button_LogOut, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Bottom;
+            tableLayoutPanel1.Location = new Point(0, 863);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(3);
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1833, 125);
+            tableLayoutPanel1.TabIndex = 15;
             // 
             // Form_LoggedIn
             // 
@@ -223,6 +228,7 @@
             AutoSize = true;
             BackColor = Color.FromArgb(45, 45, 55);
             ClientSize = new Size(1833, 988);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutPanel_Menu);
             Controls.Add(Panel_TitleBar);
             FormBorderStyle = FormBorderStyle.None;
@@ -236,7 +242,7 @@
             Panel_TitleBar.PerformLayout();
             tableLayoutPanel_Menu.ResumeLayout(false);
             tableLayoutPanel_Menu.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -244,7 +250,6 @@
 
         private Button Button_CreateNewTask;
         private Button Button_LogOut;
-        private Panel Panel_TaskCardsPanel;
         private BindingSource bindingSource1;
         private Panel Panel_TitleBar;
         private Label Label_Title;
@@ -252,6 +257,7 @@
         private Button Button_TitleBar_Maximalize;
         private Button Button_TtitleBar_ExitProgram;
         private TableLayoutPanel tableLayoutPanel_Menu;
-        private TableLayoutPanel tableLayoutPanel2;
+        private Panel Panel_TaskCardsPanel;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }
