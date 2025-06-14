@@ -146,7 +146,7 @@ namespace CRUDAppProject.CS.Base
         // Informacje dotyczące wyświetlanych "kart" jako zadania
 
 
-        public static int CardLength = 1150;
+        public static int CardLength = 850;
         public static int CardWidth = 100;
         public static int SpaceBetweenCardsOnY
         {

@@ -138,7 +138,7 @@ namespace CRUDAppProject.CS.Tasks
                 Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
                 Location = new Point(10, SpaceBetweenCardsOnY), // vertical spacing
                 BorderStyle = BorderStyle.FixedSingle,
-                BackColor = Color.White,
+                BackColor = Color.FromArgb(25, 25, 35),
                 Cursor = Cursors.Hand
             };
 

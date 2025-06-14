@@ -63,7 +63,7 @@
             Label_Title.ForeColor = Color.White;
             Label_Title.Location = new Point(3, 7);
             Label_Title.Name = "Label_Title";
-            Label_Title.Size = new Size(218, 37);
+            Label_Title.Size = new Size(274, 46);
             Label_Title.TabIndex = 3;
             Label_Title.Text = "CRUDAppProject";
             // 
@@ -228,7 +228,7 @@
             // 
             // Form_Logging
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(45, 45, 55);
