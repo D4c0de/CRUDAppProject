@@ -59,7 +59,6 @@ namespace CRUDAppProject.Forms.Task_editor_forms
             this.Resize += Form_Load_Center_Menu;
             this.Resize += Form_Load_Center_Menu;
             InitializeComponent();
-            InitializeComponent();
             ActiveTask = task;
             Calendar_SetDeadline.MaxSelectionCount = 1;
             Calendar_SetDeadline.MinDate = task.DateOfCreation;

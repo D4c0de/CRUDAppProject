@@ -21,7 +21,6 @@ namespace CRUDAppProject.Forms.Logged_in_forms
             this.Resize += Form_Load_Center_Menu;
             this.Resize += Form_Load_Center_Menu;
             InitializeComponent();
-            InitializeComponent();
             Calendar_SetDeadline.MaxSelectionCount = 1;
             Calendar_SetDeadline.MinDate = DateTime.Now.Date;
             FillComboBox();
