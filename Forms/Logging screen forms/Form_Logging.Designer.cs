@@ -148,7 +148,7 @@
             Button_EditProfile.Name = "Button_EditProfile";
             Button_EditProfile.Size = new Size(971, 100);
             Button_EditProfile.TabIndex = 8;
-            Button_EditProfile.Text = "Edytuj istniejący semestr";
+            Button_EditProfile.Text = "Zakończ";
             Button_EditProfile.UseVisualStyleBackColor = false;
             Button_EditProfile.Click += Button_EditProfile_Click;
             Button_EditProfile.MouseEnter += Menu_Button_Enter;

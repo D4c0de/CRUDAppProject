@@ -49,7 +49,8 @@
             Label_TaskType.AutoSize = true;
             Label_TaskType.Font = new Font("Arial Black", 17F, FontStyle.Bold);
             Label_TaskType.ForeColor = Color.White;
-            Label_TaskType.Location = new Point(146, 197);
+            Label_TaskType.Location = new Point(146, 78);
+            Label_TaskType.Margin = new Padding(10);
             Label_TaskType.Name = "Label_TaskType";
             Label_TaskType.Size = new Size(720, 41);
             Label_TaskType.TabIndex = 0;
@@ -61,7 +62,7 @@
             Button_ExitTaskTypePicker.BackColor = Color.FromArgb(0, 31, 132);
             Button_ExitTaskTypePicker.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_ExitTaskTypePicker.ForeColor = Color.White;
-            Button_ExitTaskTypePicker.Location = new Point(20, 604);
+            Button_ExitTaskTypePicker.Location = new Point(20, 389);
             Button_ExitTaskTypePicker.Margin = new Padding(3, 4, 3, 4);
             Button_ExitTaskTypePicker.Name = "Button_ExitTaskTypePicker";
             Button_ExitTaskTypePicker.Size = new Size(971, 100);
@@ -78,8 +79,8 @@
             Button_EnterTaskCreator.BackColor = Color.FromArgb(0, 31, 132);
             Button_EnterTaskCreator.Font = new Font("Arial Black", 13.8F, FontStyle.Bold);
             Button_EnterTaskCreator.ForeColor = Color.White;
-            Button_EnterTaskCreator.Location = new Point(20, 457);
-            Button_EnterTaskCreator.Margin = new Padding(3, 4, 3, 4);
+            Button_EnterTaskCreator.Location = new Point(20, 268);
+            Button_EnterTaskCreator.Margin = new Padding(10);
             Button_EnterTaskCreator.Name = "Button_EnterTaskCreator";
             Button_EnterTaskCreator.Size = new Size(971, 100);
             Button_EnterTaskCreator.TabIndex = 3;
@@ -95,7 +96,8 @@
             Label_WelcomeMessage.AutoSize = true;
             Label_WelcomeMessage.Font = new Font("Arial Black", 20F, FontStyle.Bold);
             Label_WelcomeMessage.ForeColor = Color.White;
-            Label_WelcomeMessage.Location = new Point(149, 48);
+            Label_WelcomeMessage.Location = new Point(149, 10);
+            Label_WelcomeMessage.Margin = new Padding(10);
             Label_WelcomeMessage.Name = "Label_WelcomeMessage";
             Label_WelcomeMessage.Size = new Size(713, 48);
             Label_WelcomeMessage.TabIndex = 4;
@@ -109,8 +111,8 @@
             Listbox_TaskTypes.ForeColor = Color.White;
             Listbox_TaskTypes.FormattingEnabled = true;
             Listbox_TaskTypes.ItemHeight = 35;
-            Listbox_TaskTypes.Location = new Point(233, 308);
-            Listbox_TaskTypes.Margin = new Padding(3, 4, 3, 4);
+            Listbox_TaskTypes.Location = new Point(233, 139);
+            Listbox_TaskTypes.Margin = new Padding(10);
             Listbox_TaskTypes.Name = "Listbox_TaskTypes";
             Listbox_TaskTypes.Size = new Size(546, 109);
             Listbox_TaskTypes.TabIndex = 5;
@@ -119,21 +121,20 @@
             // 
             tableLayoutPanel_Menu.ColumnCount = 1;
             tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel_Menu.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel_Menu.Controls.Add(Label_WelcomeMessage, 0, 0);
             tableLayoutPanel_Menu.Controls.Add(Button_EnterTaskCreator, 0, 3);
             tableLayoutPanel_Menu.Controls.Add(Listbox_TaskTypes, 0, 2);
-            tableLayoutPanel_Menu.Controls.Add(Button_ExitTaskTypePicker, 0, 4);
             tableLayoutPanel_Menu.Controls.Add(Label_TaskType, 0, 1);
+            tableLayoutPanel_Menu.Controls.Add(Button_ExitTaskTypePicker, 0, 4);
             tableLayoutPanel_Menu.Location = new Point(297, 166);
             tableLayoutPanel_Menu.Name = "tableLayoutPanel_Menu";
             tableLayoutPanel_Menu.RowCount = 5;
-            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel_Menu.Size = new Size(1012, 729);
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
+            tableLayoutPanel_Menu.RowStyles.Add(new RowStyle());
+            tableLayoutPanel_Menu.Size = new Size(1012, 501);
             tableLayoutPanel_Menu.TabIndex = 6;
             // 
             // Panel_TitleBar
