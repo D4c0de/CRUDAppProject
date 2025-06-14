@@ -135,6 +135,7 @@
             // TextBox_TaskTitle
             // 
             TextBox_TaskTitle.BackColor = Color.FromArgb(25, 25, 35);
+            TextBox_TaskTitle.ForeColor = Color.White;
             TextBox_TaskTitle.Location = new Point(3, 36);
             TextBox_TaskTitle.Margin = new Padding(3, 4, 3, 4);
             TextBox_TaskTitle.Name = "TextBox_TaskTitle";
@@ -144,6 +145,7 @@
             // TextBox_ShortDescription
             // 
             TextBox_ShortDescription.BackColor = Color.FromArgb(25, 25, 35);
+            TextBox_ShortDescription.ForeColor = Color.White;
             TextBox_ShortDescription.Location = new Point(3, 103);
             TextBox_ShortDescription.Margin = new Padding(3, 4, 3, 4);
             TextBox_ShortDescription.Name = "TextBox_ShortDescription";
@@ -153,6 +155,7 @@
             // RichTextBox_TaskDescription
             // 
             RichTextBox_TaskDescription.BackColor = Color.FromArgb(25, 25, 35);
+            RichTextBox_TaskDescription.ForeColor = Color.White;
             RichTextBox_TaskDescription.Location = new Point(3, 170);
             RichTextBox_TaskDescription.Margin = new Padding(3, 4, 3, 4);
             RichTextBox_TaskDescription.Name = "RichTextBox_TaskDescription";
@@ -163,6 +166,7 @@
             // RichTextBox_TaskSource
             // 
             RichTextBox_TaskSource.BackColor = Color.FromArgb(25, 25, 35);
+            RichTextBox_TaskSource.ForeColor = Color.White;
             RichTextBox_TaskSource.Location = new Point(3, 285);
             RichTextBox_TaskSource.Margin = new Padding(3, 4, 3, 4);
             RichTextBox_TaskSource.Name = "RichTextBox_TaskSource";
@@ -173,6 +177,7 @@
             // ComboBox_ChooseSubject
             // 
             ComboBox_ChooseSubject.BackColor = Color.FromArgb(25, 25, 35);
+            ComboBox_ChooseSubject.ForeColor = Color.White;
             ComboBox_ChooseSubject.FormattingEnabled = true;
             ComboBox_ChooseSubject.Location = new Point(3, 36);
             ComboBox_ChooseSubject.Margin = new Padding(3, 4, 3, 4);
