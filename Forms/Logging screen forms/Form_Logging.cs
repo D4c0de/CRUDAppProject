@@ -156,6 +156,7 @@ namespace CRUDAppProject.Forms
 
         private void Button_EditProfile_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
 
         private void Button_ChooseProfile_Click(object sender, EventArgs e)

@@ -179,10 +179,10 @@ namespace CRUDAppProject.CS.Tasks
         {
             Panel cardPanel = new Panel
             {
+                BackColor = Color.FromArgb(25, 25, 35),
                 Size = new Size(Base_Task.CardLength, Base_Task.CardWidth),
                 Location = new Point(10, SpaceBetweenCardsOnY), // vertical spacing
                 BorderStyle = BorderStyle.FixedSingle,
-                BackColor = Color.White,
                 Cursor = Cursors.Hand
             };
 
